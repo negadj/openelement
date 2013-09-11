@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="luggerbu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Font\luggerbu.ttf;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="VerticalJustifyLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VerticalJustifyLeft.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEDownloadFiles" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WEDownloadFiles.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEW3C" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WEW3C.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WECaptcha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WECaptcha.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WESendMail" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WESendMail.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WETextBox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WETextBox.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="VerticalLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VerticalLeft.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="VerticalJustifyRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VerticalJustifyRight.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="VerticalRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VerticalRight.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WEImage.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEMenuAccordion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WEMenuAccordion.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEHr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WEHr.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ImageDefault2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\photo4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WETreeView" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WETreeView.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEPayPal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WEPayPal.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WECadre" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WECadre.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="MenuSubIcon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAAsAAAAMCAYAAAC0qUeeAAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7O
+        HOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAAArvAAAK7wF9dopIAAAAH3RFWHRTb2Z0d2FyZQBNYWNy
+        b21lZGlhIEZpcmV3b3JrcyA4tWjSeAAAACt0RVh0Q3JlYXRpb24gVGltZQBEbyAxMSBNYWkgMjAwNiAx
+        MTowMTowMiArMDEwMNa0nxQAAAELSURBVChTlZGxaoNQGIUztQ/RoQ/Roa/RwSo4qIMOOjXgoKggIiKC
+        ggEH0aGTg1twyRQUOjo5Fjp2EAcHS7fk5MYhEAhJe+Fu33fP+f+7WPz3rFarPgxDdblc3t908zxHlmVw
+        XfcriqLXq0Kapui6DkVRgCTsNU37sCzr+aIUxzGmaZrh9XqNsixhGMZOFMVCkqTHMykIAozjiLZtUVUV
+        NpsNmqaZJUVRflmWdU8C6YphGFDXNZIkAekNz/OgqioI+EPTtHWCbdtG3/fwfX+GSAXwPL9jGOadoqiH
+        sxqmaWK73cJxHMiyvCev1YIgPF0c8Bin6/ox8pMM9XJ1dRzHfRPwjdy7m5/yV+AAiK+TQfd6ZPAAAAAA
+        SUVORK5CYII=
+</value>
+  </data>
+  <data name="WELinkImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WELinkImage.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ImageDefault" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAAFzUkdCAK7O
+        HOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAAAsRAAALEQF/ZF+RAAAAH3RFWHRTb2Z0d2FyZQBNYWNy
+        b21lZGlhIEZpcmV3b3JrcyA4tWjSeAAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMS8yNi8xMDKw0bcAAACU
+        SURBVGhD7dcxDoAwDEPR3v/SRVyAxbJaojcw2ij+iQVr770mPCOGeEEY5LZ1RASRUktaLatltb6/QNyI
+        G3EjbuRf/ylaS2tpLa2ltY404ZGXNhrPII1UE09EkvQaWkQaqSaeiCTpNbSINFJNPBFJ0mtoEWmkmngi
+        kqTX0CLSSDXxRCRJr6FFpJFq4olIkl5DO4bIAwzuMGicSaHOAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="WECarrousel1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WECarrousel1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DownloadDefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DownloadDefault.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WECheckbox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WECheckbox.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEAlertBox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WEAlertBox.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WETextArea" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WETextArea.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HorizontalBottom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HorizontalBottom.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HorizontalRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HorizontalRight.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WECarrousel2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WECarrousel2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEDocument" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WEDocument.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEMenu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WEMenu.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WERadioButtonList" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WERadioButtonList.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEHrVertival" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WEHrVertival.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEGallery1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WEGallery1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ImageRssDefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\imagerssdefault.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEListBox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WEListBox.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WEText.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WECounter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WECounter.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEBreadCrumbs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WEBreadCrumbs.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEFlag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WEFlag.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="empty" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAnEAAA
+        JxABlGlRGQAAAA1JREFUGFdj+P//PwMACPwC/ohfBuAAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="HorizontalTop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HorizontalTop.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HorizontalLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HorizontalLeft.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEHelpUs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WEHelpUs.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WEButton.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEVideo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WEVideo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEFlash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WEFlash.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEUploadFiles" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WEUploadFiles.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WETable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WETable.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WELink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WELink.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WELinkButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WELinkButton.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEPanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WEPanel.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="errorDefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\errorDefault.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WELabel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WELabel.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MenuSeparator" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MenuSeparator.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WESendForm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WESendForm.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEGPlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WEGPlus.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RadioDispositionSelect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RadioDispositionSelect.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WECollapsiblePanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WECollapsiblePanel.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WERssWriter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WERssWriter.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WESlideshow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WESlideshow.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WECodeBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\window_edit_elem.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WEScriptHidden" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\window_edit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>

@@ -1,0 +1,1081 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="_D001" xml:space="preserve">
+    <value>Configuration du compteur.</value>
+    <comment>WECounter</comment>
+  </data>
+  <data name="_D002" xml:space="preserve">
+    <value>Sélection de l'image principale de l'élément.</value>
+    <comment>WEImage</comment>
+  </data>
+  <data name="_D003" xml:space="preserve">
+    <value>Sélection du lien principal de l'élément.</value>
+    <comment>WEImage / WELinkButton / WELink</comment>
+  </data>
+  <data name="_D004" xml:space="preserve">
+    <value>Description de l'image.</value>
+    <comment>WEImage</comment>
+  </data>
+  <data name="_D005" xml:space="preserve">
+    <value>Epaisseur du trait.</value>
+    <comment>WEHr</comment>
+  </data>
+  <data name="_D006" xml:space="preserve">
+    <value>Couleur du trait.</value>
+    <comment>WEHr</comment>
+  </data>
+  <data name="_D007" xml:space="preserve">
+    <value>Texte affiché.</value>
+    <comment>WEHelpUs</comment>
+  </data>
+  <data name="_D008" xml:space="preserve">
+    <value>Sélection de l'image principale associée au lien.</value>
+    <comment>WEDownloadFiles</comment>
+  </data>
+  <data name="_D009" xml:space="preserve">
+    <value>Sélection du fichier à télécharger.</value>
+    <comment>WEDownloadFiles</comment>
+  </data>
+  <data name="_D010" xml:space="preserve">
+    <value>Sélection de la fenêtre de destination du lien principal de l'élément.</value>
+    <comment>WELinkButton / WELink</comment>
+  </data>
+  <data name="_D011" xml:space="preserve">
+    <value>Configuration du menu.</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_D012" xml:space="preserve">
+    <value>Sélection de l'icône indiquant un sous-menu.</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_D013" xml:space="preserve">
+    <value>Position du menu principal sur le déclencheur.</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_D014" xml:space="preserve">
+    <value>Décalage horizontal de la position du menu principal sur le déclencheur (en pixels). Les valeurs négatives sont autorisées.</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_D015" xml:space="preserve">
+    <value>Décalage vertical de la position du menu principal sur le déclencheur (en pixels). Les valeurs négatives sont autorisées.</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_D016" xml:space="preserve">
+    <value>Vitesse de l'animation à l'ouverture des sous-menus.</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_D017" xml:space="preserve">
+    <value>Vitesse de l'animation à la fermeture des sous-menus.</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_D018" xml:space="preserve">
+    <value>Délai minimum de fermeture du menu après sélection.</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_D019" xml:space="preserve">
+    <value>URL de la vidéo YouTube.</value>
+    <comment>WEVideoYouTube</comment>
+  </data>
+  <data name="_D020" xml:space="preserve">
+    <value>Couleur claire du lecteur et de la bordure.</value>
+    <comment>WEVideoYouTube</comment>
+  </data>
+  <data name="_D021" xml:space="preserve">
+    <value>Couleur foncée du lecteur et de la bordure.</value>
+    <comment>WEVideoYouTube</comment>
+  </data>
+  <data name="_D022" xml:space="preserve">
+    <value>Affichage de la bordure.</value>
+    <comment>WEVideoYouTube</comment>
+  </data>
+  <data name="_D023" xml:space="preserve">
+    <value>Sélection du fichier vidéo.
+Seules les extensions suivantes sont acceptées : .agi, .grimpe, .mpg, .au, .aif, .mp3, .mp2, .mp1, .mpe, .mpga, .ra, .ram, .rm, .rmj, .rms, .mmd.</value>
+    <comment>WEVideoRealPlayer</comment>
+  </data>
+  <data name="_D024" xml:space="preserve">
+    <value>Démarrage automatique de la vidéo au chargement de la page.</value>
+    <comment>WEVideoRealPlayer / WEVideoQuickTime / WEVideoMediaPlayer</comment>
+  </data>
+  <data name="_D025" xml:space="preserve">
+    <value>Affichage des contrôles et/ou de la fenêtre de la vidéo.
+Ne s'affiche que si l'élément est d'une taille supérieure à la vidéo.</value>
+    <comment>WEVideoRealPlayer</comment>
+  </data>
+  <data name="_D026" xml:space="preserve">
+    <value>Répétition en boucle de la vidéo.</value>
+    <comment>WEVideoRealPlayer / WEVideoQuickTime</comment>
+  </data>
+  <data name="_D027" xml:space="preserve">
+    <value>Affichage de la vidéo en conservant la proportion hauteur/largeur.</value>
+    <comment>WEVideoRealPlayer</comment>
+  </data>
+  <data name="_D028" xml:space="preserve">
+    <value>Couleur de fond du lecteur.</value>
+    <comment>WEVideoRealPlayer</comment>
+  </data>
+  <data name="_D029" xml:space="preserve">
+    <value>Sélection du fichier vidéo.
+Seules les extensions suivantes sont acceptées : .avi, .mov, .mpeg, .mpg, .wav, .mp3, .mp2.</value>
+    <comment>WEVideoQuickTime</comment>
+  </data>
+  <data name="_D030" xml:space="preserve">
+    <value>Affichage des contrôles de la vidéo.
+Ne s'affiche que si l'élément est d'une taille supérieure à la vidéo.</value>
+    <comment>WEVideoQuickTime</comment>
+  </data>
+  <data name="_D031" xml:space="preserve">
+    <value>Sélection du fichier vidéo.
+Seules les extensions suivantes sont acceptées : .avi, .wme, .wma, .wmv, .mpeg, .ogg, .ogm, .mp3, .wav, .midi, .mdi, .snd, .ai, .aif, .aifc, .aiff, .rmi, .mpg, .mdv, .mp2, .mpe, .asf, .wm.</value>
+    <comment>WEVideoMediaPlayer</comment>
+  </data>
+  <data name="_D032" xml:space="preserve">
+    <value>URL de la vidéo Dailymotion.</value>
+    <comment>WEVideoDailymotion</comment>
+  </data>
+  <data name="_D033" xml:space="preserve">
+    <value>Sélection du fichier flash.</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_D034" xml:space="preserve">
+    <value>Démarrage automatique de l'animation au chargement de la page.</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_D035" xml:space="preserve">
+    <value>Répétition en boucle du flash.</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_D036" xml:space="preserve">
+    <value>Afficher le menu complet du flash.</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_D037" xml:space="preserve">
+    <value>Qualité de l'animation flash.</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_D038" xml:space="preserve">
+    <value>Définit l'alignement du flash dans la fenêtre.</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_D039" xml:space="preserve">
+    <value>Définit l'endroit de l'alignement du flash à l'intérieur de la zone d'encadrement.</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_D040" xml:space="preserve">
+    <value>Définit le comportement du fond du flash par rapport au reste du contenu de la page.</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_D041" xml:space="preserve">
+    <value>Couleur de fond du flash.</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_D042" xml:space="preserve">
+    <value>Méthode de recadrage du flash dans la fenêtre.</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_D043" xml:space="preserve">
+    <value>Edition du texte du message d'alerte.</value>
+    <comment>WEAlertBox</comment>
+  </data>
+  <data name="_D044" xml:space="preserve">
+    <value>Désactiver le message pendant l'édition de la page.</value>
+    <comment>WEAlertBox</comment>
+  </data>
+  <data name="_D045" xml:space="preserve">
+    <value>Position du titre par rapport à l'élément de téléchargement.</value>
+    <comment>WEUploadFiles</comment>
+  </data>
+  <data name="_D046" xml:space="preserve">
+    <value>Liste des extensions autorisées (ex : .jpg,.png) des fichiers à importer.</value>
+    <comment>WEUploadFiles</comment>
+  </data>
+  <data name="_D047" xml:space="preserve">
+    <value>Taille maximum autorisée des fichiers à importer.</value>
+    <comment>WEUploadFiles</comment>
+  </data>
+  <data name="_D048" xml:space="preserve">
+    <value>Largeur du champ texte associé au champ de téléchargement.</value>
+    <comment>WEUploadFiles</comment>
+  </data>
+  <data name="_D049" xml:space="preserve">
+    <value>Sélection de l'image principale de l'élément situé à gauche du champ de téléchargement.</value>
+    <comment>WEUploadFiles</comment>
+  </data>
+  <data name="_D050" xml:space="preserve">
+    <value>Position de l'image à gauche du champ de téléchargement.</value>
+    <comment>WEUploadFiles</comment>
+  </data>
+  <data name="_D051" xml:space="preserve">
+    <value>Edition des règles de validation des saisies de l'élément de formulaire.</value>
+    <comment>WEUploadFiles / WETextBox / WETextArea / WEListBox / WECheckBox</comment>
+  </data>
+  <data name="_D052" xml:space="preserve">
+    <value>Sélection de l'image à afficher en cas d'erreur de validation.</value>
+    <comment>WEUploadFiles / WETextBox / WETextArea /WEListBox / WECheckBox</comment>
+  </data>
+  <data name="_D053" xml:space="preserve">
+    <value>Position du champ de texte par rapport à la boîte de saisie.</value>
+    <comment>WETextBox</comment>
+  </data>
+  <data name="_D054" xml:space="preserve">
+    <value>Texte pré-rempli dans la boîte de saisie.</value>
+    <comment>WETextBox /WETextArea</comment>
+  </data>
+  <data name="_D055" xml:space="preserve">
+    <value>Largeur du champ texte associé à la boîte de saisie.</value>
+    <comment>WETextBox</comment>
+  </data>
+  <data name="_D056" xml:space="preserve">
+    <value>Nombre de caractères maximum (espace compris) autorisés lors de la saisie dans la zone de texte. 
+Renseigner 0 pour un nombre illimité de caractères.</value>
+    <comment>WETextBox</comment>
+  </data>
+  <data name="_D057" xml:space="preserve">
+    <value>Définit la boîte de saisie comme étant en lecture seule.</value>
+    <comment>WETextBox/WETextArea</comment>
+  </data>
+  <data name="_D058" xml:space="preserve">
+    <value>Sélection de l'image principale de l'élément située à gauche du titre.</value>
+    <comment>WETextBox / WETextArea</comment>
+  </data>
+  <data name="_D059" xml:space="preserve">
+    <value>Position verticale de l'image située à gauche du titre.</value>
+    <comment>WETextBox /WETextArea</comment>
+  </data>
+  <data name="_D060" xml:space="preserve">
+    <value>Largeur de la zone de saisie du texte.</value>
+    <comment>WETextArea</comment>
+  </data>
+  <data name="_D061" xml:space="preserve">
+    <value>Comportement de l'ascenseur (scrollbar) vertical associé à la boîte de saisie.</value>
+    <comment>WETextArea</comment>
+  </data>
+  <data name="_D062" xml:space="preserve">
+    <value>Nombre de colonnes (caractères) maximales en largeur. Indépendant de la largeur de la boîte de saisie.</value>
+    <comment>WETextArea</comment>
+  </data>
+  <data name="_D063" xml:space="preserve">
+    <value>Nombre de lignes de la boîte de saisie.</value>
+    <comment>WETextArea</comment>
+  </data>
+  <data name="_D064" xml:space="preserve">
+    <value>Position du titre par rapport à la boîte de saisie.</value>
+    <comment>WETextArea</comment>
+  </data>
+  <data name="_D065" xml:space="preserve">
+    <value>Ensemble des éléments contenus dans la liste de choix.</value>
+    <comment>WERadioButtonList</comment>
+  </data>
+  <data name="_D066" xml:space="preserve">
+    <value>Position du titre par rapport à la liste de choix.</value>
+    <comment>WERadioButtonList</comment>
+  </data>
+  <data name="_D067" xml:space="preserve">
+    <value>Style général de l'affichage de la liste de choix, c'est-à-dire, la position du texte et la disposition des éléments.</value>
+    <comment>WERadioButtonList</comment>
+  </data>
+  <data name="_D068" xml:space="preserve">
+    <value>Nombre de lignes affichées de la liste déroulante.</value>
+    <comment>WEListBox</comment>
+  </data>
+  <data name="_D069" xml:space="preserve">
+    <value>Ensemble des éléments contenus dans la liste déroulante.</value>
+    <comment>WEListBox</comment>
+  </data>
+  <data name="_D070" xml:space="preserve">
+    <value>Autoriser les choix multiples d'éléments.</value>
+    <comment>WEListBox</comment>
+  </data>
+  <data name="_D071" xml:space="preserve">
+    <value>Activer ou non la liste déroulante. Si non, la liste est grisée.</value>
+    <comment>WEListBox</comment>
+  </data>
+  <data name="_D072" xml:space="preserve">
+    <value>Nom pris en compte pour la validation du formulaire.</value>
+    <comment>WEListBox</comment>
+  </data>
+  <data name="_D073" xml:space="preserve">
+    <value>Position du titre par rapport à liste de valeur.</value>
+    <comment>WEListBox</comment>
+  </data>
+  <data name="_D074" xml:space="preserve">
+    <value>Texte principal affiché sur le bouton.</value>
+    <comment>WEButton</comment>
+  </data>
+  <data name="_D075" xml:space="preserve">
+    <value>Texte envoyé à la validation du formulaire (peut être différent du texte affiché).</value>
+    <comment>WECheckBox</comment>
+  </data>
+  <data name="_D076" xml:space="preserve">
+    <value>Position du titre par rapport à la case à cocher.</value>
+    <comment>WECheckBox</comment>
+  </data>
+  <data name="_D077" xml:space="preserve">
+    <value>Définit la case à cocher comme étant en lecture seule (aucun cochage/décochage possible).</value>
+    <comment>WECheckBox</comment>
+  </data>
+  <data name="_D078" xml:space="preserve">
+    <value>Définit si la case est cochée au chargement de la page.</value>
+    <comment>WECheckBox</comment>
+  </data>
+  <data name="_D079" xml:space="preserve">
+    <value>Configuration des liaisons d'éléments du formulaire à associer à l'envoi de l'e-mail.</value>
+    <comment>WESendMail</comment>
+  </data>
+  <data name="_D080" xml:space="preserve">
+    <value>Information de configuration (obligatoire) pour l'envoi de l'e-mail.</value>
+    <comment>WESendMail</comment>
+  </data>
+  <data name="_D081" xml:space="preserve">
+    <value>Configuration de l'envoi d'e-mail.</value>
+    <comment>WESendMail</comment>
+  </data>
+  <data name="_D082" xml:space="preserve">
+    <value>Affichage des drapeaux.</value>
+    <comment>WEFlag</comment>
+  </data>
+  <data name="_D083" xml:space="preserve">
+    <value>Configuration de la galerie.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_D084" xml:space="preserve">
+    <value>Délai entre chaque défilement d'image.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_D085" xml:space="preserve">
+    <value>Nombre de vignettes affichées par page dans la prévisualisation.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_D086" xml:space="preserve">
+    <value>Nombre de pages maximum affichées dans la prévisualisation.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_D087" xml:space="preserve">
+    <value>Texte du bouton permettant de passer à l'image suivante.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_D088" xml:space="preserve">
+    <value>Texte du bouton permettant de passer à l'image précédente.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_D089" xml:space="preserve">
+    <value>Texte du bouton permettant de passer à la page suivante dans la prévisualisation.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_D090" xml:space="preserve">
+    <value>Texte du bouton permettant de passer à la page précédente dans la prévisualisation.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_D091" xml:space="preserve">
+    <value>Démarrage automatique du lecteur.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_D092" xml:space="preserve">
+    <value>Texte du bouton permettant de lancer le lecteur automatique.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_D093" xml:space="preserve">
+    <value>Texte du bouton permettant d'arrêter le lecteur automatique.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_D094" xml:space="preserve">
+    <value>Restaurer l'image par défaut.</value>
+    <comment>WEImage</comment>
+  </data>
+  <data name="_D095" xml:space="preserve">
+    <value>Affichage des boutons de contrôle de la lecture automatique des images.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_D096" xml:space="preserve">
+    <value>Affichage des boutons de navigation des images (suivante/précédente).</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_D097" xml:space="preserve">
+    <value>Répertoire de base ou URL pour résoudre tous les chemins relatifs contenus dans le flash.</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_D098" xml:space="preserve">
+    <value>Hauteur de l'en-tête.</value>
+    <comment>WEHeaderAjax</comment>
+  </data>
+  <data name="_D099" xml:space="preserve">
+    <value>Texte à afficher.</value>
+    <comment>WEDisableRightClick</comment>
+  </data>
+  <data name="_D100" xml:space="preserve">
+    <value>Position de l'image par rapport au texte.</value>
+    <comment>WEDownloadFiles</comment>
+  </data>
+  <data name="_D101" xml:space="preserve">
+    <value>Ecart entre les sous-menus (en pixels). Les valeurs négatives sont autorisées.</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_D102" xml:space="preserve">
+    <value>Position de l'en-tête sur la page (haut ou bas).</value>
+    <comment>WEHeaderHTTP</comment>
+  </data>
+  <data name="_D103" xml:space="preserve">
+    <value>Titre principal du groupe d'éléments.</value>
+    <comment>WEAccordionGroup</comment>
+  </data>
+  <data name="_D104" xml:space="preserve">
+    <value>Icône du groupe en position fermée.</value>
+    <comment>WEAccordionGroup</comment>
+  </data>
+  <data name="_D105" xml:space="preserve">
+    <value>Icône du groupe en position ouverte.</value>
+    <comment>WEAccordionGroup</comment>
+  </data>
+  <data name="_D107" xml:space="preserve">
+    <value>Ligne de texte pour la description du groupe.</value>
+    <comment>WEAccordionGroup</comment>
+  </data>
+  <data name="_D108" xml:space="preserve">
+    <value>Créer un lien texte pour l'ouverture.</value>
+    <comment>WEAccordionGroup</comment>
+  </data>
+  <data name="_D112" xml:space="preserve">
+    <value>Disposition (verticale, horizontale) de la liste de choix.</value>
+    <comment>WERadioButtonListDisposition</comment>
+  </data>
+  <data name="_D113" xml:space="preserve">
+    <value>Position du champ de texte par rapport au bouton.</value>
+    <comment>WERadioButtonListDisposition</comment>
+  </data>
+  <data name="_D114" xml:space="preserve">
+    <value>Alignement du texte et des boutons de choix.</value>
+    <comment>WERadioButtonListDisposition</comment>
+  </data>
+  <data name="_D115" xml:space="preserve">
+    <value>Editer le bloc de code.</value>
+    <comment>WECodeBlock</comment>
+  </data>
+  <data name="_D116" xml:space="preserve">
+    <value>Choix des images à afficher.</value>
+    <comment>WEGalleryCarrousel1</comment>
+  </data>
+  <data name="_D117" xml:space="preserve">
+    <value>Sens de déplacement si le mode auto est activé.</value>
+    <comment>WEGalleryCarrousel1</comment>
+  </data>
+  <data name="_D118" xml:space="preserve">
+    <value>Nombre d'images décalées à chaque mouvement. Ce nombre doit être supérieur ou égal à zéro.</value>
+    <comment>WEGalleryCarrousel1</comment>
+  </data>
+  <data name="_D119" xml:space="preserve">
+    <value>Attente en milliseconde entre deux mouvements d'image. Valable uniquement si le mode auto est sélectionné.</value>
+    <comment>WEGalleryCarrousel1</comment>
+  </data>
+  <data name="_D120" xml:space="preserve">
+    <value>Déplacement des images en mode automatique.</value>
+    <comment>WEGalleryCarrousel1</comment>
+  </data>
+  <data name="_D121" xml:space="preserve">
+    <value>Vitesse de défilement en milliseconde. Temps utilisé pour déplacer une image. Le temps de déplacement global dépend donc de cette valeur et du décalage.</value>
+    <comment>WEGalleryCarrousel1</comment>
+  </data>
+  <data name="_D122" xml:space="preserve">
+    <value>Editer le document</value>
+    <comment>WEDocument</comment>
+  </data>
+  <data name="_D123" xml:space="preserve">
+    <value>Image de fond du bouton normal.</value>
+    <comment>WELinkImage</comment>
+  </data>
+  <data name="_D124" xml:space="preserve">
+    <value>Image de fond du bouton au survol de la souris.</value>
+    <comment>WELinkImage</comment>
+  </data>
+  <data name="_D125" xml:space="preserve">
+    <value>Image de fond du bouton au clic de la souris.</value>
+    <comment>WELinkImage</comment>
+  </data>
+  <data name="_D126" xml:space="preserve">
+    <value>Script javascript</value>
+    <comment>WEScriptHidden</comment>
+  </data>
+  <data name="_D127" xml:space="preserve">
+    <value>Mode d'affichage des éléments du groupe. </value>
+    <comment>WEPanel</comment>
+  </data>
+  <data name="_D128" xml:space="preserve">
+    <value>Element image de la page sur lequel on affecte la zoom d'image. Le zoom d'image se déclenchera sur le clic de cette image.</value>
+    <comment>New | ImgLightBox</comment>
+  </data>
+  <data name="_D129" xml:space="preserve">
+    <value>Chemin de l'image affiché en zoom.</value>
+    <comment>New |ImgLightBox</comment>
+  </data>
+  <data name="_D130" xml:space="preserve">
+    <value>Titre associé à votre image zoom. Ce titre apparaîtra en dessous de l'image.</value>
+    <comment>New |ImgLightBox</comment>
+  </data>
+  <data name="_D131" xml:space="preserve">
+    <value>Description associée à votre image zoom. Cette description apparaîtra en dessous de l'image.</value>
+    <comment>New |ImgLightBox</comment>
+  </data>
+  <data name="_D132" xml:space="preserve">
+    <value>Lien vers une page internet. Ce lien apparaîtra en dessous de l'image.</value>
+    <comment>New |ImgLightBox</comment>
+  </data>
+  <data name="_D133" xml:space="preserve">
+    <value>Evénement déclencheur de l'ouverture des sous menus.</value>
+    <comment>WEMenuAccordion</comment>
+  </data>
+  <data name="_D134" xml:space="preserve">
+    <value>Lorsque l'option est activée, la taille de tous les sous menu est  identique.</value>
+    <comment>WEMenuAccordion</comment>
+  </data>
+  <data name="_D135" xml:space="preserve">
+    <value>Durée d'ouverture (en milliseconde)</value>
+    <comment>WEMenuAccordion</comment>
+  </data>
+  <data name="_D136" xml:space="preserve">
+    <value>Couleur de fond des images JPG et GIF après redimensionnement</value>
+    <comment>WEGalerie1</comment>
+  </data>
+  <data name="_D137" xml:space="preserve">
+    <value>Configuration de la barre de partage sur les réseaux sociaux</value>
+    <comment>WEShareBar</comment>
+  </data>
+  <data name="_D138" xml:space="preserve">
+    <value>Type d'effet appliqué lors de l'animation.</value>
+    <comment>WEGalleryCarrousel1</comment>
+  </data>
+  <data name="_D139" xml:space="preserve">
+    <value>Configuration de l'arborescence</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_D140" xml:space="preserve">
+    <value>Indique si l'arborescence doit être entièrement fermée ou ouverte à l'ouverture de la page</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_D141" xml:space="preserve">
+    <value>Indique si plusieurs lignes peuvent être ouvertes en même temps</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_D142" xml:space="preserve">
+    <value>Titre de la ligne</value>
+    <comment>WETreeViewItem</comment>
+  </data>
+  <data name="_D143" xml:space="preserve">
+    <value>Lien de la ligne</value>
+    <comment>WETreeViewItem</comment>
+  </data>
+  <data name="_D144" xml:space="preserve">
+    <value>Icône de la ligne</value>
+    <comment>WETreeViewItem</comment>
+  </data>
+  <data name="_D145" xml:space="preserve">
+    <value>Permet au fond (background) de l'élément d'être transparent</value>
+    <comment>WEIframe</comment>
+  </data>
+  <data name="_D146" xml:space="preserve">
+    <value>Nœud ouvert au chargement de la page</value>
+    <comment>WETreeViewItem</comment>
+  </data>
+  <data name="_D147" xml:space="preserve">
+    <value>Nœud fermé au chargement de la page</value>
+    <comment>WETreeViewItem</comment>
+  </data>
+  <data name="_D148" xml:space="preserve">
+    <value>Configuration : choix du menu correspondant</value>
+    <comment>WEBreadCrumbs</comment>
+  </data>
+  <data name="_D149" xml:space="preserve">
+    <value>Lien sur la première image</value>
+    <comment>WEBreadCrumbs</comment>
+  </data>
+  <data name="_D150" xml:space="preserve">
+    <value>Première image</value>
+    <comment>WEBreadCrumbs</comment>
+  </data>
+  <data name="_D151" xml:space="preserve">
+    <value>Image de séparation entre les liens</value>
+    <comment>WEBreadCrumbs</comment>
+  </data>
+  <data name="_D152" xml:space="preserve">
+    <value>Configuration de l'envoi d'e-mails depuis le site (en PHP)</value>
+    <comment>WESendMail</comment>
+  </data>
+  <data name="_D153" xml:space="preserve">
+    <value>Configuration du formulaire</value>
+    <comment>WESendForm</comment>
+  </data>
+  <data name="_D154" xml:space="preserve">
+    <value>Les balises titres sont utilisées en référencement. Elles sont d'ordre d'importance décroissante (H1 vers H6) et contiennent un style graphique qui leur sont propres. (Attention ! certaines règles s'appliquent à l'utilisation de ces balises)</value>
+    <comment>WELabel</comment>
+  </data>
+  <data name="_D155" xml:space="preserve">
+    <value>Largeur du cryptogramme (en pixels)</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D156" xml:space="preserve">
+    <value>Hauteur du cryptogramme (en pixels)</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D157" xml:space="preserve">
+    <value>Temps (en seconde) avant d'avoir le droit de regénérer un cryptogramme</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D158" xml:space="preserve">
+    <value>Nombre maximum de fois que l'utilisateur peut générer le cryptogramme</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D159" xml:space="preserve">
+    <value>Couleur de base des caractères</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D160" xml:space="preserve">
+    <value>Choix aléatoire de la couleur.</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D161" xml:space="preserve">
+    <value>Niveau de clarté des caractères si choix aléatoire (0-&gt;4)</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D162" xml:space="preserve">
+    <value>Intensité de la transparence des caractères (0-&gt;127)</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D163" xml:space="preserve">
+    <value>Police des caractères</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D164" xml:space="preserve">
+    <value>Différencie les majuscules/minuscules lors de la saisie du code</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D165" xml:space="preserve">
+    <value>Nombre minimum de caractères dans le cryptogramme</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D166" xml:space="preserve">
+    <value>Nombre maximum de caractères dans le cryptogramme</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D167" xml:space="preserve">
+    <value>Espace entre les caractères (en pixels)</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D168" xml:space="preserve">
+    <value>Taille minimum des caractères</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D169" xml:space="preserve">
+    <value>Taille maximum des caractères</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D170" xml:space="preserve">
+    <value>Angle maximum de rotation des caractères (0-360)</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D171" xml:space="preserve">
+    <value>Déplacement vertical aléatoire des caractères</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D172" xml:space="preserve">
+    <value>Nombre minimum de pixels aléatoires</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D173" xml:space="preserve">
+    <value>Nombre maximum de pixels aléatoires</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D174" xml:space="preserve">
+    <value>Nombre minimum de lignes aléatoires</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D175" xml:space="preserve">
+    <value>Nombre maximum de lignes aléatoires</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D176" xml:space="preserve">
+    <value>Nombre minimum de cercles aléatoires</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D177" xml:space="preserve">
+    <value>Nombre maximum de cercles aléatoires</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D178" xml:space="preserve">
+    <value>Couleur d'écriture des pixels, lignes, cercles</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D179" xml:space="preserve">
+    <value>Taille d'écriture du pinceau (en pixels)</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D180" xml:space="preserve">
+    <value>Le bruit est-il par dessus l'ecriture (coché) ou en dessous</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D181" xml:space="preserve">
+    <value>Caractères qui seront affichés dans le cryptogramme</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D182" xml:space="preserve">
+    <value>Message affiché en cas d'erreur dans l'exécution du captcha</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_D183" xml:space="preserve">
+    <value>Liens vers les sources vidéos: - MP4 est exigé; - la source "alternative" en format OGG ou WebM permets le mode HTML5 (au lieu de Flash ou QuickTime) avec Firefox, Opera etc.</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_D184" xml:space="preserve">
+    <value>Image à afficher au début de la vidéo (Il est conseillé de garder la proportion "largeur/hauteur" de la vidéo pour l'image) avant lancement de lecture de celle-ci.</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_D185" xml:space="preserve">
+    <value>Utilisation de la configuration "par défaut" (le design etc. dépend d'un navigateur) des contrôles de lecture</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_D186" xml:space="preserve">
+    <value>Utilisation d'une configuration  personnalisée (design ajustable) des contrôles de lecture</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_D187" xml:space="preserve">
+    <value>La Lecture  démarre automatiquement après le chargement de la page.</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_D188" xml:space="preserve">
+    <value>La lecture s'effectue en boucle  (pas soutenue par le navigateur Opera)</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_D189" xml:space="preserve">
+    <value>Désactivation du son</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_D190" xml:space="preserve">
+    <value>Message affiché si Flash et QuickTime (ou uniquement Flash en cas d'Internet Explorer) ne sont pas disponibles</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_D191" xml:space="preserve">
+    <value>Affichage des barres de défilement</value>
+    <comment>WEIframe</comment>
+  </data>
+  <data name="_D192" xml:space="preserve">
+    <value>Affichage des bordures</value>
+    <comment>WEIframe</comment>
+  </data>
+  <data name="_D193" xml:space="preserve">
+    <value>Script du bouton PayPal</value>
+    <comment>WEPayPal</comment>
+  </data>
+  <data name="_D194" xml:space="preserve">
+    <value>Paramètres à envoyer au flash</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_D195" xml:space="preserve">
+    <value>Nom du paramètre</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_D196" xml:space="preserve">
+    <value>Valeur du paramètre</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_D197" xml:space="preserve">
+    <value>Nombre de colonne du tableau</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_D198" xml:space="preserve">
+    <value>Nombre de ligne du tableau</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_D199" xml:space="preserve">
+    <value>Afficher les indicateurs de lignes et de colonnes</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_D200" xml:space="preserve">
+    <value>URL du flux RSS</value>
+    <comment>WERss</comment>
+  </data>
+  <data name="_D201" xml:space="preserve">
+    <value>Tant que le tableau est verrouillé, il est impossible de modifier son contenu</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_D202" xml:space="preserve">
+    <value>Titre de l'article</value>
+    <comment>WERss</comment>
+  </data>
+  <data name="_D203" xml:space="preserve">
+    <value>Date de création de l'article</value>
+    <comment>WERss</comment>
+  </data>
+  <data name="_D204" xml:space="preserve">
+    <value>Contenu de l'article</value>
+    <comment>WERss</comment>
+  </data>
+  <data name="_D205" xml:space="preserve">
+    <value>Lien vers la page contenant l'article</value>
+    <comment>WERss</comment>
+  </data>
+  <data name="_D206" xml:space="preserve">
+    <value>Indication provenance de l'article</value>
+    <comment>WERss</comment>
+  </data>
+  <data name="_D207" xml:space="preserve">
+    <value>[name] Nom du champ dans le HTML</value>
+    <comment>Form</comment>
+  </data>
+  <data name="_D209" xml:space="preserve">
+    <value>Ligne sélectionnée</value>
+    <comment>WEListBoxV2</comment>
+  </data>
+  <data name="_D210" xml:space="preserve">
+    <value>Type du champ</value>
+    <comment>WETextBoxV2</comment>
+  </data>
+  <data name="_D211" xml:space="preserve">
+    <value>HTML5 - [autocomplete] Activation ou désactivation  du remplissage automatique du champ par le navigateur. 
+Le navigateur propose les valeurs déjà saisie dans d'autres champs ayant eu le même attribut [name].</value>
+    <comment>form</comment>
+  </data>
+  <data name="_D212" xml:space="preserve">
+    <value>HTML5 - [multiple] Permet à l'utilisateur à choisir plusieurs fichiers. </value>
+    <comment>WEUploadFilesV2</comment>
+  </data>
+  <data name="_D213" xml:space="preserve">
+    <value>Annulation de la possibilité de redimensionnement par les visiteurs sous Chrome et Firefox.</value>
+    <comment>WETextArea</comment>
+  </data>
+  <data name="_D214" xml:space="preserve">
+    <value>Position de départ de l'onglet</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_D215" xml:space="preserve">
+    <value>Ouverture de l'onglet au chargement de la page</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_D216" xml:space="preserve">
+    <value>Entête du flux Rss</value>
+    <comment>WERSSWriter</comment>
+  </data>
+  <data name="_D217" xml:space="preserve">
+    <value>Liste des articles</value>
+    <comment>WERSSWriter</comment>
+  </data>
+  <data name="_D218" xml:space="preserve">
+    <value>Liste des pages</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_D219" xml:space="preserve">
+    <value>Element précèdent</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_D220" xml:space="preserve">
+    <value>Element suivant</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_D221" xml:space="preserve">
+    <value>Direction du défilement</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_D222" xml:space="preserve">
+    <value>Temps de défilement</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_D223" xml:space="preserve">
+    <value>Elément d'accès direct à cette page</value>
+    <comment>WESlide</comment>
+  </data>
+  <data name="_D224" xml:space="preserve">
+    <value>Elément permettant d'aller à la page précédente</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_D225" xml:space="preserve">
+    <value>Elément permettant d'aller à la page suivante</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_D226" xml:space="preserve">
+    <value>Démarrage automatique du défilement</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_D227" xml:space="preserve">
+    <value>Arrêt du défilement au passage de la souris au-dessus du diaporama</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_D228" xml:space="preserve">
+    <value>Délai de démarrage du défilement</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_D229" xml:space="preserve">
+    <value>Elément permettant de lancer le défilement du diaporama</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_D230" xml:space="preserve">
+    <value>Elément permettant d'arreter le défilement du diaporama</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_D231" xml:space="preserve">
+    <value>Le diaporama defile de façon continu</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_D232" xml:space="preserve">
+    <value>Effet de ralenti</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_D233" xml:space="preserve">
+    <value>Espace entre les pages du diaporama</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_D234" xml:space="preserve">
+    <value>Mode d'affichage des pages</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_D235" xml:space="preserve">
+    <value>Effet de ralenti à l'ouverture de l'onglet</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_D236" xml:space="preserve">
+    <value>Effet de ralenti à la fermeture de l'onglet</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_D237" xml:space="preserve">
+    <value>Configuration de la liste des drapeaux affichés</value>
+    <comment>WEFlag</comment>
+  </data>
+  <data name="_D238" xml:space="preserve">
+    <value>Source du paquet</value>
+    <comment>WEPack "Pack source"</comment>
+  </data>
+  <data name="_D239" xml:space="preserve">
+    <value>Sélectionner les éléments</value>
+    <comment>WEPack "Select elements" (select pack elements)</comment>
+  </data>
+  <data name="_D240" xml:space="preserve">
+    <value>Attribuer les sources (valeurs)</value>
+    <comment>WEPack "Assign sources (values)"</comment>
+  </data>
+  <data name="_D241" xml:space="preserve">
+    <value>Transferer les paramètres URL actuels à la page-cible</value>
+    <comment>WESendForm property Keep current URL parameters</comment>
+  </data>
+  <data name="_D242" xml:space="preserve">
+    <value>Délai avant démarrage de l'ouverture du sous menu</value>
+  </data>
+  <data name="_D243" xml:space="preserve">
+    <value>Délai avant démarrage de la fermeture du sous menu</value>
+  </data>
+  <data name="_D244" xml:space="preserve">
+    <value>Permettre d'utiliser la liste dynamique, par exemple venant d'une base de données</value>
+    <comment>WEListBox (drop-down) "Activate dynamic list"</comment>
+  </data>
+</root>

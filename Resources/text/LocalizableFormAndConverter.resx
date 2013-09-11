@@ -1,0 +1,929 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="_0001" xml:space="preserve">
+    <value>Tableau de données</value>
+    <comment>TConvRadioListElement / TConvWEListBoxListElements</comment>
+  </data>
+  <data name="_0002" xml:space="preserve">
+    <value>Automatique</value>
+    <comment>TConvTextAreaScrollOverFlow</comment>
+  </data>
+  <data name="_0003" xml:space="preserve">
+    <value>Toujours visible</value>
+    <comment>TConvTextAreaScrollOverFlow</comment>
+  </data>
+  <data name="_0004" xml:space="preserve">
+    <value>Jamais visible</value>
+    <comment>TConvTextAreaScrollOverFlow</comment>
+  </data>
+  <data name="_0005" xml:space="preserve">
+    <value>A gauche-haut</value>
+    <comment>TConvTextBoxEnumTextPosition</comment>
+  </data>
+  <data name="_0006" xml:space="preserve">
+    <value>A gauche-milieu</value>
+    <comment>TConvTextBoxEnumTextPosition</comment>
+  </data>
+  <data name="_0007" xml:space="preserve">
+    <value>A gauche-bas</value>
+    <comment>TConvTextBoxEnumTextPosition</comment>
+  </data>
+  <data name="_0008" xml:space="preserve">
+    <value>Au-dessus</value>
+    <comment>TConvTextBoxEnumTextPosition / TConvTextBoxEnumTextPositionSimple
+FrmRadioListDisposition</comment>
+  </data>
+  <data name="_0009" xml:space="preserve">
+    <value>A droite-haut</value>
+    <comment>TConvTextBoxEnumTextPosition</comment>
+  </data>
+  <data name="_0010" xml:space="preserve">
+    <value>A droite-milieu</value>
+    <comment>TConvTextBoxEnumTextPosition</comment>
+  </data>
+  <data name="_0011" xml:space="preserve">
+    <value>A droite-bas</value>
+    <comment>TConvTextBoxEnumTextPosition</comment>
+  </data>
+  <data name="_0012" xml:space="preserve">
+    <value>En-dessous</value>
+    <comment>TConvTextBoxEnumTextPosition / TConvTextBoxEnumTextPositionSimple
+FrmRadioListDisposition</comment>
+  </data>
+  <data name="_0013" xml:space="preserve">
+    <value>A gauche</value>
+    <comment>TConvTextBoxEnumTextPositionSimple / FrmRadioListDisposition</comment>
+  </data>
+  <data name="_0014" xml:space="preserve">
+    <value>A droite</value>
+    <comment>TConvTextBoxEnumTextPositionSimple / FrmRadioListDisposition</comment>
+  </data>
+  <data name="_0015" xml:space="preserve">
+    <value>Aucun</value>
+    <comment>TConvWERadioButtonListDisposition / TConvEnuFlashAlign
+TConvEnuFlashSalign/ TConvEnuBaliseH</comment>
+  </data>
+  <data name="_0016" xml:space="preserve">
+    <value>Horizontal-bas</value>
+    <comment>TConvWERadioButtonListDisposition</comment>
+  </data>
+  <data name="_0017" xml:space="preserve">
+    <value>Horizontal-gauche</value>
+    <comment>TConvWERadioButtonListDisposition</comment>
+  </data>
+  <data name="_0018" xml:space="preserve">
+    <value>Horizontal-droite</value>
+    <comment>TConvWERadioButtonListDisposition</comment>
+  </data>
+  <data name="_0019" xml:space="preserve">
+    <value>Horizontal-haut</value>
+    <comment>TConvWERadioButtonListDisposition</comment>
+  </data>
+  <data name="_0020" xml:space="preserve">
+    <value>Vertical-bas</value>
+    <comment>TConvWERadioButtonListDisposition</comment>
+  </data>
+  <data name="_0021" xml:space="preserve">
+    <value>Vertical-gauche</value>
+    <comment>TConvWERadioButtonListDisposition</comment>
+  </data>
+  <data name="_0022" xml:space="preserve">
+    <value>Vertical-droite</value>
+    <comment>TConvWERadioButtonListDisposition</comment>
+  </data>
+  <data name="_0023" xml:space="preserve">
+    <value>Vertical-haut</value>
+    <comment>TConvWERadioButtonListDisposition</comment>
+  </data>
+  <data name="_0024" xml:space="preserve">
+    <value>Vertical aligné-bas</value>
+    <comment>TConvWERadioButtonListDisposition</comment>
+  </data>
+  <data name="_0025" xml:space="preserve">
+    <value>Vertical aligné-gauche</value>
+    <comment>TConvWERadioButtonListDisposition</comment>
+  </data>
+  <data name="_0026" xml:space="preserve">
+    <value>Vertical aligné-droite</value>
+    <comment>TConvWERadioButtonListDisposition</comment>
+  </data>
+  <data name="_0027" xml:space="preserve">
+    <value>Vertical aligné-haut</value>
+    <comment>TConvWERadioButtonListDisposition</comment>
+  </data>
+  <data name="_0028" xml:space="preserve">
+    <value>Horizontale</value>
+    <comment>FrmRadioListDisposition</comment>
+  </data>
+  <data name="_0029" xml:space="preserve">
+    <value>Verticale</value>
+    <comment>FrmRadioListDisposition</comment>
+  </data>
+  <data name="_0030" xml:space="preserve">
+    <value>Verticale alignée</value>
+    <comment>FrmRadioListDisposition</comment>
+  </data>
+  <data name="_0031" xml:space="preserve">
+    <value>Au milieu</value>
+    <comment>FrmRadioListDisposition</comment>
+  </data>
+  <data name="_0032" xml:space="preserve">
+    <value>Nom du champ 1</value>
+    <comment>FrmRadioListElements
+UITypeListBoxElements
+WERadioButtonList</comment>
+  </data>
+  <data name="_0033" xml:space="preserve">
+    <value>Nom du champ 2</value>
+    <comment>FrmRadioListElements
+UITypeListBoxElements
+WERadioButtonList</comment>
+  </data>
+  <data name="_0034" xml:space="preserve">
+    <value>Valeur 1</value>
+    <comment>FrmRadioListElements
+UITypeListBoxElements
+WERadioButtonList</comment>
+  </data>
+  <data name="_0035" xml:space="preserve">
+    <value>Valeur 2</value>
+    <comment>FrmRadioListElements
+UITypeListBoxElements
+WERadioButtonList</comment>
+  </data>
+  <data name="_0036" xml:space="preserve">
+    <value>Les informations suivantes sont obligatoires : </value>
+    <comment>FrmWESendMailInfo</comment>
+  </data>
+  <data name="_0037" xml:space="preserve">
+    <value>- l'adresse de réception de l'e-mail.</value>
+    <comment>FrmWESendMailInfo</comment>
+  </data>
+  <data name="_0038" xml:space="preserve">
+    <value>- le sujet de l'e-mail.</value>
+    <comment>FrmWESendMailInfo</comment>
+  </data>
+  <data name="_0039" xml:space="preserve">
+    <value>- le sujet de l'accusé de réception (car vous avez coché la case).</value>
+    <comment>FrmWESendMailInfo</comment>
+  </data>
+  <data name="_0040" xml:space="preserve">
+    <value>- le message de l'accusé de réception(car vous avez coché la case).</value>
+    <comment>FrmWESendMailInfo</comment>
+  </data>
+  <data name="_0041" xml:space="preserve">
+    <value>Gauche</value>
+    <comment>TConvEnuFlashAlign / TConvEnuFlashSalign</comment>
+  </data>
+  <data name="_0042" xml:space="preserve">
+    <value>Droite</value>
+    <comment>TConvEnuFlashAlign / TConvEnuFlashSalign</comment>
+  </data>
+  <data name="_0043" xml:space="preserve">
+    <value>Haut</value>
+    <comment>TConvEnuFlashAlign / TConvEnuFlashSalign</comment>
+  </data>
+  <data name="_0044" xml:space="preserve">
+    <value>Moyenne haute</value>
+    <comment>TConvEnuFlashQuality</comment>
+  </data>
+  <data name="_0045" xml:space="preserve">
+    <value>Moyenne basse</value>
+    <comment>TConvEnuFlashQuality</comment>
+  </data>
+  <data name="_0046" xml:space="preserve">
+    <value>Parfaite</value>
+    <comment>TConvEnuFlashQuality</comment>
+  </data>
+  <data name="_0047" xml:space="preserve">
+    <value>Supérieure</value>
+    <comment>TConvEnuFlashQuality</comment>
+  </data>
+  <data name="_0048" xml:space="preserve">
+    <value>Inférieure</value>
+    <comment>TConvEnuFlashQuality</comment>
+  </data>
+  <data name="_0049" xml:space="preserve">
+    <value>Moyenne</value>
+    <comment>TConvEnuFlashQuality</comment>
+  </data>
+  <data name="_0050" xml:space="preserve">
+    <value>Haut gauche</value>
+    <comment>TConvEnuFlashSalign</comment>
+  </data>
+  <data name="_0051" xml:space="preserve">
+    <value>Haut droit</value>
+    <comment>TConvEnuFlashSalign</comment>
+  </data>
+  <data name="_0053" xml:space="preserve">
+    <value>Proportionnelle</value>
+    <comment>TConvEnuFlashScale</comment>
+  </data>
+  <data name="_0054" xml:space="preserve">
+    <value>Non-proportionnelle</value>
+    <comment>TConvEnuFlashScale</comment>
+  </data>
+  <data name="_0055" xml:space="preserve">
+    <value>Fenêtre</value>
+    <comment>TConvEnuFlashWmode</comment>
+  </data>
+  <data name="_0056" xml:space="preserve">
+    <value>Opaque</value>
+    <comment>TConvEnuFlashWmode</comment>
+  </data>
+  <data name="_0057" xml:space="preserve">
+    <value>Transparent</value>
+    <comment>TConvEnuFlashWmode</comment>
+  </data>
+  <data name="_0058" xml:space="preserve">
+    <value>Tous</value>
+    <comment>TConvVideoEnumRealMediaControls</comment>
+  </data>
+  <data name="_0059" xml:space="preserve">
+    <value>Pas de contrôle</value>
+    <comment>TConvVideoEnumRealMediaControls</comment>
+  </data>
+  <data name="_0060" xml:space="preserve">
+    <value>Pas d'affichage</value>
+    <comment>TConvVideoEnumRealMediaControls</comment>
+  </data>
+  <data name="_0061" xml:space="preserve">
+    <value>Veuillez saisir le permalink de votre vidéo</value>
+    <comment>FrmDailymotion</comment>
+  </data>
+  <data name="_0062" xml:space="preserve">
+    <value>Veuillez saisir l'URL' de votre vidéo</value>
+    <comment>FrmYouTube</comment>
+  </data>
+  <data name="_0063" xml:space="preserve">
+    <value>Clic</value>
+    <comment>TConvMenuEnuEventType / FrmConfigMenuGroup</comment>
+  </data>
+  <data name="_0064" xml:space="preserve">
+    <value>Double clic</value>
+    <comment>TConvMenuEnuEventType / FrmConfigMenuGroup</comment>
+  </data>
+  <data name="_0065" xml:space="preserve">
+    <value>Au dessus ou clic (Recommandé)</value>
+    <comment>TConvMenuEnuEventType / FrmConfigMenuGroup</comment>
+  </data>
+  <data name="_0066" xml:space="preserve">
+    <value>En bas à gauche</value>
+    <comment>TConvMenuEnuStartPosition</comment>
+  </data>
+  <data name="_0067" xml:space="preserve">
+    <value>En haut à gauche</value>
+    <comment>TConvMenuEnuStartPosition</comment>
+  </data>
+  <data name="_0069" xml:space="preserve">
+    <value>En bas à droite</value>
+    <comment>TConvMenuEnuStartPosition</comment>
+  </data>
+  <data name="_0070" xml:space="preserve">
+    <value>En haut à droite</value>
+    <comment>TConvMenuEnuStartPosition</comment>
+  </data>
+  <data name="_0071" xml:space="preserve">
+    <value>Impossible de trouver ce menu</value>
+    <comment>FrmConfigMenuGroup</comment>
+  </data>
+  <data name="_0072" xml:space="preserve">
+    <value>Souhaitez vous supprimer ce séparateur ?</value>
+    <comment>FrmConfigMenuGroup</comment>
+  </data>
+  <data name="_0073" xml:space="preserve">
+    <value>Souhaitez vous supprimer le menu : {0} ?</value>
+    <comment>FrmConfigMenuGroup</comment>
+  </data>
+  <data name="_0074" xml:space="preserve">
+    <value>Impossible de modifier un séparateur.</value>
+    <comment>FrmConfigMenuGroup</comment>
+  </data>
+  <data name="_0075" xml:space="preserve">
+    <value>Veuillez saisir :</value>
+    <comment>FrmConfigMenuGroup</comment>
+  </data>
+  <data name="_0076" xml:space="preserve">
+    <value>- un élément déclencheur</value>
+    <comment>FrmConfigMenuGroup</comment>
+  </data>
+  <data name="_0077" xml:space="preserve">
+    <value>- un élément accrocheur</value>
+    <comment>FrmConfigMenuGroup</comment>
+  </data>
+  <data name="_0078" xml:space="preserve">
+    <value>- un événement</value>
+    <comment>FrmConfigMenuGroup</comment>
+  </data>
+  <data name="_0079" xml:space="preserve">
+    <value>Depuis le début</value>
+    <comment>FrmCounterConfig</comment>
+  </data>
+  <data name="_0080" xml:space="preserve">
+    <value>Journalier</value>
+    <comment>FrmCounterConfig</comment>
+  </data>
+  <data name="_0081" xml:space="preserve">
+    <value>Hebdomadaire</value>
+    <comment>FrmCounterConfig</comment>
+  </data>
+  <data name="_0082" xml:space="preserve">
+    <value>Mensuel</value>
+    <comment>FrmCounterConfig</comment>
+  </data>
+  <data name="_0083" xml:space="preserve">
+    <value>Annuel</value>
+    <comment>FrmCounterConfig</comment>
+  </data>
+  <data name="_0085" xml:space="preserve">
+    <value>Veuillez sélectionner un menu.</value>
+    <comment>FrmConfigMenuGroup</comment>
+  </data>
+  <data name="_0086" xml:space="preserve">
+    <value>Veuillez sélectionner un élément accrocheur.</value>
+    <comment>FrmConfigPopupGroup</comment>
+  </data>
+  <data name="_0087" xml:space="preserve">
+    <value>Veuillez sélectionner : 
+   - l'élément accrocheur
+   - l'événement déclencheur</value>
+    <comment>FrmConfigPopupGroup</comment>
+  </data>
+  <data name="_0088" xml:space="preserve">
+    <value>Veuillez sélectionner un ou plusieurs éléments déclencheurs.</value>
+    <comment>FrmConfigPopupGroup</comment>
+  </data>
+  <data name="_0089" xml:space="preserve">
+    <value>En haut</value>
+  </data>
+  <data name="_0090" xml:space="preserve">
+    <value>En bas</value>
+  </data>
+  <data name="_0091" xml:space="preserve">
+    <value>De droite à gauche</value>
+    <comment>TConvEnuCarrouselDirection</comment>
+  </data>
+  <data name="_0092" xml:space="preserve">
+    <value>De gauche à droite</value>
+    <comment>TConvEnuCarrouselDirection</comment>
+  </data>
+  <data name="_0093" xml:space="preserve">
+    <value>Par défaut</value>
+    <comment>TConvEnuCarrouselDirection/TConvEnuFlashScale</comment>
+  </data>
+  <data name="_0094" xml:space="preserve">
+    <value>Attention, les données suivantes sont indispensables pour l'envoi du formulaire.
+{0}
+Souhaitez-vous les saisir ?</value>
+    <comment>FrmWESendMailConfig</comment>
+  </data>
+  <data name="_0095" xml:space="preserve">
+    <value>- l'adresse de réception de l'e-mail</value>
+    <comment>FrmWESendMailConfig</comment>
+  </data>
+  <data name="_0096" xml:space="preserve">
+    <value>- le sujet l'e-mail</value>
+    <comment>FrmWESendMailConfig</comment>
+  </data>
+  <data name="_0097" xml:space="preserve">
+    <value>- l'adresse de l'expéditeur de l'e-mail</value>
+    <comment>FrmWESendMailConfig</comment>
+  </data>
+  <data name="_0098" xml:space="preserve">
+    <value>- le sujet de l'accusé de réception</value>
+    <comment>FrmWESendMailConfig</comment>
+  </data>
+  <data name="_0099" xml:space="preserve">
+    <value>- le message de l'accusé de réception</value>
+    <comment>FrmWESendMailConfig</comment>
+  </data>
+  <data name="_0100" xml:space="preserve">
+    <value>- l'élément contenant l'adresse e-mail du visiteur</value>
+    <comment>FrmWESendMailConfig</comment>
+  </data>
+  <data name="_0101" xml:space="preserve">
+    <value>- le message de réussite de l'envoi</value>
+    <comment>FrmWESendMailConfig</comment>
+  </data>
+  <data name="_0102" xml:space="preserve">
+    <value>- le message d'échec de l'envoi</value>
+    <comment>FrmWESendMailConfig</comment>
+  </data>
+  <data name="_0103" xml:space="preserve">
+    <value>- les éléments du formulaire à prendre en compte pour l'envoi</value>
+    <comment>FrmWESendMailConfig</comment>
+  </data>
+  <data name="_0104" xml:space="preserve">
+    <value>- le bouton d'envoi du formulaire</value>
+    <comment>FrmWESendMailConfig</comment>
+  </data>
+  <data name="_0109" xml:space="preserve">
+    <value>Titre</value>
+    <comment>WELightBox1</comment>
+  </data>
+  <data name="_0110" xml:space="preserve">
+    <value>Description</value>
+    <comment>WELightBox1</comment>
+  </data>
+  <data name="_0111" xml:space="preserve">
+    <value>Ajouter une image</value>
+    <comment>WELightBox1
+WEGallery1
+WEGalleryCarrousel1 et 2</comment>
+  </data>
+  <data name="_0112" xml:space="preserve">
+    <value>Edition de l'image</value>
+    <comment>WELightBox1</comment>
+  </data>
+  <data name="_0113" xml:space="preserve">
+    <value>Gestion des listes</value>
+    <comment>WELightBox1
+WEGallery1
+WEGalleryCarrousel1
+WEMenu
+WEMenuAccordion</comment>
+  </data>
+  <data name="_0114" xml:space="preserve">
+    <value>Au-dessus</value>
+    <comment>TConvMenuEnuEventType / FrmConfigMenuGroup</comment>
+  </data>
+  <data name="_0115" xml:space="preserve">
+    <value>Quitter sans sauvegarder ?</value>
+    <comment>WELightBox1</comment>
+  </data>
+  <data name="_0116" xml:space="preserve">
+    <value>Veuillez sélectionner l'élément image que vous souhaitez zoomer.</value>
+    <comment>WELightBox1</comment>
+  </data>
+  <data name="_0117" xml:space="preserve">
+    <value>Veuillez sélectionner une image</value>
+    <comment>WELightBox1</comment>
+  </data>
+  <data name="_0118" xml:space="preserve">
+    <value>En début de document</value>
+    <comment>FrmScriptBlock</comment>
+  </data>
+  <data name="_0119" xml:space="preserve">
+    <value>Sauvegarder la configuration ?</value>
+    <comment>WEShareBar</comment>
+  </data>
+  <data name="_0120" xml:space="preserve">
+    <value>Veuillez renseigner le nom du compte  twitter à suivre.</value>
+    <comment>WEShareBar</comment>
+  </data>
+  <data name="_0121" xml:space="preserve">
+    <value>Veuillez renseigner l'adresse de la page facebook.</value>
+    <comment>WEShareBar</comment>
+  </data>
+  <data name="_0122" xml:space="preserve">
+    <value>L'adresse est erronée, elle doit avoir la forme suivante : "https://www.facebook.com/...".</value>
+    <comment>WEShareBar</comment>
+  </data>
+  <data name="_0123" xml:space="preserve">
+    <value>Linéaire</value>
+    <comment>TConvEnuCarrouselTypeEffect</comment>
+  </data>
+  <data name="_0124" xml:space="preserve">
+    <value>Oscillement</value>
+    <comment>TConvEnuCarrouselTypeEffect // obsolete</comment>
+  </data>
+  <data name="_0125" xml:space="preserve">
+    <value>Séquentiel</value>
+    <comment>TConvEnuCarrouselTypeEffect</comment>
+  </data>
+  <data name="_0126" xml:space="preserve">
+    <value>Du bas vers le haut</value>
+    <comment>TConvEnuCarrousel_VerticalDirection</comment>
+  </data>
+  <data name="_0127" xml:space="preserve">
+    <value>Du haut vers le bas</value>
+    <comment>TConvEnuCarrousel_VerticalDirection</comment>
+  </data>
+  <data name="_0128" xml:space="preserve">
+    <value>Chargement des images</value>
+    <comment>WEGallery, WEGalleryCarrousel,</comment>
+  </data>
+  <data name="_0129" xml:space="preserve">
+    <value>&lt;H1&gt;</value>
+    <comment>TConvEnuBaliseH</comment>
+  </data>
+  <data name="_0130" xml:space="preserve">
+    <value>&lt;H2&gt;</value>
+    <comment>TConvEnuBaliseH</comment>
+  </data>
+  <data name="_0131" xml:space="preserve">
+    <value>&lt;H3&gt;</value>
+    <comment>TConvEnuBaliseH</comment>
+  </data>
+  <data name="_0132" xml:space="preserve">
+    <value>&lt;H4&gt;</value>
+    <comment>TConvEnuBaliseH</comment>
+  </data>
+  <data name="_0133" xml:space="preserve">
+    <value>&lt;H5&gt;</value>
+    <comment>TConvEnuBaliseH</comment>
+  </data>
+  <data name="_0134" xml:space="preserve">
+    <value>&lt;H6&gt;</value>
+    <comment>TConvEnuBaliseH</comment>
+  </data>
+  <data name="_0135" xml:space="preserve">
+    <value>Couleurs foncées</value>
+    <comment>TConvEnuCharColorRndLevel</comment>
+  </data>
+  <data name="_0136" xml:space="preserve">
+    <value>Couleurs claires</value>
+    <comment>TConvEnuCharColorRndLeve</comment>
+  </data>
+  <data name="_0137" xml:space="preserve">
+    <value>Couleurs neutres</value>
+    <comment>TConvEnuCharColorRndLeve</comment>
+  </data>
+  <data name="_0138" xml:space="preserve">
+    <value>Couleurs très foncées</value>
+    <comment>TConvEnuCharColorRndLeve</comment>
+  </data>
+  <data name="_0139" xml:space="preserve">
+    <value>Couleurs très claires</value>
+    <comment>TConvEnuCharColorRndLeve</comment>
+  </data>
+  <data name="_0140" xml:space="preserve">
+    <value>Prédéfinies</value>
+    <comment>TConvEnuNoiseColorChar</comment>
+  </data>
+  <data name="_0141" xml:space="preserve">
+    <value>Aléatoires</value>
+    <comment>TConvEnuNoiseColorChar</comment>
+  </data>
+  <data name="_0142" xml:space="preserve">
+    <value>Pour regarder cette vidéo, il faut télécharger ou activer:</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_0143" xml:space="preserve">
+    <value>télécharger</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_0144" xml:space="preserve">
+    <value>ou</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_0145" xml:space="preserve">
+    <value>Pas de source vidéo compatible</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_0146" xml:space="preserve">
+    <value>Attention, suite au changement de script de Dailymotion, il faut remplacer votre lien par le nouveau code d'intégration fourni par le site.</value>
+    <comment>FrmDailymotion</comment>
+  </data>
+  <data name="_0147" xml:space="preserve">
+    <value>Remarque : Au moment de l'installation du logiciel gratuit Freemake Vidéo Converter, par défaut le logiciel vous proposera d'installer un plug-in à votre navigateur web et de modifier votre page d'accueil par défaut. Décochez la case "Defaut Installation" ainsi que les autres cases si vous ne souhaitez pas que cela soit mise en place.</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_0148" xml:space="preserve">
+    <value>Auto</value>
+    <comment>TConvEnuScrolling</comment>
+  </data>
+  <data name="_0149" xml:space="preserve">
+    <value>Non</value>
+    <comment>TConvEnuScrolling
+FrmWESendMailConfig</comment>
+  </data>
+  <data name="_0150" xml:space="preserve">
+    <value>Oui</value>
+    <comment>TConvEnuScrolling
+FrmWESendMailConfig</comment>
+  </data>
+  <data name="_0151" xml:space="preserve">
+    <value>Ajouter un paramètre</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_0152" xml:space="preserve">
+    <value>Gestion des paramètres</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_0153" xml:space="preserve">
+    <value>Paramètres</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_0154" xml:space="preserve">
+    <value>L'image au chemin d'accès suivant est corrompu et ne pourra donc être affichée.</value>
+    <comment>WEGalleryCarrousel</comment>
+  </data>
+  <data name="_0155" xml:space="preserve">
+    <value>Image incorrect</value>
+    <comment>WEGalleryCarrousel1 et 2</comment>
+  </data>
+  <data name="_0156" xml:space="preserve">
+    <value>Titre du groupe 1</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0157" xml:space="preserve">
+    <value>Nouveau champs</value>
+    <comment>FrmRadioListElements</comment>
+  </data>
+  <data name="_0158" xml:space="preserve">
+    <value>Valeur</value>
+    <comment>FrmRadioListElements</comment>
+  </data>
+  <data name="_0159" xml:space="preserve">
+    <value>Confirmation</value>
+    <comment>FrmRadioListElements</comment>
+  </data>
+  <data name="_0160" xml:space="preserve">
+    <value>La même fenêtre</value>
+    <comment>FrmWESendFormConfig</comment>
+  </data>
+  <data name="_0161" xml:space="preserve">
+    <value>Une nouvelle fenêtre</value>
+    <comment>FrmWESendFormConfig</comment>
+  </data>
+  <data name="_0162" xml:space="preserve">
+    <value>La fenêtre 'parent'</value>
+    <comment>FrmWESendFormConfig</comment>
+  </data>
+  <data name="_0163" xml:space="preserve">
+    <value>La fenêtre 'Top'</value>
+    <comment>FrmWESendFormConfig</comment>
+  </data>
+  <data name="_0164" xml:space="preserve">
+    <value>Attention un formulaire contenant un champ de téléchargement doit être configuré avec :
+Méthode = 'Post'
+Enctype = 'multipart/form-data'</value>
+    <comment>FrmWESendFormConfig</comment>
+  </data>
+  <data name="_0165" xml:space="preserve">
+    <value>Veuillez saisir une adresse de destination pour le formulaire !</value>
+    <comment>FrmWESendFormConfig</comment>
+  </data>
+  <data name="_0166" xml:space="preserve">
+    <value>Veuillez choisir un bouton annuler différent du bouton d'envoi !</value>
+    <comment>FrmWESendFormConfig</comment>
+  </data>
+  <data name="_0167" xml:space="preserve">
+    <value>Veuillez séléctionner les éléments du formulaire !</value>
+    <comment>FrmWESendFormConfig</comment>
+  </data>
+  <data name="_0168" xml:space="preserve">
+    <value>éléments</value>
+    <comment>FrmWESendMailConfig</comment>
+  </data>
+  <data name="_0169" xml:space="preserve">
+    <value>Ajouter un répertoire</value>
+    <comment>WEGallery1
+WEGalleryCarrousel1 et 2</comment>
+  </data>
+  <data name="_0170" xml:space="preserve">
+    <value>Edition de l'item</value>
+    <comment>WEGallery1
+WEGalleryCarrousel1 et 2
+WEMenu
+WEMenuAccordion</comment>
+  </data>
+  <data name="_0171" xml:space="preserve">
+    <value>Impossible d'afficher la galerie. La galerie n'est pas assez large pour afficher les miniatures.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0172" xml:space="preserve">
+    <value>Impossible d'afficher la galerie. La galerie n'est pas assez haute pour afficher les miniatures.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0173" xml:space="preserve">
+    <value>L'image au chemin d'accès suivant est corrompu et ne pourra donc être affichée.</value>
+    <comment>WEGalleryCarrousel2</comment>
+  </data>
+  <data name="_0174" xml:space="preserve">
+    <value>Ajouter un lien</value>
+    <comment>WEMenu
+WEMenuAccordion</comment>
+  </data>
+  <data name="_0175" xml:space="preserve">
+    <value>Ajouter un separateur</value>
+    <comment>WEMenu
+WEMenuAccordion</comment>
+  </data>
+  <data name="_0176" xml:space="preserve">
+    <value>Zone de textes du lien</value>
+    <comment>WELink</comment>
+  </data>
+  <data name="_0177" xml:space="preserve">
+    <value>Zone de textes</value>
+    <comment>WELinkButton</comment>
+  </data>
+  <data name="_0178" xml:space="preserve">
+    <value>Ajouter une ligne</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0179" xml:space="preserve">
+    <value>Ajouter le plan du site</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0180" xml:space="preserve">
+    <value>Edition</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0181" xml:space="preserve">
+    <value>Pas d'élément {0} sur la page</value>
+    <comment>CtlSelectIDElement</comment>
+  </data>
+  <data name="_0183" xml:space="preserve">
+    <value>Gestion des articles</value>
+    <comment>WERssWriter</comment>
+  </data>
+  <data name="_0184" xml:space="preserve">
+    <value>Edition d'un article</value>
+    <comment>WERssWriter</comment>
+  </data>
+  <data name="_0185" xml:space="preserve">
+    <value>Ajouter un article</value>
+    <comment>WERssWriter</comment>
+  </data>
+  <data name="_0186" xml:space="preserve">
+    <value>Ajouter un article externe</value>
+    <comment>WERssWriter</comment>
+  </data>
+  <data name="_0187" xml:space="preserve">
+    <value>Texte</value>
+    <comment>TConvTextBoxEnumType</comment>
+  </data>
+  <data name="_0188" xml:space="preserve">
+    <value>Mot de passe</value>
+    <comment>TConvTextBoxEnumType</comment>
+  </data>
+  <data name="_0189" xml:space="preserve">
+    <value>Attention, toutes les informations ne sont pas remplies.
+Ces informations sont indispensables au fonctionnement d'un flux RSS.
+Souhaitez-vous les completer?</value>
+    <comment>FrmRss</comment>
+  </data>
+  <data name="_0190" xml:space="preserve">
+    <value>Impossible de charger le flux Rss.</value>
+    <comment>FrmExistRss</comment>
+  </data>
+  <data name="_0191" xml:space="preserve">
+    <value>Le flux Rss ne possède aucun article valide.</value>
+    <comment>FrmExistRss</comment>
+  </data>
+  <data name="_0192" xml:space="preserve">
+    <value>Erreur impossible de télécharger l'image</value>
+    <comment>FrmExistRss</comment>
+  </data>
+  <data name="_0193" xml:space="preserve">
+    <value>Le Flux Rss n'est pas disponible</value>
+    <comment>FrmExistRss</comment>
+  </data>
+  <data name="_0194" xml:space="preserve">
+    <value>Haut </value>
+    <comment>TConvEnuCollapsiblePanelPosition</comment>
+  </data>
+  <data name="_0195" xml:space="preserve">
+    <value>Bas</value>
+    <comment>TConvEnuCollapsiblePanelPosition</comment>
+  </data>
+  <data name="_0196" xml:space="preserve">
+    <value>Gauche</value>
+    <comment>TConvEnuCollapsiblePanelPosition</comment>
+  </data>
+  <data name="_0197" xml:space="preserve">
+    <value>Droite</value>
+    <comment>TConvEnuCollapsiblePanelPosition</comment>
+  </data>
+  <data name="_0198" xml:space="preserve">
+    <value>Le paquet a déjà été chargé </value>
+    <comment>UITypePack "Element Pack has already been loaded" message</comment>
+  </data>
+  <data name="_0199" xml:space="preserve">
+    <value>Supprimer les éléments et les autres données liés au paquet?</value>
+    <comment>WEPack question on Delete</comment>
+  </data>
+  <data name="_0200" xml:space="preserve">
+    <value>Certaines images n'étant pas proportionnel aux dimensions du carrousel, elles  seront  redimensionnées pour s'afficher correctement.</value>
+    <comment>GalleryCarrousel 1 &amp; 2 </comment>
+  </data>
+  <data name="_0201" xml:space="preserve">
+    <value>Erreurs de proportionnalités</value>
+  </data>
+  <data name="_0202" xml:space="preserve">
+    <value>Suivre</value>
+    <comment>WEShareBar (Suivre -&gt; Twiter)</comment>
+  </data>
+  <data name="_0203" xml:space="preserve">
+    <value>Ajouter des images</value>
+  </data>
+</root>
