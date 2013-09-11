@@ -1,0 +1,1730 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="_0001" xml:space="preserve">
+    <value>Texte multi-lignes</value>
+    <comment>WEText</comment>
+  </data>
+  <data name="_0002" xml:space="preserve">
+    <value>Ajouter un texte multi-lignes.</value>
+    <comment>WEText</comment>
+  </data>
+  <data name="_0003" xml:space="preserve">
+    <value>Panneau d'éléments</value>
+    <comment>WEPanel</comment>
+  </data>
+  <data name="_0004" xml:space="preserve">
+    <value>Ajouter un panneau d'éléments.</value>
+    <comment>WEPanel</comment>
+  </data>
+  <data name="_0005" xml:space="preserve">
+    <value>Texte simple ligne</value>
+    <comment>WELabel</comment>
+  </data>
+  <data name="_0006" xml:space="preserve">
+    <value>Ajouter un texte simple ligne.</value>
+    <comment>WELabel</comment>
+  </data>
+  <data name="_0007" xml:space="preserve">
+    <value>Image</value>
+    <comment>WEImage</comment>
+  </data>
+  <data name="_0008" xml:space="preserve">
+    <value>Ajouter une image de la bibliothèque de ressources.</value>
+    <comment>WEImage</comment>
+  </data>
+  <data name="_0009" xml:space="preserve">
+    <value>Sélection de l'image principale</value>
+    <comment>WEImage</comment>
+  </data>
+  <data name="_0010" xml:space="preserve">
+    <value>Sélection du lien principal.</value>
+    <comment>WEImage / WELinkButton / WELink</comment>
+  </data>
+  <data name="_0011" xml:space="preserve">
+    <value>Ligne horizontale</value>
+    <comment>WEHr</comment>
+  </data>
+  <data name="_0012" xml:space="preserve">
+    <value>Ajouter une ligne horizontale simple.</value>
+    <comment>WEHr</comment>
+  </data>
+  <data name="_0013" xml:space="preserve">
+    <value>Aidez-nous !</value>
+    <comment>WEHelpUs</comment>
+  </data>
+  <data name="_0014" xml:space="preserve">
+    <value>Ajouter un lien vers openElement.</value>
+    <comment>WEHelpUs</comment>
+  </data>
+  <data name="_0015" xml:space="preserve">
+    <value>Image principale</value>
+    <comment>WEHelpUs / WEDownloadFiles </comment>
+  </data>
+  <data name="_0016" xml:space="preserve">
+    <value>Zone de l'image située à gauche du texte.</value>
+    <comment>WEHelpUs</comment>
+  </data>
+  <data name="_0017" xml:space="preserve">
+    <value>Texte</value>
+    <comment>WEHelpUs</comment>
+  </data>
+  <data name="_0018" xml:space="preserve">
+    <value>Zone du texte principal</value>
+    <comment>WEHelpUs</comment>
+  </data>
+  <data name="_0019" xml:space="preserve">
+    <value>Lien vers openElement</value>
+    <comment>WEHelpUs</comment>
+  </data>
+  <data name="_0020" xml:space="preserve">
+    <value>Zone du lien vers le site d'openElement.</value>
+    <comment>WEHelpUs</comment>
+  </data>
+  <data name="_0021" xml:space="preserve">
+    <value>Téléchargement fichier</value>
+    <comment>WEDownloadFiles</comment>
+  </data>
+  <data name="_0022" xml:space="preserve">
+    <value>Ajouter un lien de téléchargement d'un fichier par le visiteur du site.</value>
+    <comment>WEDownloadFiles</comment>
+  </data>
+  <data name="_0023" xml:space="preserve">
+    <value>Zone de l'image située à gauche du lien de téléchargement.</value>
+    <comment>WEDownloadFiles</comment>
+  </data>
+  <data name="_0024" xml:space="preserve">
+    <value>Sélection du fichier à télécharger.</value>
+    <comment>WEDownloadFiles</comment>
+  </data>
+  <data name="_0025" xml:space="preserve">
+    <value>Sélection de l'image de gauche.</value>
+    <comment>WEDownloadFiles / WEUploadFiles / WETextBox / WETextArea</comment>
+  </data>
+  <data name="_0026" xml:space="preserve">
+    <value>Compteur de visites</value>
+    <comment>WECounter</comment>
+  </data>
+  <data name="_0027" xml:space="preserve">
+    <value>Afficher le nombre de visiteurs de la page.</value>
+    <comment>WECounter</comment>
+  </data>
+  <data name="_0028" xml:space="preserve">
+    <value>Chiffres</value>
+    <comment>WECounter</comment>
+  </data>
+  <data name="_0029" xml:space="preserve">
+    <value>Permet de configurer chacun des chiffres du compteur de visites.</value>
+    <comment>WECounter</comment>
+  </data>
+  <data name="_0030" xml:space="preserve">
+    <value>Configuration</value>
+    <comment>WECounter / WEMenu / WEListBox / WEGallery1/WeSendMailConfig</comment>
+  </data>
+  <data name="_0031" xml:space="preserve">
+    <value>Bouton lien</value>
+    <comment>WELinkButton</comment>
+  </data>
+  <data name="_0032" xml:space="preserve">
+    <value>Ajouter un bouton de lien vers une autre page.</value>
+    <comment>WELinkButton</comment>
+  </data>
+  <data name="_0033" xml:space="preserve">
+    <value>Lien</value>
+    <comment>WELinkButton / WELink</comment>
+  </data>
+  <data name="_0034" xml:space="preserve">
+    <value>Zone de texte du lien.</value>
+    <comment>WELinkButton</comment>
+  </data>
+  <data name="_0035" xml:space="preserve">
+    <value>Lien texte</value>
+    <comment>WELink</comment>
+  </data>
+  <data name="_0036" xml:space="preserve">
+    <value>Ajouter un lien texte vers une autre page.</value>
+    <comment>WELink</comment>
+  </data>
+  <data name="_0037" xml:space="preserve">
+    <value>Zone du lien</value>
+    <comment>WELink</comment>
+  </data>
+  <data name="_0038" xml:space="preserve">
+    <value>Menu pop-up</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0039" xml:space="preserve">
+    <value>Menu de navigation flottant (pop-up).</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0040" xml:space="preserve">
+    <value>Cadres du menu pop-up </value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0041" xml:space="preserve">
+    <value>Zone des cadres du menu pop-up.</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0042" xml:space="preserve">
+    <value>Lignes du menu pop-up</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0043" xml:space="preserve">
+    <value>Zone des lignes du menu pop-up.</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0044" xml:space="preserve">
+    <value>Première ligne du menu pop-up</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0045" xml:space="preserve">
+    <value>Zone de la première ligne du menu pop-up.</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0046" xml:space="preserve">
+    <value>Dernière ligne du menu pop-up</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0047" xml:space="preserve">
+    <value>Zone de la dernière ligne du menu pop-up.</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0048" xml:space="preserve">
+    <value>Textes</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0049" xml:space="preserve">
+    <value>Zone des textes du menu pop-up.</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0050" xml:space="preserve">
+    <value>Séparateur</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0051" xml:space="preserve">
+    <value>Zone des séparateurs du menu.</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0052" xml:space="preserve">
+    <value>Icônes</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0053" xml:space="preserve">
+    <value>Zone des icônes du menu pop-up.</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0054" xml:space="preserve">
+    <value>Flèches</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0055" xml:space="preserve">
+    <value>Zone des flèches du menu pop-up.</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0056" xml:space="preserve">
+    <value>Vidéo YouTube</value>
+    <comment>WEVideoYouTube</comment>
+  </data>
+  <data name="_0057" xml:space="preserve">
+    <value>Ajouter une vidéo YouTube.</value>
+    <comment>WEVideoYouTube</comment>
+  </data>
+  <data name="_0058" xml:space="preserve">
+    <value>Sélection de l'URL</value>
+    <comment>WEVideoYouTube / WEVideoDailymotion</comment>
+  </data>
+  <data name="_0059" xml:space="preserve">
+    <value>Vidéo RealPlayer</value>
+    <comment>WEVideoRealPlayer</comment>
+  </data>
+  <data name="_0060" xml:space="preserve">
+    <value>Ajouter une vidéo RealPlayer.</value>
+    <comment>WEVideoRealPlayer</comment>
+  </data>
+  <data name="_0061" xml:space="preserve">
+    <value>Sélection du lien vidéo</value>
+    <comment>WEVideoRealPlayer / WEVideoQuickTime / WEVideoMediaPlayer </comment>
+  </data>
+  <data name="_0062" xml:space="preserve">
+    <value>Vidéo QuickTime</value>
+    <comment>WEVideoQuickTime</comment>
+  </data>
+  <data name="_0063" xml:space="preserve">
+    <value>Ajouter une vidéo QuickTime.</value>
+    <comment>WEVideoQuickTime</comment>
+  </data>
+  <data name="_0064" xml:space="preserve">
+    <value>Vidéo Média Player</value>
+    <comment>WEVideoMediaPlayer</comment>
+  </data>
+  <data name="_0065" xml:space="preserve">
+    <value>Ajouter une vidéo Média Player.</value>
+    <comment>WEVideoMediaPlayer</comment>
+  </data>
+  <data name="_0066" xml:space="preserve">
+    <value>Vidéo Dailymotion</value>
+    <comment>WEVideoDailymotion</comment>
+  </data>
+  <data name="_0067" xml:space="preserve">
+    <value>Ajouter une vidéo Dailymotion.</value>
+    <comment>WEVideoDailymotion</comment>
+  </data>
+  <data name="_0068" xml:space="preserve">
+    <value>Animation flash</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_0069" xml:space="preserve">
+    <value>Ajouter une animation flash.</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_0070" xml:space="preserve">
+    <value>Sélection du fichier flash</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_0071" xml:space="preserve">
+    <value>Boîte d'alerte</value>
+    <comment>WEAlertBox</comment>
+  </data>
+  <data name="_0072" xml:space="preserve">
+    <value>Afficher une boîte de dialogue lors du chargement de la page ou lors du clic sur un autre élément.</value>
+    <comment>WEAlertBox</comment>
+  </data>
+  <data name="_0073" xml:space="preserve">
+    <value>Document(s) à importer</value>
+    <comment>WEUploadFiles</comment>
+  </data>
+  <data name="_0074" xml:space="preserve">
+    <value>Permettre le téléchargement d'un fichier sur son hébergement.</value>
+    <comment>WEUploadFiles</comment>
+  </data>
+  <data name="_0075" xml:space="preserve">
+    <value>Image de gauche</value>
+    <comment>WEUploadFiles / WETextBox / WETextArea</comment>
+  </data>
+  <data name="_0076" xml:space="preserve">
+    <value>Zone de l'image située à gauche du champ.</value>
+    <comment>WEUploadFiles</comment>
+  </data>
+  <data name="_0077" xml:space="preserve">
+    <value>Image d'erreur</value>
+    <comment>WEUploadFiles / WETextBox / WETextArea / WECheckBox</comment>
+  </data>
+  <data name="_0078" xml:space="preserve">
+    <value>Zone de l'image d'erreur située à droite du champ.</value>
+    <comment>WEUploadFiles</comment>
+  </data>
+  <data name="_0079" xml:space="preserve">
+    <value>Titre principal</value>
+    <comment>WEUploadFiles / WETextBox / WETextArea / WERadioButtonList / WEListBox
+WECheckBox / </comment>
+  </data>
+  <data name="_0080" xml:space="preserve">
+    <value>Zone du titre associée à l'élément.</value>
+    <comment>WEUploadFiles / WETextBox / WETextArea / WERadioButtonList / WEListBox
+WECheckBox /</comment>
+  </data>
+  <data name="_0081" xml:space="preserve">
+    <value>Sélection des règles de validation</value>
+    <comment>WEUploadFiles / WETextBox / WETextArea / WECheckBox /</comment>
+  </data>
+  <data name="_0082" xml:space="preserve">
+    <value>Sélection de l'image d'erreur</value>
+    <comment>WEUploadFiles / WETextBox / WETextArea / WECheckBox /</comment>
+  </data>
+  <data name="_0083" xml:space="preserve">
+    <value>Champ de saisie de texte</value>
+    <comment>WETextBox / WETextArea</comment>
+  </data>
+  <data name="_0084" xml:space="preserve">
+    <value>Ajouter un champ de saisie de texte simple ligne.</value>
+    <comment>WETextBox</comment>
+  </data>
+  <data name="_0085" xml:space="preserve">
+    <value>Zone de l'image située à gauche de la boîte de saisie de texte.</value>
+    <comment>WETextBox / WETextArea</comment>
+  </data>
+  <data name="_0086" xml:space="preserve">
+    <value>Zone de l'image d'erreur située à droite de la boîte de saisie de texte.</value>
+    <comment>WETextBox / WETextArea</comment>
+  </data>
+  <data name="_0087" xml:space="preserve">
+    <value>Champ de saisie de texte multi-lignes</value>
+    <comment>WETextArea</comment>
+  </data>
+  <data name="_0088" xml:space="preserve">
+    <value>Ajouter un champ de saisie de texte multi-lignes.</value>
+    <comment>WETextArea</comment>
+  </data>
+  <data name="_0089" xml:space="preserve">
+    <value>Champ de saisie du texte</value>
+    <comment>WETextArea</comment>
+  </data>
+  <data name="_0090" xml:space="preserve">
+    <value>Envoi par e-mail</value>
+    <comment>WESendMail</comment>
+  </data>
+  <data name="_0091" xml:space="preserve">
+    <value>Envoyer des données de formulaire sur une boîte e-mail.</value>
+    <comment>WESendMail</comment>
+  </data>
+  <data name="_0092" xml:space="preserve">
+    <value>Configurer les données d'envoi</value>
+    <comment>WESendMail</comment>
+  </data>
+  <data name="_0093" xml:space="preserve">
+    <value>Configurer la gestion du retour</value>
+    <comment>WESendMail</comment>
+  </data>
+  <data name="_0094" xml:space="preserve">
+    <value>Configurer les liaisons des éléments</value>
+    <comment>WESendMail</comment>
+  </data>
+  <data name="_0095" xml:space="preserve">
+    <value>Cases d'option</value>
+    <comment>WERadioButtonList</comment>
+  </data>
+  <data name="_0096" xml:space="preserve">
+    <value>Ajouter une liste de cases d'option (bouton radio).</value>
+    <comment>WERadioButtonList</comment>
+  </data>
+  <data name="_0097" xml:space="preserve">
+    <value>Liste de choix</value>
+    <comment>WERadioButtonList</comment>
+  </data>
+  <data name="_0098" xml:space="preserve">
+    <value>Zone des champs de texte associés aux boutons de choix.</value>
+    <comment>WERadioButtonList</comment>
+  </data>
+  <data name="_0099" xml:space="preserve">
+    <value>Modifier la liste d'éléments</value>
+    <comment>WERadioButtonList</comment>
+  </data>
+  <data name="_0100" xml:space="preserve">
+    <value>Configurer l'affichage de la liste</value>
+    <comment>WERadioButtonList</comment>
+  </data>
+  <data name="_0101" xml:space="preserve">
+    <value>Liste déroulante</value>
+    <comment>WEListBox</comment>
+  </data>
+  <data name="_0102" xml:space="preserve">
+    <value>Liste déroulante d'éléments</value>
+    <comment>WEListBox</comment>
+  </data>
+  <data name="_0103" xml:space="preserve">
+    <value>Case à cocher</value>
+    <comment>WECheckBox</comment>
+  </data>
+  <data name="_0104" xml:space="preserve">
+    <value>Ajouter une case à cocher.</value>
+    <comment>WECheckBox</comment>
+  </data>
+  <data name="_0105" xml:space="preserve">
+    <value>Zone de l'image d'erreur située à droite de la case à cocher.</value>
+    <comment>WECheckBox</comment>
+  </data>
+  <data name="_0106" xml:space="preserve">
+    <value>Bouton de formulaire</value>
+    <comment>WEButton</comment>
+  </data>
+  <data name="_0107" xml:space="preserve">
+    <value>Ajouter un bouton pour y affecter des actions d'envoi ou d'annulation sur un formulaire.</value>
+    <comment>WEButton</comment>
+  </data>
+  <data name="_0108" xml:space="preserve">
+    <value>Zone de la liste déroulante d'éléments.</value>
+    <comment>WEListBox</comment>
+  </data>
+  <data name="_0109" xml:space="preserve">
+    <value>Drapeaux des langues du site</value>
+    <comment>WEFlag</comment>
+  </data>
+  <data name="_0110" xml:space="preserve">
+    <value>Ajouter des drapeaux des langues du site.</value>
+    <comment>WEFlag</comment>
+  </data>
+  <data name="_0111" xml:space="preserve">
+    <value>Drapeau</value>
+    <comment>WEFlag</comment>
+  </data>
+  <data name="_0112" xml:space="preserve">
+    <value>Zone d'un drapeau</value>
+    <comment>WEFlag</comment>
+  </data>
+  <data name="_0113" xml:space="preserve">
+    <value>Galerie d'images</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0114" xml:space="preserve">
+    <value>Ajouter une galerie d'images.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0115" xml:space="preserve">
+    <value>Case à cocher</value>
+    <comment>WeCheckbox</comment>
+  </data>
+  <data name="_0116" xml:space="preserve">
+    <value>Zone de la case à cocher.</value>
+    <comment>WeCheckbox</comment>
+  </data>
+  <data name="_0117" xml:space="preserve">
+    <value>Bouton radio</value>
+    <comment>WERadioButtonList</comment>
+  </data>
+  <data name="_0118" xml:space="preserve">
+    <value>Zone du bouton radio.</value>
+    <comment>WERadioButtonList</comment>
+  </data>
+  <data name="_0119" xml:space="preserve">
+    <value>Champ de sélection du fichier</value>
+    <comment>WEUploadFiles</comment>
+  </data>
+  <data name="_0120" xml:space="preserve">
+    <value>Zone de sélection du fichier.</value>
+    <comment>WEUploadFiles</comment>
+  </data>
+  <data name="_0121" xml:space="preserve">
+    <value>Interdiction du clic droit</value>
+    <comment>WEDisableRightClick</comment>
+  </data>
+  <data name="_0122" xml:space="preserve">
+    <value>Interdiction du clic droit sur la page.</value>
+    <comment>WEDisableRightClick</comment>
+  </data>
+  <data name="_0123" xml:space="preserve">
+    <value>Souhaitez vous enregistrer vos modifications ?</value>
+    <comment>Forms</comment>
+  </data>
+  <data name="_0124" xml:space="preserve">
+    <value>Styles du bouton</value>
+    <comment>WEButton</comment>
+  </data>
+  <data name="_0125" xml:space="preserve">
+    <value>Bouton</value>
+    <comment>WEButton</comment>
+  </data>
+  <data name="_0126" xml:space="preserve">
+    <value>Bloc de code visuel</value>
+    <comment>WECodeBlock</comment>
+  </data>
+  <data name="_0127" xml:space="preserve">
+    <value>Ajouter une galerie d'images horizontale de type carrousel.</value>
+    <comment>WEGalleryCarrousel1</comment>
+  </data>
+  <data name="_0128" xml:space="preserve">
+    <value>Carrousel horizontal</value>
+    <comment>WEGalleryCarrousel1</comment>
+  </data>
+  <data name="_0129" xml:space="preserve">
+    <value>Images</value>
+    <comment>WEGalleryCarrousel1</comment>
+  </data>
+  <data name="_0130" xml:space="preserve">
+    <value>Zone des images du carrousel.</value>
+    <comment>WEGalleryCarrousel1</comment>
+  </data>
+  <data name="_0131" xml:space="preserve">
+    <value>Bouton précédent</value>
+    <comment>WEGalleryCarrousel1</comment>
+  </data>
+  <data name="_0132" xml:space="preserve">
+    <value>Zone du bouton précédent à gauche du carrousel.</value>
+    <comment>WEGalleryCarrousel1</comment>
+  </data>
+  <data name="_0133" xml:space="preserve">
+    <value>Bouton suivant</value>
+    <comment>WEGalleryCarrousel1</comment>
+  </data>
+  <data name="_0134" xml:space="preserve">
+    <value>Zone du bouton suivant à droite du carrousel.</value>
+    <comment>WEGalleryCarrousel1</comment>
+  </data>
+  <data name="_0135" xml:space="preserve">
+    <value>Bandeau page</value>
+    <comment>WEBannerPage</comment>
+  </data>
+  <data name="_0136" xml:space="preserve">
+    <value>Connecter une autre page web comme un bandeau sur le haut ou le bas de cette page.</value>
+    <comment>WEBannerPage</comment>
+  </data>
+  <data name="_0137" xml:space="preserve">
+    <value>Document</value>
+    <comment>WEDocument</comment>
+  </data>
+  <data name="_0138" xml:space="preserve">
+    <value>Importer ou modifier un document de type Word ou Excel.</value>
+    <comment>WEDocument</comment>
+  </data>
+  <data name="_0139" xml:space="preserve">
+    <value>Editer le document</value>
+    <comment>WEDocument</comment>
+  </data>
+  <data name="_0140" xml:space="preserve">
+    <value>Décoration 1</value>
+    <comment>WEHr</comment>
+  </data>
+  <data name="_0141" xml:space="preserve">
+    <value>Zone de décoration 1.</value>
+    <comment>WEHr</comment>
+  </data>
+  <data name="_0142" xml:space="preserve">
+    <value>Décoration 2</value>
+    <comment>WEHr</comment>
+  </data>
+  <data name="_0143" xml:space="preserve">
+    <value>Zone de décoration 2.</value>
+    <comment>WEHr</comment>
+  </data>
+  <data name="_0144" xml:space="preserve">
+    <value>Décoration 3</value>
+    <comment>WEHr</comment>
+  </data>
+  <data name="_0145" xml:space="preserve">
+    <value>Zone de décoration 3.</value>
+    <comment>WEHr</comment>
+  </data>
+  <data name="_0146" xml:space="preserve">
+    <value>Compteur</value>
+    <comment>WECounterConfig</comment>
+  </data>
+  <data name="_0147" xml:space="preserve">
+    <value>En-tête</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0148" xml:space="preserve">
+    <value>En-tête des panneaux d'éléments.</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0149" xml:space="preserve">
+    <value>Icône</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0150" xml:space="preserve">
+    <value>Icône des en-têtes de panneaux d'éléments.</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0151" xml:space="preserve">
+    <value>Titre</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0152" xml:space="preserve">
+    <value>Titre des en-têtes de panneaux d'éléments.</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0153" xml:space="preserve">
+    <value>Titre alternatif</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0154" xml:space="preserve">
+    <value>Titre alternatif des en-têtes de panneaux d'éléments.</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0155" xml:space="preserve">
+    <value>Contenu des panneaux</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0156" xml:space="preserve">
+    <value>Contenu des panneaux d'éléments.</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0157" xml:space="preserve">
+    <value>Panneaux accordéon</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0158" xml:space="preserve">
+    <value>Ajouter des panneaux d'éléments en accordéon.</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0159" xml:space="preserve">
+    <value>Titre</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0160" xml:space="preserve">
+    <value>Titres des images.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0161" xml:space="preserve">
+    <value>Description</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0162" xml:space="preserve">
+    <value>Description des images.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0163" xml:space="preserve">
+    <value>Compteur</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0164" xml:space="preserve">
+    <value>Compteur des images.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0165" xml:space="preserve">
+    <value>Cadre de l'image</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0166" xml:space="preserve">
+    <value>Cadre des images principales.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0167" xml:space="preserve">
+    <value>Cadre de sélection</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0168" xml:space="preserve">
+    <value>Cadre des images sélectionnées.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0169" xml:space="preserve">
+    <value>Contrôles du lecteur (player)</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0170" xml:space="preserve">
+    <value>Lecture, pause, image suivante, image précédente</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0171" xml:space="preserve">
+    <value>Page suivante</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0172" xml:space="preserve">
+    <value>Page suivante</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0173" xml:space="preserve">
+    <value>Page précédente</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0174" xml:space="preserve">
+    <value>Page précédente</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0175" xml:space="preserve">
+    <value>Lecture</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0176" xml:space="preserve">
+    <value>Bouton lecture.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0177" xml:space="preserve">
+    <value>Pause</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0178" xml:space="preserve">
+    <value>Bouton pause.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0179" xml:space="preserve">
+    <value>Suivant</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0180" xml:space="preserve">
+    <value>Bouton image suivante.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0181" xml:space="preserve">
+    <value>Précédente</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0182" xml:space="preserve">
+    <value>Bouton image précédente.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0183" xml:space="preserve">
+    <value>Miniature</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0184" xml:space="preserve">
+    <value>Image miniature.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0185" xml:space="preserve">
+    <value>Zoom</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0186" xml:space="preserve">
+    <value>Image zoom.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0187" xml:space="preserve">
+    <value>Cadre des miniatures</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0188" xml:space="preserve">
+    <value>Cadre des miniatures.</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0189" xml:space="preserve">
+    <value>Contenu lignes du menu pop-up (table)</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0190" xml:space="preserve">
+    <value>Contenu des lignes du menu pop-up : 3 cellules de tableau (icône, texte, flèche).</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0191" xml:space="preserve">
+    <value>Cadre</value>
+    <comment>WECadre</comment>
+  </data>
+  <data name="_0192" xml:space="preserve">
+    <value>Ajouter un élément cadre.</value>
+    <comment>WECadre</comment>
+  </data>
+  <data name="_0193" xml:space="preserve">
+    <value>Contenu en-tête</value>
+    <comment>WECadre</comment>
+  </data>
+  <data name="_0194" xml:space="preserve">
+    <value>Zone contenu haut.</value>
+    <comment>WECadre</comment>
+  </data>
+  <data name="_0195" xml:space="preserve">
+    <value>Contenu central</value>
+    <comment>WECadre</comment>
+  </data>
+  <data name="_0196" xml:space="preserve">
+    <value>Zone du contenu central.</value>
+    <comment>WECadre</comment>
+  </data>
+  <data name="_0197" xml:space="preserve">
+    <value>Contenu bas</value>
+    <comment>WECadre</comment>
+  </data>
+  <data name="_0198" xml:space="preserve">
+    <value>Zone du contenu bas.</value>
+    <comment>WECadre</comment>
+  </data>
+  <data name="_0199" xml:space="preserve">
+    <value>Sélection des images</value>
+    <comment>WEGalleryCarousel1</comment>
+  </data>
+  <data name="_0200" xml:space="preserve">
+    <value>Image lien</value>
+    <comment>WELinkImage</comment>
+  </data>
+  <data name="_0201" xml:space="preserve">
+    <value>Ajouter un bouton de lien image vers une autre page.</value>
+    <comment>WELinkImage</comment>
+  </data>
+  <data name="_0202" xml:space="preserve">
+    <value>Bloc de code source</value>
+    <comment>WEScriptHidden</comment>
+  </data>
+  <data name="_0203" xml:space="preserve">
+    <value>Bloc de code (HTML, Javascript, PHP, ...) positionné dans la source de la page (aucun contexte graphique)</value>
+    <comment>WEScriptHidden</comment>
+  </data>
+  <data name="_0204" xml:space="preserve">
+    <value>Zoom d'images</value>
+    <comment>WELightBox1</comment>
+  </data>
+  <data name="_0205" xml:space="preserve">
+    <value>Ajout d'un zoom d'images</value>
+    <comment>WELightBox1</comment>
+  </data>
+  <data name="_0206" xml:space="preserve">
+    <value>Configurer</value>
+    <comment>WEScript, WEScrptHidden</comment>
+  </data>
+  <data name="_0207" xml:space="preserve">
+    <value>Fenêtre</value>
+    <comment>WELightBox1</comment>
+  </data>
+  <data name="_0208" xml:space="preserve">
+    <value>Bouton fermeture</value>
+    <comment>WELightBox1</comment>
+  </data>
+  <data name="_0209" xml:space="preserve">
+    <value>Bouton de navigation vers la droite </value>
+    <comment>WELightBox1</comment>
+  </data>
+  <data name="_0210" xml:space="preserve">
+    <value>Bouton de navigation vers la gauche</value>
+    <comment>WELightBox1</comment>
+  </data>
+  <data name="_0211" xml:space="preserve">
+    <value>Titre</value>
+    <comment>WELightBox1</comment>
+  </data>
+  <data name="_0212" xml:space="preserve">
+    <value>Description</value>
+    <comment>WELightBox1</comment>
+  </data>
+  <data name="_0213" xml:space="preserve">
+    <value>Texte d'erreur</value>
+    <comment>WEUploadFiles / WETextBox / WETextArea / WECheckBox</comment>
+  </data>
+  <data name="_0214" xml:space="preserve">
+    <value>Texte d'erreur","Zone du texte de l'erreur située à droite de la boîte de saisie de texte.</value>
+    <comment>WEUploadFiles / WETextBox / WETextArea / WECheckBox</comment>
+  </data>
+  <data name="_0215" xml:space="preserve">
+    <value>Gauche de la saisie</value>
+    <comment>WETextBox / WETextArea</comment>
+  </data>
+  <data name="_0216" xml:space="preserve">
+    <value>Décoration positionnée à gauche de la boite de saisie</value>
+    <comment>WETextBox / WETextArea</comment>
+  </data>
+  <data name="_0217" xml:space="preserve">
+    <value>Droite de la saisie</value>
+    <comment>WETextBox / WETextArea</comment>
+  </data>
+  <data name="_0218" xml:space="preserve">
+    <value>Décoration positionnée à gauche de la boite de saisie</value>
+    <comment>WETextBox / WETextArea</comment>
+  </data>
+  <data name="_0219" xml:space="preserve">
+    <value>Impossible de supprimer le lien vers openElement dans les modèles de site fournis par openElement.</value>
+    <comment>WEHelpUs</comment>
+  </data>
+  <data name="_0220" xml:space="preserve">
+    <value>Menu accordéon</value>
+    <comment>WEMenuAccordion</comment>
+  </data>
+  <data name="_0221" xml:space="preserve">
+    <value>Menu vertical en accordéon</value>
+    <comment>WEMenuAccordion</comment>
+  </data>
+  <data name="_0222" xml:space="preserve">
+    <value>Menus principaux</value>
+    <comment>WEMenuAccordion</comment>
+  </data>
+  <data name="_0223" xml:space="preserve">
+    <value>Zone des menus principaux</value>
+    <comment>WEMenuAccordion</comment>
+  </data>
+  <data name="_0224" xml:space="preserve">
+    <value>Menus principaux sélectionnés</value>
+    <comment>WEMenuAccordion</comment>
+  </data>
+  <data name="_0225" xml:space="preserve">
+    <value>Style des menus principaux lorsqu'ils sont sélectionnés</value>
+    <comment>WEMenuAccordion</comment>
+  </data>
+  <data name="_0226" xml:space="preserve">
+    <value>Conteneur des sous-menus </value>
+    <comment>WEMenuAccordion</comment>
+  </data>
+  <data name="_0227" xml:space="preserve">
+    <value>Conteneur des sous-menus  et des suivants</value>
+    <comment>WEMenuAccordion</comment>
+  </data>
+  <data name="_0228" xml:space="preserve">
+    <value>Sous-menus</value>
+    <comment>WEMenuAccordion</comment>
+  </data>
+  <data name="_0229" xml:space="preserve">
+    <value>Ligne des sous-menus  et des suivants</value>
+    <comment>WEMenuAccordion</comment>
+  </data>
+  <data name="_0230" xml:space="preserve">
+    <value>Conteneur des menus de niveaux &gt;2</value>
+    <comment>WEMenuAccordion</comment>
+  </data>
+  <data name="_0231" xml:space="preserve">
+    <value>Conteneur des menus de niveaux supérieur à deux</value>
+    <comment>WEMenuAccordion</comment>
+  </data>
+  <data name="_0232" xml:space="preserve">
+    <value>Logo W3C</value>
+    <comment>WEW3C</comment>
+  </data>
+  <data name="_0233" xml:space="preserve">
+    <value>Logo certifiant que votre page est conforme aux normes W3C. 
+Pour vérifier cette conformité, cliquez sur le bouton.</value>
+    <comment>WEW3C</comment>
+  </data>
+  <data name="_0234" xml:space="preserve">
+    <value>Séparateurs des sous menus</value>
+    <comment>WEMenuAccordion</comment>
+  </data>
+  <data name="_0235" xml:space="preserve">
+    <value>Zone des séparateurs des sous menus</value>
+    <comment>WEMenuAccordion</comment>
+  </data>
+  <data name="_0236" xml:space="preserve">
+    <value>Séparateur des menus principaux</value>
+    <comment>WEMenuAccordion</comment>
+  </data>
+  <data name="_0237" xml:space="preserve">
+    <value>Zone des séparateurs des menus principaux</value>
+    <comment>WEMenuAccordion</comment>
+  </data>
+  <data name="_0238" xml:space="preserve">
+    <value>Ligne verticale</value>
+    <comment>WEHrVertival</comment>
+  </data>
+  <data name="_0239" xml:space="preserve">
+    <value>Ajouter une ligne verticale simple.</value>
+    <comment>WEHrVertival</comment>
+  </data>
+  <data name="_0240" xml:space="preserve">
+    <value>Barre de réseaux sociaux</value>
+    <comment>WEShareBar</comment>
+  </data>
+  <data name="_0241" xml:space="preserve">
+    <value>Sélection de l'image de survol</value>
+    <comment>WELinkImage</comment>
+  </data>
+  <data name="_0242" xml:space="preserve">
+    <value>Texte sans nœud</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0243" xml:space="preserve">
+    <value>Texte avec nœud</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0244" xml:space="preserve">
+    <value>Zone de texte d'une ligne sans ligne enfant</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0245" xml:space="preserve">
+    <value>Zone de texte d'une ligne avec des lignes enfants</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0246" xml:space="preserve">
+    <value>Icône</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0247" xml:space="preserve">
+    <value>Zone de l'icône</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0248" xml:space="preserve">
+    <value>Icône d'agrandissement (+)</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0249" xml:space="preserve">
+    <value>Zone des icônes d'agrandissement pour les lignes avec enfants</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0250" xml:space="preserve">
+    <value>Dernière icône d'agrandissement (+)</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0251" xml:space="preserve">
+    <value>Zone des dernières icônes d'agrandissement pour les lignes avec enfants</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0252" xml:space="preserve">
+    <value>Icône de réduction (-)</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0253" xml:space="preserve">
+    <value>Zone des icônes de réduction pour les lignes avec enfants</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0254" xml:space="preserve">
+    <value>Dernière icône de réduction(-)</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0255" xml:space="preserve">
+    <value>Zone des dernières icônes de réduction pour les lignes avec enfants</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0256" xml:space="preserve">
+    <value>Ligne en forme de 'L'</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0257" xml:space="preserve">
+    <value>Zone des icônes des dernières lignes sans enfant</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0258" xml:space="preserve">
+    <value>Ligne en forme de 'T'</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0259" xml:space="preserve">
+    <value>Zone des icônes des lignes sans enfant</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0260" xml:space="preserve">
+    <value>Ligne simple</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0261" xml:space="preserve">
+    <value>Zone des icônes de liaisons simples</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0262" xml:space="preserve">
+    <value>Arborescence</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0263" xml:space="preserve">
+    <value>Affiche une arborescence dynamique</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_0264" xml:space="preserve">
+    <value>Zone du bouton Facebook j'aime</value>
+    <comment>WEShareBar</comment>
+  </data>
+  <data name="_0265" xml:space="preserve">
+    <value>Zone du bouton Facebook s'abonner</value>
+    <comment>WEShareBar</comment>
+  </data>
+  <data name="_0266" xml:space="preserve">
+    <value>Zone du bouton Twitter tweeter</value>
+    <comment>WEShareBar</comment>
+  </data>
+  <data name="_0267" xml:space="preserve">
+    <value>Zone du bouton Twitter suivre</value>
+    <comment>WEShareBar</comment>
+  </data>
+  <data name="_0268" xml:space="preserve">
+    <value>Zone du bouton Google +1</value>
+    <comment>WEShareBar</comment>
+  </data>
+  <data name="_0269" xml:space="preserve">
+    <value>Fil d'ariane</value>
+    <comment>WEBreadCrumbs</comment>
+  </data>
+  <data name="_0270" xml:space="preserve">
+    <value>Affiche le fil d'ariane d'un menu</value>
+    <comment>WEBreadCrumbs</comment>
+  </data>
+  <data name="_0271" xml:space="preserve">
+    <value>Première image</value>
+    <comment>WEBreadCrumbs</comment>
+  </data>
+  <data name="_0272" xml:space="preserve">
+    <value>Image affichée avant le premier lien</value>
+    <comment>WEBreadCrumbs</comment>
+  </data>
+  <data name="_0273" xml:space="preserve">
+    <value>Séparateurs</value>
+    <comment>WEBreadCrumbs</comment>
+  </data>
+  <data name="_0274" xml:space="preserve">
+    <value>Image affichée entre chaque liens</value>
+    <comment>WEBreadCrumbs</comment>
+  </data>
+  <data name="_0275" xml:space="preserve">
+    <value>Lien</value>
+    <comment>WEBreadCrumbs</comment>
+  </data>
+  <data name="_0276" xml:space="preserve">
+    <value>Zone d'affichage du lien</value>
+    <comment>WEBreadCrumbs</comment>
+  </data>
+  <data name="_0277" xml:space="preserve">
+    <value>Dernière image</value>
+    <comment>WEBreadCrumbs</comment>
+  </data>
+  <data name="_0278" xml:space="preserve">
+    <value>Image affichée après le dernier lien</value>
+    <comment>WEBreadCrumbs</comment>
+  </data>
+  <data name="_0279" xml:space="preserve">
+    <value>Le fil d'ariane du menu '{0}' ne s'affichera que sur les pages dépendantes de ce calque.</value>
+    <comment>WEBreadCrumbs</comment>
+  </data>
+  <data name="_0280" xml:space="preserve">
+    <value>Non sélectionné</value>
+    <comment>WEBreadCrumbs</comment>
+  </data>
+  <data name="_0281" xml:space="preserve">
+    <value>Lien n°1 du menu</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0282" xml:space="preserve">
+    <value>Lien n°2 du menu</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0283" xml:space="preserve">
+    <value>Lien n°3 du menu</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_0284" xml:space="preserve">
+    <value>Redirection du formulaire</value>
+    <comment>WESendForm</comment>
+  </data>
+  <data name="_0285" xml:space="preserve">
+    <value>Configuration du formulaire pour le diriger personnalisée</value>
+    <comment>WESendForm</comment>
+  </data>
+  <data name="_0286" xml:space="preserve">
+    <value>Captcha</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_0287" xml:space="preserve">
+    <value>Vidéo HTML5</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_0288" xml:space="preserve">
+    <value>Ajouter une vidéo HTML5</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_0289" xml:space="preserve">
+    <value>Ajouter un captcha permet d'éviter les envois automatiques par des robots (spam)</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_0290" xml:space="preserve">
+    <value>Code de vérification incorrect. </value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_0291" xml:space="preserve">
+    <value>Recopier le code :</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_0292" xml:space="preserve">
+    <value>Ce lecteur Flash fonctionnera après &lt;b&gt;LA MISE EN LIGNE du site&lt;/b&gt;&lt;br/&gt;&lt;b&gt;&lt;u&gt;(les vidéos locales&lt;/u&gt;&lt;/b&gt; ne se chargent pas Flash)</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_0293" xml:space="preserve">
+    <value>La hauteur du plugin QT est reduite pendant l'edition</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_0294" xml:space="preserve">
+    <value>ERREUR: PAS DE VIDEO SOUTENUE</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_0295" xml:space="preserve">
+    <value>Cryptogramme</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_0296" xml:space="preserve">
+    <value>Zone du cryptogramme</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_0297" xml:space="preserve">
+    <value>Rechargement</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_0298" xml:space="preserve">
+    <value>Zone de l'image de rechargement</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_0299" xml:space="preserve">
+    <value>Texte</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_0300" xml:space="preserve">
+    <value>Zone du texte </value>
+    <comment>WECaptcha
+WELabel</comment>
+  </data>
+  <data name="_0301" xml:space="preserve">
+    <value>Gauche du champ de saisie</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_0302" xml:space="preserve">
+    <value>Zone à gauche du champ de saisie</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_0303" xml:space="preserve">
+    <value>Droite du champ de saisie</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_0304" xml:space="preserve">
+    <value>Zone à droite du champ de saisie</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_0305" xml:space="preserve">
+    <value>Champ de saisie</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_0306" xml:space="preserve">
+    <value>Style du champ de saisie</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_0307" xml:space="preserve">
+    <value>PayPal à configurer</value>
+    <comment>WEPayPal</comment>
+  </data>
+  <data name="_0308" xml:space="preserve">
+    <value>Parametre_1</value>
+    <comment>WEPayPal</comment>
+  </data>
+  <data name="_0309" xml:space="preserve">
+    <value>Valeur</value>
+    <comment>WEPayPal</comment>
+  </data>
+  <data name="_0310" xml:space="preserve">
+    <value>Ajout d'un bouton PayPal</value>
+    <comment>WEPayPal</comment>
+  </data>
+  <data name="_0311" xml:space="preserve">
+    <value>Bloc de code (HTML, Javascript, PHP, ...) positionné graphiquement sur la page </value>
+    <comment>WEScript</comment>
+  </data>
+  <data name="_0312" xml:space="preserve">
+    <value>Carrousel vertical</value>
+    <comment>WEGalleryCarousel2</comment>
+  </data>
+  <data name="_0313" xml:space="preserve">
+    <value>Ajout d'une galerie d'images verticales de type carrousel</value>
+    <comment>WEGalleryCarousel2</comment>
+  </data>
+  <data name="_0314" xml:space="preserve">
+    <value>En-tête - centre</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0315" xml:space="preserve">
+    <value>En-tête - gauche</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0316" xml:space="preserve">
+    <value>En-tête - droite</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0317" xml:space="preserve">
+    <value>En-tête activée</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0318" xml:space="preserve">
+    <value>En-tête activée - centre</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0319" xml:space="preserve">
+    <value>En-tête activée - gauche</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0320" xml:space="preserve">
+    <value>En-tête activée - droite</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0321" xml:space="preserve">
+    <value>Zone du centre de l'en-tête des panneaux d'éléments.</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0322" xml:space="preserve">
+    <value>Zone gauche de l'en-tête des panneaux d'éléments.</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0323" xml:space="preserve">
+    <value>Zone droite de l'en-tête des panneaux d'éléments.</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0324" xml:space="preserve">
+    <value>Zone de l'en-tête des panneaux d'éléments séléctionnés.</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0325" xml:space="preserve">
+    <value>Zone du centre de l'en-tête des panneaux d'éléments séléctionnés.</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0326" xml:space="preserve">
+    <value>Zone gauche de l'en-tête des panneaux d'éléments séléctionnés.</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0327" xml:space="preserve">
+    <value>Zone droite de l'en-tête des panneaux d'éléments séléctionnés.</value>
+    <comment>WEAccordion</comment>
+  </data>
+  <data name="_0328" xml:space="preserve">
+    <value>Masque</value>
+    <comment>WELightBox1</comment>
+  </data>
+  <data name="_0329" xml:space="preserve">
+    <value>Masque de la page sous le zoom d'image</value>
+    <comment>WELightBox1</comment>
+  </data>
+  <data name="_0330" xml:space="preserve">
+    <value>Bouton fermeture de la fenêtre</value>
+    <comment>WELightBox1</comment>
+  </data>
+  <data name="_0331" xml:space="preserve">
+    <value>Fenêtre du zoom d'images</value>
+    <comment>WELightBox1</comment>
+  </data>
+  <data name="_0332" xml:space="preserve">
+    <value>Lien</value>
+    <comment>WELightBox1</comment>
+  </data>
+  <data name="_0333" xml:space="preserve">
+    <value>Zone de lien (Cette zone n'apparait que s'il n'y a pas de titre )</value>
+    <comment>WELightBox1</comment>
+  </data>
+  <data name="_0334" xml:space="preserve">
+    <value>Flux Rss</value>
+    <comment>WERssWriter</comment>
+  </data>
+  <data name="_0335" xml:space="preserve">
+    <value>Entête du flux Rss</value>
+    <comment>WERssWriter</comment>
+  </data>
+  <data name="_0336" xml:space="preserve">
+    <value>Tableau</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_0337" xml:space="preserve">
+    <value>Ajouter un tableau</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_0338" xml:space="preserve">
+    <value>Ajouter une ligne</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_0339" xml:space="preserve">
+    <value>Ajouter une colonne</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_0340" xml:space="preserve">
+    <value>Supprimer la ligne sélectionnée</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_0341" xml:space="preserve">
+    <value>Supprimer la colonne sélectionnée</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_0342" xml:space="preserve">
+    <value>Inserer une ligne après celle sélectionnée</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_0343" xml:space="preserve">
+    <value>Inserer une colonne après celle sélectionnée</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_0344" xml:space="preserve">
+    <value>Tableau</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_0345" xml:space="preserve">
+    <value>Cadre du tableau</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_0346" xml:space="preserve">
+    <value>Cellules</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_0347" xml:space="preserve">
+    <value>Ensemble des cellules du tableau</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_0348" xml:space="preserve">
+    <value>Cellule : colonne {0} ligne {1}</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_0349" xml:space="preserve">
+    <value>Style de la cellule</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_0350" xml:space="preserve">
+    <value>Ligne : {0}</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_0351" xml:space="preserve">
+    <value>Style de la ligne</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_0352" xml:space="preserve">
+    <value>Colonne : {0}</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_0353" xml:space="preserve">
+    <value>Style de la colonne</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_0354" xml:space="preserve">
+    <value>Veuillez selectionner une cellule du tableau.</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_0355" xml:space="preserve">
+    <value>Souhaitez vous supprimer la ligne {0}</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_0356" xml:space="preserve">
+    <value>Souhaitez vous supprimer la colonne {0}</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_0357" xml:space="preserve">
+    <value>Champ de saisie en erreur</value>
+    <comment>WETextBoxV2</comment>
+  </data>
+  <data name="_0358" xml:space="preserve">
+    <value>Style du champ de saisie de texte en cas d'erreur.</value>
+    <comment>WETextBoxV2</comment>
+  </data>
+  <data name="_0359" xml:space="preserve">
+    <value>Lignes de la liste</value>
+    <comment>WEListBoxV2</comment>
+  </data>
+  <data name="_0360" xml:space="preserve">
+    <value>Styles des lignes de la liste déroulate.</value>
+    <comment>WEListBoxV2</comment>
+  </data>
+  <data name="_0361" xml:space="preserve">
+    <value>Liste des articles</value>
+    <comment>WERssWriter</comment>
+  </data>
+  <data name="_0362" xml:space="preserve">
+    <value>Edition d'un flux Rss</value>
+    <comment>WERssWriter</comment>
+  </data>
+  <data name="_0363" xml:space="preserve">
+    <value>Icône</value>
+    <comment>WERssWriter</comment>
+  </data>
+  <data name="_0364" xml:space="preserve">
+    <value>Champ de saisie en erreur</value>
+    <comment>Form</comment>
+  </data>
+  <data name="_0365" xml:space="preserve">
+    <value>Icône d'erreur</value>
+    <comment>Form</comment>
+  </data>
+  <data name="_0366" xml:space="preserve">
+    <value>Texte d'erreur</value>
+    <comment>Form</comment>
+  </data>
+  <data name="_0367" xml:space="preserve">
+    <value>Impossible d'ajouter les articles suivant au fichier RSS : {0}. Ces articles ne respectent pas la normes RSS</value>
+    <comment>WERssWriter</comment>
+  </data>
+  <data name="_0368" xml:space="preserve">
+    <value>Contenu mobile - Sens d'ouverture : haut</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_0369" xml:space="preserve">
+    <value>Onglet rétractable</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_0370" xml:space="preserve">
+    <value>Zone de l'onglet qui s'ouvre</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_0371" xml:space="preserve">
+    <value>Onglet fermé - Sens d'ouverture : haut</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_0372" xml:space="preserve">
+    <value>Onglet ouvert - Sens d'ouverture : haut</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_0373" xml:space="preserve">
+    <value>Ajouter un onglet rétractable</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_0374" xml:space="preserve">
+    <value>Contenu mobile - Sens d'ouverture : bas</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_0375" xml:space="preserve">
+    <value>Onglet fermé - Sens d'ouverture : bas</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_0376" xml:space="preserve">
+    <value>Onglet ouvert - Sens d'ouverture : bas</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_0377" xml:space="preserve">
+    <value>Contenu mobile - Sens d'ouverture : gauche</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_0378" xml:space="preserve">
+    <value>Onglet fermé - Sens d'ouverture : gauche</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_0379" xml:space="preserve">
+    <value>Onglet ouvert - Sens d'ouverture : gauche</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_0380" xml:space="preserve">
+    <value>Contenu mobile - Sens d'ouverture : droite</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_0381" xml:space="preserve">
+    <value>Onglet fermé - Sens d'ouverture : droite</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_0382" xml:space="preserve">
+    <value>Onglet ouvert - Sens d'ouverture : droite</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_0383" xml:space="preserve">
+    <value>Page externe</value>
+    <comment>WEIframe</comment>
+  </data>
+  <data name="_0384" xml:space="preserve">
+    <value>Diaporama</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_0385" xml:space="preserve">
+    <value>Ajouter un diaporama</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_0386" xml:space="preserve">
+    <value>Page</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_0387" xml:space="preserve">
+    <value>Zone du bouton précédent à gauche du diaporama. La zone est masquée si un bouton externe est choisi dans les propriétés.</value>
+  </data>
+  <data name="_0388" xml:space="preserve">
+    <value>Zone du bouton suivant à droite du diaporama. La zone est masquée si un bouton externe est choisi dans les propriétés.</value>
+  </data>
+  <data name="_0389" xml:space="preserve">
+    <value>Paquet d'éléments</value>
+    <comment>WEPack name of the element "Element Pack"</comment>
+  </data>
+  <data name="_0390" xml:space="preserve">
+    <value>Paquet d'éléments et de la structure dynamique</value>
+    <comment>WEPack description</comment>
+  </data>
+  <data name="_0391" xml:space="preserve">
+    <value>Charger le paquet</value>
+    <comment>WEPack "Load pack"</comment>
+  </data>
+  <data name="_0392" xml:space="preserve">
+    <value>Sélectionner les éléments</value>
+    <comment>WEPack "Select elements" (select pack elements)</comment>
+  </data>
+  <data name="_0393" xml:space="preserve">
+    <value>Attribuer les sources (valeurs)</value>
+    <comment>WEPack "Assign sources (values)"</comment>
+  </data>
+  <data name="_0394" xml:space="preserve">
+    <value>Lecture</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0395" xml:space="preserve">
+    <value>Pause</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0396" xml:space="preserve">
+    <value>Précédent</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0397" xml:space="preserve">
+    <value>Suivant</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_0398" xml:space="preserve">
+    <value>Inserer une zone de styles</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_0399" xml:space="preserve">
+    <value>Répétitions</value>
+    <comment>Dyn Iterator style zone "Repetitions - odd"</comment>
+  </data>
+  <data name="_0400" xml:space="preserve">
+    <value>Répétitions Pairs</value>
+    <comment>Dyn Iterator style zone "Repetitions - even"</comment>
+  </data>
+  <data name="_0401" xml:space="preserve">
+    <value>Style des répétitions (les groupes d'éléments qui se répètent selon les données disponibles)</value>
+    <comment>Dyn Iterator style zone "Repetitions - odd"</comment>
+  </data>
+  <data name="_0402" xml:space="preserve">
+    <value>Style pour toutes les répétitions pairs (2, 4, 6, 8...)</value>
+    <comment>Dyn Iterator style zone "Repetitions - even"</comment>
+  </data>
+</root>

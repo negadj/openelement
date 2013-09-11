@@ -1,0 +1,966 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="_N001" xml:space="preserve">
+    <value>Configuration</value>
+    <comment>WECounter / WEMenu / WEGallery / WeSendMail</comment>
+  </data>
+  <data name="_N002" xml:space="preserve">
+    <value>Image</value>
+    <comment>WEImage / WEDownloadFiles</comment>
+  </data>
+  <data name="_N003" xml:space="preserve">
+    <value>Lien</value>
+    <comment>WEImage / WEDownloadFiles / WELinkButton / WELink</comment>
+  </data>
+  <data name="_N004" xml:space="preserve">
+    <value>Texte alternatif</value>
+    <comment>WEImage</comment>
+  </data>
+  <data name="_N005" xml:space="preserve">
+    <value>Epaisseur</value>
+    <comment>WEHr</comment>
+  </data>
+  <data name="_N006" xml:space="preserve">
+    <value>Couleur</value>
+    <comment>WEHr</comment>
+  </data>
+  <data name="_N007" xml:space="preserve">
+    <value>Texte</value>
+    <comment>WEHelpUs / WEAlertBox / WEButton</comment>
+  </data>
+  <data name="_N010" xml:space="preserve">
+    <value>Fenêtre</value>
+    <comment>WELinkButton / WELink</comment>
+  </data>
+  <data name="_N012" xml:space="preserve">
+    <value>Flèche</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_N013" xml:space="preserve">
+    <value>Position</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_N014" xml:space="preserve">
+    <value>Décalage X</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_N015" xml:space="preserve">
+    <value>Décalage Y</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_N016" xml:space="preserve">
+    <value>Vitesse animation ouverture</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_N017" xml:space="preserve">
+    <value>Vitesse animation fermeture</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_N018" xml:space="preserve">
+    <value>Délai de fermeture</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_N019" xml:space="preserve">
+    <value>URL</value>
+    <comment>WEVideoYouTube / WEVideoDailymotion</comment>
+  </data>
+  <data name="_N020" xml:space="preserve">
+    <value>Couleur claire</value>
+    <comment>WEVideoYouTube</comment>
+  </data>
+  <data name="_N021" xml:space="preserve">
+    <value>Couleur foncée</value>
+    <comment>WEVideoYouTube</comment>
+  </data>
+  <data name="_N022" xml:space="preserve">
+    <value>Bordure</value>
+    <comment>WEVideoYouTube</comment>
+  </data>
+  <data name="_N023" xml:space="preserve">
+    <value>Fichier</value>
+    <comment>WEVideoRealPlayer / WEVideoQuickTime / WEVideoMediaPlayer / WEFlash</comment>
+  </data>
+  <data name="_N024" xml:space="preserve">
+    <value>Démarrage automatique</value>
+    <comment>WEVideoRealPlayer / WEVideoQuickTime / WEVideoMediaPlayer / WEFlash</comment>
+  </data>
+  <data name="_N025" xml:space="preserve">
+    <value>Affichage</value>
+    <comment>WEVideoRealPlayer / WERadioButtonList</comment>
+  </data>
+  <data name="_N026" xml:space="preserve">
+    <value>Répétition</value>
+    <comment>WEVideoRealPlayer / WEVideoQuickTime / WEFlash</comment>
+  </data>
+  <data name="_N027" xml:space="preserve">
+    <value>Proportionnel</value>
+    <comment>WEVideoRealPlayer</comment>
+  </data>
+  <data name="_N028" xml:space="preserve">
+    <value>Couleur de fond</value>
+    <comment>WEVideoRealPlayer / WEFlash</comment>
+  </data>
+  <data name="_N030" xml:space="preserve">
+    <value>Contrôles</value>
+    <comment>WEVideoQuickTime</comment>
+  </data>
+  <data name="_N036" xml:space="preserve">
+    <value>Menu</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_N037" xml:space="preserve">
+    <value>Qualité</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_N038" xml:space="preserve">
+    <value>Alignement général</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_N039" xml:space="preserve">
+    <value>Alignement précis</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_N040" xml:space="preserve">
+    <value>Transparence</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_N042" xml:space="preserve">
+    <value>Echelle</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_N044" xml:space="preserve">
+    <value>Désactiver</value>
+    <comment>WEAlertBox</comment>
+  </data>
+  <data name="_N045" xml:space="preserve">
+    <value>Position titre</value>
+    <comment>WEUploadFiles / WETextBox / WETextArea / WERadioButtonList / WEListBox /WECheckBox</comment>
+  </data>
+  <data name="_N046" xml:space="preserve">
+    <value>Extensions autorisées</value>
+    <comment>WEUploadFiles</comment>
+  </data>
+  <data name="_N047" xml:space="preserve">
+    <value>Tailles autorisées</value>
+    <comment>WEUploadFiles</comment>
+  </data>
+  <data name="_N048" xml:space="preserve">
+    <value>Largeur</value>
+    <comment>WEUploadFiles / WETextBox / WETextArea</comment>
+  </data>
+  <data name="_N049" xml:space="preserve">
+    <value>Image à gauche</value>
+    <comment>WEUploadFiles / WETextBox / WETextArea</comment>
+  </data>
+  <data name="_N050" xml:space="preserve">
+    <value>Image alignement</value>
+    <comment>WEUploadFiles/ WETextBox / WETextArea / WEDownloadFile</comment>
+  </data>
+  <data name="_N051" xml:space="preserve">
+    <value>Règles de validation</value>
+    <comment>WEUploadFiles / WETextBox / WETextArea / WEListBox / WECheckBox</comment>
+  </data>
+  <data name="_N052" xml:space="preserve">
+    <value>Image d'erreur</value>
+    <comment>WEUploadFiles / WETextBox / WETextArea /WEListBox / WECheckBox</comment>
+  </data>
+  <data name="_N054" xml:space="preserve">
+    <value>Valeur de saisie</value>
+    <comment>WETextBox / WETextArea</comment>
+  </data>
+  <data name="_N056" xml:space="preserve">
+    <value>Longueur texte</value>
+    <comment>WETextBox</comment>
+  </data>
+  <data name="_N057" xml:space="preserve">
+    <value>Lecture seule</value>
+    <comment>WETextBox / WETextArea /WECheckBox</comment>
+  </data>
+  <data name="_N061" xml:space="preserve">
+    <value>Ascenseur</value>
+    <comment>WETextArea</comment>
+  </data>
+  <data name="_N062" xml:space="preserve">
+    <value>Colonnes</value>
+    <comment>WETextArea</comment>
+  </data>
+  <data name="_N063" xml:space="preserve">
+    <value>Lignes</value>
+    <comment>WETextArea / WEListBox</comment>
+  </data>
+  <data name="_N065" xml:space="preserve">
+    <value>Liste de choix</value>
+    <comment>WERadioButtonList</comment>
+  </data>
+  <data name="_N069" xml:space="preserve">
+    <value>Liste d'éléments</value>
+    <comment>WEListBox</comment>
+  </data>
+  <data name="_N070" xml:space="preserve">
+    <value>Choix multiples</value>
+    <comment>WEListBox</comment>
+  </data>
+  <data name="_N071" xml:space="preserve">
+    <value>Activé</value>
+    <comment>WEListBox</comment>
+  </data>
+  <data name="_N072" xml:space="preserve">
+    <value>Nom du groupe</value>
+    <comment>WEListBox</comment>
+  </data>
+  <data name="_N075" xml:space="preserve">
+    <value>Valeur</value>
+    <comment>WECheckBox</comment>
+  </data>
+  <data name="_N078" xml:space="preserve">
+    <value>Case cochée</value>
+    <comment>WECheckBox</comment>
+  </data>
+  <data name="_N079" xml:space="preserve">
+    <value>Liaisons</value>
+    <comment>WESendMail</comment>
+  </data>
+  <data name="_N080" xml:space="preserve">
+    <value>Configuration d'envoi</value>
+    <comment>WESendMail</comment>
+  </data>
+  <data name="_N082" xml:space="preserve">
+    <value>Affichage</value>
+    <comment>WEFlag</comment>
+  </data>
+  <data name="_N083" xml:space="preserve">
+    <value>Délai</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_N084" xml:space="preserve">
+    <value>Nombre de vignettes</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_N085" xml:space="preserve">
+    <value>Nombre de pages</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_N086" xml:space="preserve">
+    <value>Image suivante</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_N087" xml:space="preserve">
+    <value>Image précédente</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_N088" xml:space="preserve">
+    <value>Page suivante</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_N089" xml:space="preserve">
+    <value>Page précédente</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_N090" xml:space="preserve">
+    <value>Démarrage automatique</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_N091" xml:space="preserve">
+    <value>Lecture</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_N092" xml:space="preserve">
+    <value>Pause</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_N093" xml:space="preserve">
+    <value>Par défaut</value>
+    <comment>WEImage</comment>
+  </data>
+  <data name="_N094" xml:space="preserve">
+    <value>Bouton de lecture</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_N095" xml:space="preserve">
+    <value>Bouton de navigation</value>
+    <comment>WEGallery1</comment>
+  </data>
+  <data name="_N096" xml:space="preserve">
+    <value>Répertoire de base</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_N098" xml:space="preserve">
+    <value>Hauteur</value>
+    <comment>WEHeaderAjax</comment>
+  </data>
+  <data name="_N099" xml:space="preserve">
+    <value>Texte à afficher lors d'un clic droit</value>
+    <comment>WEDisableRightClick</comment>
+  </data>
+  <data name="_N101" xml:space="preserve">
+    <value>Ecart des sous-menus</value>
+    <comment>WEMenu</comment>
+  </data>
+  <data name="_N102" xml:space="preserve">
+    <value>Position de l'en-tête</value>
+    <comment>WEHeaderHTTP</comment>
+  </data>
+  <data name="_N103" xml:space="preserve">
+    <value>Titre</value>
+    <comment>WEAccordionGroup</comment>
+  </data>
+  <data name="_N104" xml:space="preserve">
+    <value>Icône fermé</value>
+    <comment>WEAccordionGroup</comment>
+  </data>
+  <data name="_N105" xml:space="preserve">
+    <value>Icône ouvert</value>
+    <comment>WEAccordionGroup</comment>
+  </data>
+  <data name="_N107" xml:space="preserve">
+    <value>Description</value>
+    <comment>WEAccordionGroup</comment>
+  </data>
+  <data name="_N108" xml:space="preserve">
+    <value>Texte lien</value>
+    <comment>WEAccordionGroup</comment>
+  </data>
+  <data name="_N112" xml:space="preserve">
+    <value>Disposition</value>
+    <comment>WERadioButtonListDisposition</comment>
+  </data>
+  <data name="_N113" xml:space="preserve">
+    <value>Position titre</value>
+    <comment>WERadioButtonListDisposition</comment>
+  </data>
+  <data name="_N114" xml:space="preserve">
+    <value>Alignement</value>
+    <comment>WERadioButtonListDisposition</comment>
+  </data>
+  <data name="_N115" xml:space="preserve">
+    <value>Bloc de code</value>
+    <comment>WECodeBlock</comment>
+  </data>
+  <data name="_N116" xml:space="preserve">
+    <value>Liste d'images</value>
+    <comment>WEGalleryCarrousel1</comment>
+  </data>
+  <data name="_N117" xml:space="preserve">
+    <value>Sens</value>
+    <comment>WEGalleryCarrousel1</comment>
+  </data>
+  <data name="_N118" xml:space="preserve">
+    <value>Décalage</value>
+    <comment>WEGalleryCarrousel1</comment>
+  </data>
+  <data name="_N119" xml:space="preserve">
+    <value>Délai</value>
+    <comment>WEGalleryCarrousel1</comment>
+  </data>
+  <data name="_N120" xml:space="preserve">
+    <value>Automatique</value>
+    <comment>WEGalleryCarrousel1</comment>
+  </data>
+  <data name="_N121" xml:space="preserve">
+    <value>Vitesse</value>
+    <comment>WEGalleryCarrousel1</comment>
+  </data>
+  <data name="_N122" xml:space="preserve">
+    <value>Edition</value>
+    <comment>WEDocument</comment>
+  </data>
+  <data name="_N123" xml:space="preserve">
+    <value>Image normal</value>
+    <comment>WELinkImage</comment>
+  </data>
+  <data name="_N124" xml:space="preserve">
+    <value>Image au survol</value>
+    <comment>WELinkImage</comment>
+  </data>
+  <data name="_N125" xml:space="preserve">
+    <value>Image au clic</value>
+    <comment>WELinkImage</comment>
+  </data>
+  <data name="_N126" xml:space="preserve">
+    <value>Script javascript</value>
+    <comment>WEScriptHidden</comment>
+  </data>
+  <data name="_N127" xml:space="preserve">
+    <value>Mode d'affichage</value>
+    <comment>WEPanel</comment>
+  </data>
+  <data name="_N128" xml:space="preserve">
+    <value>Image d'origine</value>
+    <comment>ImgLightBox</comment>
+  </data>
+  <data name="_N129" xml:space="preserve">
+    <value>Image de zoom</value>
+    <comment>ImgLightBox</comment>
+  </data>
+  <data name="_N130" xml:space="preserve">
+    <value>Titre</value>
+    <comment>ImgLightBox</comment>
+  </data>
+  <data name="_N131" xml:space="preserve">
+    <value>Description</value>
+    <comment>ImgLightBox</comment>
+  </data>
+  <data name="_N132" xml:space="preserve">
+    <value>Adresse URL</value>
+    <comment>ImgLightBox</comment>
+  </data>
+  <data name="_N133" xml:space="preserve">
+    <value>Evénement</value>
+    <comment>WEMenuAccordion</comment>
+  </data>
+  <data name="_N134" xml:space="preserve">
+    <value>Taille automatique</value>
+    <comment>WEMenuAccordion</comment>
+  </data>
+  <data name="_N135" xml:space="preserve">
+    <value>Durée d'ouverture</value>
+    <comment>WEMenuAccordion</comment>
+  </data>
+  <data name="_N136" xml:space="preserve">
+    <value>Couleur de fond des images</value>
+    <comment>WEGalerie1</comment>
+  </data>
+  <data name="_N137" xml:space="preserve">
+    <value>Configuration barre partage</value>
+    <comment>WEShareBar</comment>
+  </data>
+  <data name="_N138" xml:space="preserve">
+    <value>Effet d'animation</value>
+    <comment>WEGalleryCarrousel1</comment>
+  </data>
+  <data name="_N139" xml:space="preserve">
+    <value>Configuration</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_N140" xml:space="preserve">
+    <value>Fermé</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_N141" xml:space="preserve">
+    <value>Unique</value>
+    <comment>WETreeView</comment>
+  </data>
+  <data name="_N142" xml:space="preserve">
+    <value>Titre</value>
+    <comment>WETreeViewItem</comment>
+  </data>
+  <data name="_N143" xml:space="preserve">
+    <value>Lien</value>
+    <comment>WETreeViewItem</comment>
+  </data>
+  <data name="_N144" xml:space="preserve">
+    <value>Icône</value>
+    <comment>WETreeViewItem</comment>
+  </data>
+  <data name="_N145" xml:space="preserve">
+    <value>Fond transparent</value>
+    <comment>WEIframe</comment>
+  </data>
+  <data name="_N146" xml:space="preserve">
+    <value>Ouvert</value>
+    <comment>WETreeViewItem</comment>
+  </data>
+  <data name="_N147" xml:space="preserve">
+    <value>Fermé</value>
+    <comment>WETreeViewItem</comment>
+  </data>
+  <data name="_N148" xml:space="preserve">
+    <value>Configuration</value>
+    <comment>WEBreadCrumbs</comment>
+  </data>
+  <data name="_N149" xml:space="preserve">
+    <value>Lien sur la première image</value>
+    <comment>WEBreadCrumbs</comment>
+  </data>
+  <data name="_N150" xml:space="preserve">
+    <value>Première image</value>
+    <comment>WEBreadCrumbs</comment>
+  </data>
+  <data name="_N151" xml:space="preserve">
+    <value>Image du séparateur</value>
+    <comment>WEBreadCrumbs</comment>
+  </data>
+  <data name="_N152" xml:space="preserve">
+    <value>Configuration avancée</value>
+    <comment>WESendMail</comment>
+  </data>
+  <data name="_N153" xml:space="preserve">
+    <value>Configuration</value>
+    <comment>WESendForm</comment>
+  </data>
+  <data name="_N154" xml:space="preserve">
+    <value>Balise titre</value>
+    <comment>WELabel</comment>
+  </data>
+  <data name="_N155" xml:space="preserve">
+    <value>Largeur du cryptogramme</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N156" xml:space="preserve">
+    <value>Hauteur du cryptogramme</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N157" xml:space="preserve">
+    <value>Temps du rechargement</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N158" xml:space="preserve">
+    <value>Nombre maximum d'essai</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N159" xml:space="preserve">
+    <value>Couleur des caractères</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N160" xml:space="preserve">
+    <value>Couleurs aléatoires</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N161" xml:space="preserve">
+    <value>Clarté des caractères</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N162" xml:space="preserve">
+    <value>Transparence des caractères</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N163" xml:space="preserve">
+    <value>Police des caractères</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N164" xml:space="preserve">
+    <value>Majuscules/minuscules</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N165" xml:space="preserve">
+    <value>Nombre minimum de caractères</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N166" xml:space="preserve">
+    <value>Nombre maximum de caractères</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N167" xml:space="preserve">
+    <value>Espace inter caractères </value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N168" xml:space="preserve">
+    <value>Taille minimum des caractères</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N169" xml:space="preserve">
+    <value>Taille maximum des caractères</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N170" xml:space="preserve">
+    <value>Angle maximum des caractères</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N171" xml:space="preserve">
+    <value>Déplacement vertical des caractères</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N172" xml:space="preserve">
+    <value>Pixels minimum</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N173" xml:space="preserve">
+    <value>Pixels maximum</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N174" xml:space="preserve">
+    <value>Lignes minimum</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N175" xml:space="preserve">
+    <value>Lignes maximum</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N176" xml:space="preserve">
+    <value>Cercles minimum</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N177" xml:space="preserve">
+    <value>Cercles maximum</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N178" xml:space="preserve">
+    <value>Couleur </value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N179" xml:space="preserve">
+    <value>Taille </value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N180" xml:space="preserve">
+    <value>Au-dessus</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N181" xml:space="preserve">
+    <value>Autorisé</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N182" xml:space="preserve">
+    <value>Message d'erreur</value>
+    <comment>WECaptcha</comment>
+  </data>
+  <data name="_N183" xml:space="preserve">
+    <value>URLs vidéo</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_N184" xml:space="preserve">
+    <value>Affiche</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_N185" xml:space="preserve">
+    <value>Contrôles par défaut</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_N186" xml:space="preserve">
+    <value>Contrôles personnalisés</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_N187" xml:space="preserve">
+    <value>Lecture automatique</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_N188" xml:space="preserve">
+    <value>Répétition</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_N189" xml:space="preserve">
+    <value>Muet</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_N190" xml:space="preserve">
+    <value>Message Echec Plugins</value>
+    <comment>WEVideo</comment>
+  </data>
+  <data name="_N191" xml:space="preserve">
+    <value>Barres de défilement</value>
+    <comment>WEIframe</comment>
+  </data>
+  <data name="_N192" xml:space="preserve">
+    <value>Bordures</value>
+    <comment>WEIframe</comment>
+  </data>
+  <data name="_N193" xml:space="preserve">
+    <value>Script</value>
+    <comment>WEPayPal</comment>
+  </data>
+  <data name="_N194" xml:space="preserve">
+    <value>Paramètres</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_N195" xml:space="preserve">
+    <value>Paramètres</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_N196" xml:space="preserve">
+    <value>Valeur</value>
+    <comment>WEFlash</comment>
+  </data>
+  <data name="_N197" xml:space="preserve">
+    <value>Nombre de colonne</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_N198" xml:space="preserve">
+    <value>Nombre de ligne</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_N199" xml:space="preserve">
+    <value>Indicateurs</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_N201" xml:space="preserve">
+    <value>Edition verrouillée</value>
+    <comment>WETable</comment>
+  </data>
+  <data name="_N202" xml:space="preserve">
+    <value>Titre</value>
+    <comment>WERss</comment>
+  </data>
+  <data name="_N203" xml:space="preserve">
+    <value>Date</value>
+    <comment>WERss</comment>
+  </data>
+  <data name="_N204" xml:space="preserve">
+    <value>Description</value>
+    <comment>WERss</comment>
+  </data>
+  <data name="_N205" xml:space="preserve">
+    <value>Lien</value>
+    <comment>WERss</comment>
+  </data>
+  <data name="_N206" xml:space="preserve">
+    <value>Gestion Article</value>
+    <comment>WERss</comment>
+  </data>
+  <data name="_N207" xml:space="preserve">
+    <value>Article Existant</value>
+    <comment>WERss</comment>
+  </data>
+  <data name="_N208" xml:space="preserve">
+    <value>Attribut name</value>
+    <comment>form</comment>
+  </data>
+  <data name="_N209" xml:space="preserve">
+    <value>Selectionné</value>
+    <comment>WEListBoxV2</comment>
+  </data>
+  <data name="_N210" xml:space="preserve">
+    <value>Type</value>
+    <comment>WETextBoxV2</comment>
+  </data>
+  <data name="_N211" xml:space="preserve">
+    <value>Auto complete</value>
+    <comment>Form</comment>
+  </data>
+  <data name="_N212" xml:space="preserve">
+    <value>Multiple</value>
+    <comment>Form</comment>
+  </data>
+  <data name="_N213" xml:space="preserve">
+    <value>Annuler le redimensionnement</value>
+    <comment>WETextArea</comment>
+  </data>
+  <data name="_N214" xml:space="preserve">
+    <value>Position de départ</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_N215" xml:space="preserve">
+    <value>Ouvert</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_N216" xml:space="preserve">
+    <value>Entête du flux Rss</value>
+    <comment>WERSSWriter</comment>
+  </data>
+  <data name="_N217" xml:space="preserve">
+    <value>Liste des articles du flux</value>
+    <comment>WERSSWriter</comment>
+  </data>
+  <data name="_N218" xml:space="preserve">
+    <value>Liste des pages</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_N219" xml:space="preserve">
+    <value>Element précèdent</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_N220" xml:space="preserve">
+    <value>Element suivant</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_N221" xml:space="preserve">
+    <value>Direction</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_N222" xml:space="preserve">
+    <value>Délai</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_N223" xml:space="preserve">
+    <value>Accès direct</value>
+    <comment>WESlide</comment>
+  </data>
+  <data name="_N224" xml:space="preserve">
+    <value>Précèdent</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_N225" xml:space="preserve">
+    <value>Suivant</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_N226" xml:space="preserve">
+    <value>Démarrage automatique</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_N227" xml:space="preserve">
+    <value>Survol actif</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_N228" xml:space="preserve">
+    <value>Délai de démarrage</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_N229" xml:space="preserve">
+    <value>Lecture</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_N230" xml:space="preserve">
+    <value>Stop</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_N231" xml:space="preserve">
+    <value>Infini</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_N232" xml:space="preserve">
+    <value>Effet</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_N233" xml:space="preserve">
+    <value>Espace inter-pages</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_N234" xml:space="preserve">
+    <value>Mode d'affichage</value>
+    <comment>WESlideshow</comment>
+  </data>
+  <data name="_N235" xml:space="preserve">
+    <value>Effet d'ouverture</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_N236" xml:space="preserve">
+    <value>Effet de fermeture</value>
+    <comment>WECollapsiblePanel</comment>
+  </data>
+  <data name="_N237" xml:space="preserve">
+    <value>Configuration des drapeaux</value>
+    <comment>WEFlag</comment>
+  </data>
+  <data name="_N238" xml:space="preserve">
+    <value>Source</value>
+    <comment>WEPack (Element Pack) Source</comment>
+  </data>
+  <data name="_N239" xml:space="preserve">
+    <value>Sélectionner les éléments</value>
+    <comment>WEPack "Select elements" (select pack elements)</comment>
+  </data>
+  <data name="_N240" xml:space="preserve">
+    <value>Attribuer les sources (valeurs)</value>
+    <comment>WEPack "Assign sources (values)"</comment>
+  </data>
+  <data name="_N241" xml:space="preserve">
+    <value>Garder les paramètres URL actuels</value>
+    <comment>WESendForm property Keep current URL parameters</comment>
+  </data>
+  <data name="_N242" xml:space="preserve">
+    <value>Délai d'ouverture</value>
+  </data>
+  <data name="_N243" xml:space="preserve">
+    <value>Délai de fermeture</value>
+  </data>
+  <data name="_N244" xml:space="preserve">
+    <value>Activer la liste dynamique</value>
+    <comment>WEListBox (drop-down) "Activate dynamic list"</comment>
+  </data>
+</root>

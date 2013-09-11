@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6DC8750C-C831-426C-AAFB-050117560473}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>WebElement</RootNamespace>
+    <AssemblyName>WECommon</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <AssemblyOriginatorKeyFile>WECommon.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\..\OpenElement\bin\Debug\ElementsLibrary\Common\</OutputPath>
+    <DocumentationFile>WECommon.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\openElement\bin\Debug\ElementsLibrary\Common\</OutputPath>
+    <DocumentationFile>WECommon.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=1.4.0.0, Culture=neutral, PublicKeyToken=09f73bf5f740ce03, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="OpenElement.Controls" />
+    <Import Include="OpenElement.Modules" />
+    <Import Include="openElement.WebElement.DataType" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Community\Editors\UITypeShareBar.vb" />
+    <Compile Include="Community\WEShareBar.vb" />
+    <Compile Include="Containers\Accordion\WEAccordion.vb" />
+    <Compile Include="Containers\Accordion\WEAccordionGroup.vb" />
+    <Compile Include="Containers\Editors\Converter\TConvEnuCollapsiblePanelPosition.vb" />
+    <Compile Include="Containers\WECollapsiblePanel.vb" />
+    <Compile Include="Containers\WEDynIteratorPanelDBG.vb" />
+    <Compile Include="Containers\WESlidershow.vb" />
+    <Compile Include="Form\Editors\Converter\TConvEnuCharColorRndLevel.vb" />
+    <Compile Include="Form\Editors\Converter\TConvEnuCharColorRndLevelV2.vb" />
+    <Compile Include="Form\Editors\Converter\TConvEnuNoiseColorChar.vb" />
+    <Compile Include="Form\Editors\Converter\TConvTextBoxEnumType.vb" />
+    <Compile Include="Form\Editors\FormEnum.vb" />
+    <Compile Include="Form\Editors\UITypeRadioDisposition.vb" />
+    <Compile Include="Form\Editors\UITypeWESendFormConfig.vb" />
+    <Compile Include="Form\Editors\UITypeWESendMailConfig.vb" />
+    <Compile Include="Form\WECaptcha.vb" />
+    <Compile Include="Form\Class\WEListBoxItem.vb" />
+    <Compile Include="Form\WECheckBoxV2.vb" />
+    <Compile Include="Form\WEFormFieldBase.vb" />
+    <Compile Include="Form\WEListBoxV2.vb" />
+    <Compile Include="Form\WERadioButtonListV2.vb" />
+    <Compile Include="Form\WESendForm.vb" />
+    <Compile Include="Form\WETextAreaV2.vb" />
+    <Compile Include="Form\WETextBoxV2.vb" />
+    <Compile Include="Form\WEUploadFilesV2.vb" />
+    <Compile Include="Interactivity\Editors\Converter\TConvEnuScrolling.vb" />
+    <Compile Include="Interactivity\Editors\UITypePayPal.vb" />
+    <Compile Include="Interactivity\Editors\UITypeRss.vb" />
+    <Compile Include="Interactivity\Rss\WERssReader.vb" />
+    <Compile Include="Interactivity\Rss\WERssWriter.vb" />
+    <Compile Include="Interactivity\WEDisableRightClick.vb" />
+    <Compile Include="Interactivity\WEIframe.vb" />
+    <Compile Include="Interactivity\WELightBox1.vb" />
+    <Compile Include="Interactivity\WEPayPal.vb" />
+    <Compile Include="Media\Editors\Converter\TConvCodeVideoNoPlugins.vb" />
+    <Compile Include="Media\Editors\Converter\TConvEnuCarrouselDirection.vb">
+    </Compile>
+    <Compile Include="Media\Editors\Converter\TConvEnuCarrouselTypeEffect.vb" />
+    <Compile Include="Media\Editors\Converter\TConvEnuCarrousel_VerticalDirection.vb" />
+    <Compile Include="Media\Editors\UITypeVideo.vb" />
+    <Compile Include="Media\WEGalleryCarrousel1.vb" />
+    <Compile Include="Media\WEGalleryCarrousel2.vb" />
+    <Compile Include="Media\WEVideo.vb" />
+    <Compile Include="Navigate\Editors\UITypeFlagView.vb" />
+    <Compile Include="Navigate\Editors\UITypeListConfigLanguage.vb" />
+    <Compile Include="Navigate\Menu\WEMenuAccordion.vb" />
+    <Compile Include="Navigate\WEBreadCrumbs .vb" />
+    <Compile Include="Navigate\WELinkImage.vb" />
+    <Compile Include="Navigate\WETreeView.vb" />
+    <Compile Include="Other\Editors\Converter\TConvEnuHeaderPosition.vb" />
+    <Compile Include="Other\WEW3C.vb" />
+    <Compile Include="Resources\text\LocalizablePropertyCategory.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalizablePropertyCategory.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\text\LocalizablePropertyDefaultValue.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalizablePropertyDefaultValue.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\text\LocalizablePropertyDescription.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalizablePropertyDescription.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\text\LocalizablePropertyNames.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalizablePropertyNames.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Standard\Editors\Converter\TConvEnuBaliseH.vb" />
+    <Compile Include="Standard\WECadre.vb" />
+    <Compile Include="Form\Editors\Converter\TConvUploadFileSize.vb" />
+    <Compile Include="Form\Editors\Converter\TConvWEListBoxListElements.vb" />
+    <Compile Include="Form\Editors\UITypeListBoxElements.vb" />
+    <Compile Include="Interactivity\WEScript.vb" />
+    <Compile Include="Interactivity\WEScriptHidden.vb" />
+    <Compile Include="Media\WEGallery1.vb" />
+    <Compile Include="Navigate\WEFlag.vb" />
+    <Compile Include="Other\WEBannerPage.vb" />
+    <Compile Include="Resources\Localizable\LocalizableCatAtt.vb" />
+    <Compile Include="Resources\Localizable\LocalizableDescAtt.vb" />
+    <Compile Include="Resources\Localizable\LocalizableNameAtt.vb" />
+    <Compile Include="Resources\text\LocalizableFormAndConverter.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalizableFormAndConverter.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\text\LocalizableOpen.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalizableOpen.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Navigate\WEDownloadFiles.vb" />
+    <Compile Include="Form\WEListBox.vb" />
+    <Compile Include="Form\WEUploadFiles.vb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Navigate\Editors\Converter\TConvMenuEnuSubIconPosition.vb" />
+    <Compile Include="Form\WECaptchaV2.vb" />
+    <Compile Include="Standard\WEDocument.vb" />
+    <Compile Include="Form\WECheckbox.vb" />
+    <Compile Include="Form\Editors\Converter\TConvRadioListElement.vb" />
+    <Compile Include="Form\Editors\Converter\TConvTextAreaScrollOverFlow.vb" />
+    <Compile Include="Form\Editors\Converter\TConvTextBoxEnumTextPosition.vb" />
+    <Compile Include="Form\Editors\Converter\TConvWERadioButtonListDisposition.vb" />
+    <Compile Include="Form\Editors\UITypeRadioListDisposition.vb" />
+    <Compile Include="Form\Editors\UITypeRadioListElements.vb" />
+    <Compile Include="Form\WERadioButtonList.vb" />
+    <Compile Include="Form\WETextArea.vb" />
+    <Compile Include="Standard\WEHelpUs.vb" />
+    <Compile Include="Media\Editors\Converter\TConvEnuFlashSalign.vb" />
+    <Compile Include="Media\Editors\Converter\TConvEnuFlashScale.vb" />
+    <Compile Include="Media\Editors\Converter\TConvEnuFlashWmode.vb" />
+    <Compile Include="Media\Editors\Converter\TConvEnuFlashAlign.vb" />
+    <Compile Include="Media\Editors\Converter\TConvEnuFlashQuality.vb" />
+    <Compile Include="Media\Editors\UITypeDailymotion.vb" />
+    <Compile Include="Media\Editors\UITypeYouTube.vb" />
+    <Compile Include="Media\WEFlash.vb" />
+    <Compile Include="Form\WEButton.vb" />
+    <Compile Include="Form\WETextBox.vb" />
+    <Compile Include="Standard\WEHr.vb" />
+    <Compile Include="Standard\WEHrVertival.vb" />
+    <Compile Include="Standard\WEImage.vb" />
+    <Compile Include="Standard\WELabel.vb" />
+    <Compile Include="Navigate\WELink.vb" />
+    <Compile Include="Interactivity\WEAlertBox.vb" />
+    <Compile Include="Media\WEVideoDailymotion.vb" />
+    <Compile Include="Media\WEVideoYouTube.vb" />
+    <Compile Include="Navigate\Editors\Converter\TConvMenuEnuEventType.vb" />
+    <Compile Include="Navigate\Editors\Converter\TConvMenuEnuStartPosition.vb" />
+    <Compile Include="Navigate\Editors\UITypeMenuGroup.vb" />
+    <Compile Include="Navigate\Menu\WEMenu.vb" />
+    <Compile Include="Navigate\WELinkButton.vb" />
+    <Compile Include="Containers\WEPanel.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Form\WESendMail.vb" />
+    <Compile Include="Standard\WETable.vb" />
+    <Compile Include="Stats\WECounter.vb" />
+    <Compile Include="Stats\Editors\UITypeCounter.vb" />
+    <Compile Include="Standard\WEText.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\text\LocalizablePropertyCategory.resx">
+      <CustomToolNamespace>My.Resources.text</CustomToolNamespace>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocalizablePropertyCategory.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\text\LocalizablePropertyDefaultValue.resx">
+      <CustomToolNamespace>My.Resources.text</CustomToolNamespace>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocalizablePropertyDefaultValue.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\text\LocalizablePropertyDescription.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocalizablePropertyDescription.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources.text</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\text\LocalizableFormAndConverter.resx">
+      <CustomToolNamespace>My.Resources.text</CustomToolNamespace>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocalizableFormAndConverter.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\text\LocalizableOpen.resx">
+      <CustomToolNamespace>My.Resources.text</CustomToolNamespace>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocalizableOpen.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\text\LocalizablePropertyNames.resx">
+      <CustomToolNamespace>My.Resources.text</CustomToolNamespace>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocalizablePropertyNames.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="WECommon.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\empty.png" />
+    <None Include="Resources\MenuSubIcon.png" />
+    <None Include="Resources\WETextBox.png" />
+    <None Include="Resources\WETextArea.png" />
+    <None Include="Resources\WECounter.png" />
+    <None Include="Resources\WEAlertBox.png" />
+    <None Include="Resources\WESendMail.png" />
+    <None Include="Resources\WERadioButtonList.png" />
+    <None Include="Resources\WECheckbox.png" />
+    <None Include="Resources\WEVideo.png" />
+    <None Include="Resources\WEFlash.png" />
+    <None Include="Resources\WEButton.png" />
+    <None Include="Resources\WELinkButton.png" />
+    <None Include="Resources\WEMenu.png" />
+    <None Include="Resources\WELink.png" />
+    <None Include="Resources\WEText.png" />
+    <None Include="Resources\WELabel.png" />
+    <None Include="Resources\WEPanel.png" />
+    <None Include="Resources\WEHelpUs.png" />
+    <None Include="Resources\WEDocument.png" />
+    <None Include="Resources\WEImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WEListBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MenuSeparator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WEDownloadFiles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WEUploadFiles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DownloadDefault.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\errorDefault.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ImageDefault.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Font\luggerbu.ttf" />
+    <None Include="Resources\WECodeBlock.png" />
+    <None Include="Resources\text_code_colored.png" />
+    <Content Include="Docs\WECounter.xml" />
+    <Content Include="Docs\WEImage.xml" />
+    <None Include="Resources\photo.png" />
+    <None Include="Resources\photo4.png" />
+    <Content Include="Lib\Newtonsoft.Json.dll" />
+    <None Include="Resources\WEBreadCrumbs.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\HorizontalTop.png" />
+    <None Include="Resources\HorizontalBottom.png" />
+    <None Include="Resources\HorizontalLeft.png" />
+    <None Include="Resources\HorizontalRight.png" />
+    <None Include="Resources\element_next.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Content Include="Resources\ImageRssDefault.png" />
+    <None Include="Resources\VerticalJustifyLeft.png" />
+    <None Include="Resources\VerticalJustifyRight.png" />
+    <None Include="Resources\VerticalLeft.png" />
+    <None Include="Resources\VerticalRight.png" />
+    <None Include="Resources\RadioDispositionSelect.png" />
+    <None Include="Resources\WECollapsiblePanel.png" />
+    <Content Include="Resources\WERss.png" />
+    <Content Include="Resources\Font\luggerbu.txt" />
+    <Content Include="Resources\WECadre.png" />
+    <None Include="Resources\WEFacebook.png" />
+    <None Include="Resources\WECaptcha.png" />
+    <Content Include="Resources\WECarrousel1.png" />
+    <None Include="Resources\WECarrousel2.png" />
+    <Content Include="Resources\WEFlag.png" />
+    <Content Include="Docs\WELabel.xml" />
+    <None Include="Resources\window_edit.png" />
+    <None Include="Resources\window_edit_elem.png" />
+    <None Include="Resources\WESlideshow.png" />
+    <None Include="Resources\WERssWriter.png" />
+    <None Include="Resources\WETable.png" />
+    <None Include="Resources\WEPayPal.png" />
+    <None Include="Resources\WESendForm.png" />
+    <None Include="Resources\WETreeView.png" />
+    <None Include="Resources\WEHrVertival.png" />
+    <None Include="Resources\WEGPlus.png" />
+    <None Include="Resources\WETwitter.png" />
+    <None Include="Resources\WEW3C.png" />
+    <None Include="Resources\WEMenuAccordion.png" />
+    <None Include="Resources\WEScriptHidden.png" />
+    <None Include="Resources\WELinkImage.png" />
+    <None Include="Resources\WEHr.png" />
+    <None Include="Resources\WEGallery1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{94E38DFF-614B-4CBD-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\openElement\openElement.vbproj">
+      <Project>{57452E28-56EA-4D1C-A2C7-6D0B77A8FC1C}</Project>
+      <Name>openElement</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Animation\" />
+    <Folder Include="Security\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

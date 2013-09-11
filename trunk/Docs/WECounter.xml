@@ -1,0 +1,559 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<doc>
+  <summary>Code source de l'élément "Image" (WEImage)</summary>
+  <example>
+
+    <code lang="VB">
+
+      <![CDATA[
+      Imports openElement.WebElement.Elements
+Imports openElement.WebElement
+Imports System.ComponentModel
+
+'Namespace de l'élément (Créer le votre ex : Elements.MyCompagny)
+Namespace Elements.Stats
+
+    ''' <summary>
+    ''' L'élément présenté ci-dessous est la copie conforme du code source de l'élément Compteur disponible dans openElement
+    ''' Créer une Class Public qui hérite de "openElement.WebElement.Elements.ElementBase".
+    ''' Voir la documentation se rapportant à ElementBase pour toutes les explications des fonctions de mybase utilisé dans cette classe.
+    ''' Le nom de la class est primordial il doit être unique pour le même Namespace et ne pourra plus être modifié par la suite.
+    ''' Il est indispensable d'indiquer cette Class comme sérializable.
+    ''' </summary>
+    ''' <remarks>Il est préférable de nous soumettre le nom</remarks>
+    <Serializable()> _
+    Public Class WECounter
+        Inherits ElementBase
+
+        ''' <summary>
+        ''' Enum contenant les différents types de compteur disponible 
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Enum EnuTypeCounter As Short
+            All = 0  'depuis le début
+            Daily = 1 'depuis le début de la journée
+            Weekly = 2 'depuis le début de la semaine
+            Monthly = 3 'depuis le début du mois
+            Yearly = 4 'depuis le début de l'année
+        End Enum
+        ''' <summary>
+        ''' Enum contenant les différentes méthodes de comptage
+        ''' </summary>
+        ''' <remarks></remarks>
+        Public Enum EnuMethodCounter As Short
+            All = 0
+            Unique = 1
+        End Enum
+
+
+#Region "Propriétés"
+        'Pour les métaTags des propriétés publiques, se rapporter au chapitre concerné                                                                                                      InzM3t5itgmm
+
+        ''' <summary>
+        ''' Données de configuration du compteur. 
+        ''' </summary>
+        ''' <remarks></remarks>
+        Private _Config As WECounterConfig
+
+        ''' <summary>
+        ''' Propriété de la variable _Config
+        ''' </summary>
+        <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), _
+        Ressource.localizable.LocalizableNameAtt("_N001"), _
+        Ressource.localizable.LocalizableDescAtt("_D001"), _
+        Editor(GetType(Editors.UITypeCounter), GetType(Drawing.Design.UITypeEditor)), _
+        Common.Attributes.ExportVar(Common.Attributes.ExportVar.EnuVarType.Php), _
+        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)> _
+        Public Property Config() As WECounterConfig
+            Get
+                If _Config Is Nothing Then _Config = New WECounterConfig
+                Return _Config
+            End Get
+            Set(ByVal value As WECounterConfig)
+                _Config = value
+            End Set
+        End Property
+
+#End Region
+
+#Region "Constructeur"
+
+        ''' <summary>
+        ''' Le constructeur doit avoir obligatoirement la forme suivante et faire appel au constructeur de la classe hérité
+        ''' Pour les paramètres du contructeur de base, se rapporter à la classe correspondante
+        ''' </summary>
+        ''' <param name="Page">Référence à la page dans lequel est positionné l'élément(attribuer automatiquement)</param>
+        ''' <param name="ParentID">Identifiant du conteneur parent(attribuer automatiquement)</param>
+        ''' <param name="TemplateName">Nom du template direct dans lequel est contenu l'élément(attribuer automatiquement)</param>
+        ''' <remarks></remarks>
+        Public Sub New(ByVal Page As Page, ByVal ParentID As String, ByVal TemplateName As String)
+            MyBase.New(EnuElementType.PageEdit, "WECounter", Page, ParentID, TemplateName)
+
+            '1er initialisations des elements de configuration de base
+            'Attention : il s'agit de valeur par défaut à la création de l'élément et non de valeur par défaut obligatoire
+            Config.CountMethod = EnuMethodCounter.All
+            Config.InitialValue = 0
+            Config.TypeCounter = EnuTypeCounter.All
+            Config.Lenght = 4
+
+        End Sub
+
+        ''' <summary>
+        ''' Evènement de démarrage (OnOpen) obligatoire pour la configuration de l'élément
+        ''' </summary>
+        ''' <remarks></remarks>
+        Protected Overrides Sub OnOpen()
+            'Nom de l'élément affiché dans la liste des éléments
+            MyBase.ElementInfo.ToolBoxCaption = My.Resources.text.LocalizableOpen._0026 '"Compteur de visites"
+            'Description de l'élément
+            MyBase.ElementInfo.ToolBoxDescription = My.Resources.text.LocalizableOpen._0027 '"Afficher nombre de visiteurs de la page."
+            'Numéro de version majeur de l'élément
+            MyBase.ElementInfo.VersionMajor = 1
+            'Numéro de version mineur de l'élément
+            MyBase.ElementInfo.VersionMinor = 0
+            'Groupe de la barre d'outils d'openElement 
+            MyBase.ElementInfo.GroupName = "NBGroupStats"
+            'Icone pour la barre d'outils d'openElement (Taille 16x16) 
+            MyBase.ElementInfo.ToolBoxIco = My.Resources.WECounter
+            'Propriété à ouvrir automatiquement lors de l'ajout de l'élément dans la page
+            MyBase.ElementInfo.AutoOpenProperty = "Config"
+
+            'Pour rajouter des propriétés dans la liste des acces rapides (icones qui s'affiche en dessous de l'élément lors de sa sélection): 
+            'Ajouter à la liste un nouvel objet SortProperty 
+            '(paramètres : nom de la propriété, nom de l'image associé (celle ci est placé dans le dossier ressource du projet), Texte du tooltip associé)
+            MyBase.ElementInfo.SortPropertyList.Add(New SortProperty("Config", "tools.png", My.Resources.text.LocalizableOpen._0030)) '"Configuration"
+
+            'Pour rajouter une zone dans la liste des zone de style (permet l'édition d'un css spécifique à cette zone)
+            '(paramètres : nom de la zone (sera utilisé dans le render) , titre de la zone affiché à l'utilisateur, description de la zone affiché à l'utilisateur, style de la zone (ici : affiché dans le ribbon et l'onglet style)
+            Dim ConfigStylesZones As New List(Of StylesManager.ConfigStylesZone)
+            ConfigStylesZones.Add(New StylesManager.ConfigStylesZone("Digit", My.Resources.text.LocalizableOpen._0028, My.Resources.text.LocalizableOpen._0029)) '"Chiffres" - "Permet de configurer chacun des chiffres du compteur de visites"
+            MyBase.StylesSkin.SetConfig(ConfigStylesZones)
+
+            'Pour rajouter au projet des fichiers associés, ainsi qu'à la page les liaison vers ces fichier : 
+            'Attention tous les chemins doivent être relatif par rapport au dossier contenant les fichiers
+            'ici ajout d'un fichier de type javascript (paramètres: type du fichier, chemin du fichier dans le projet openElement, chemin de destination du fichier copié dans le site internet)
+            MyBase.AddExternalScripts(Common.EnuScriptType.Javascript, "ElementsLibrary\Common\Client\WECounter.js", "WEFiles/Client/WECounter.js")
+            'ici ajout d'un fichier de type script php (paramètres: type du fichier, chemin du fichier dans le projet openElement, chemin de destination du fichier copié dans le site internet) 
+            MyBase.AddExternalScripts(Common.EnuScriptType.Php, "ElementsLibrary\Common\Server\WECounter.php", "WEFiles/Server/WECounter.php")
+
+            'A placer obligatoirement à la fin
+            MyBase.OnOpen()
+
+        End Sub
+
+#End Region
+
+#Region "Render"
+        'Région consacré au rendu html sur la page internet de l'objet 'compteur' (obligatoire pour les éléments de type EnuElementType.PageEdit).
+
+        ''' <summary>
+        ''' Evènement de rendu (obligatoire pour les éléments de type EnuElementType.PageEdit).
+        ''' C'est ici que la création de l'HTML de l'élément se construit.
+        ''' </summary>
+        ''' <param name="writer"></param>
+        ''' <remarks></remarks>
+        Protected Overrides Sub Render(ByVal writer As Common.HtmlWriter)
+            Dim initialValueLenght As Integer = Config.InitialValue.ToString.Length
+
+            'A ajouter obligatoirement en début du rendu html de l'élement
+            MyBase.RenderBeginTag(writer)
+
+            'Vous avez à votre disposition trois périodes pour le render : 
+            'Editor : écriture du rendu html pour la zone d'édition d'openElement,
+            'Export : écriture du rendu html final, c'est celui qui sera sur les pages htm exportées lors de la mise en ligne
+            'Preview : écriture du rendu html pour la page de prévisualisation.
+
+            'Ici on n'écris le code html du compteur que pour le fichier final exporté lors de la mise en ligne (le code php associé ne s'execute qu'en ligne)
+            If MyBase.Page.RenderMode <> openElement.WebElement.Page.EnuTypeRenderMode.Export Then
+                For i = 1 To Me.Config.Lenght - initialValueLenght
+                    Call DivRender(writer, "0")
+                Next
+                For i = 1 To Me.Config.Lenght
+                    If initialValueLenght >= i Then Call DivRender(writer, Config.InitialValue.ToString.Chars(i - 1))
+                Next
+            End If
+            'A ajouter obligatoirement en fin du rendu html de l'élement
+            MyBase.RenderEndTag(writer)
+        End Sub
+
+        Private Sub DivRender(ByVal writer As Common.HtmlWriter, ByVal value As String)
+            writer.WriteBeginTag("div")
+            'Ajout de la zone de style déclarer dans la fonction 'OnOpen' 
+            writer.WriteAttribute("class", GetStyleZoneClass("Digit"))
+            writer.Write(System.Web.UI.HtmlTextWriter.TagRightChar)
+            writer.Write(value)
+            writer.WriteEndTag("div")
+            writer.WriteLine()
+        End Sub
+
+
+#End Region
+
+    End Class
+
+    ''' <summary>
+    ''' Classe de configuration de l'élément compteur
+    ''' Cette classe est utilisée dans une propriété d'un élément, elle doit obligatoirement  
+    ''' être déclarée Serializable  (exeption :  si la propriété est elle déclarée 'non sérialisable')
+    ''' </summary>
+    ''' <remarks>Création de cette classe pour faciliter l'échange d'informations</remarks>
+    <Serializable()> _
+    Public Class WECounterConfig
+        ''' <summary>
+        ''' Type du compteur 
+        ''' </summary>
+        Private _TypeCounter As WECounter.EnuTypeCounter
+        ''' <summary>
+        ''' Valeur initiale du compteur
+        ''' </summary>
+        Private _InitialValue As Integer
+        ''' <summary>
+        ''' Nombre de chiffre au compteur
+        ''' </summary>
+        Private _Lenght As Integer
+        ''' <summary>
+        ''' Méthode de comptage utilisé
+        ''' </summary>
+        Private _CountMethod As WECounter.EnuMethodCounter
+
+        ''' <summary>
+        ''' propriété de la variable _TypeCounter
+        ''' </summary>
+        Public Property TypeCounter() As WECounter.EnuTypeCounter
+            Get
+                Return _TypeCounter
+            End Get
+            Set(ByVal value As WECounter.EnuTypeCounter)
+                _TypeCounter = value
+            End Set
+        End Property
+        ''' <summary>
+        ''' propriété de la variable _InitialValue
+        ''' </summary>
+        Public Property InitialValue() As Integer
+            Get
+                Return _InitialValue
+            End Get
+            Set(ByVal value As Integer)
+                _InitialValue = value
+            End Set
+        End Property
+        ''' <summary>
+        ''' propriété de la variable _Lenght
+        ''' </summary>
+        Public Property Lenght() As Integer
+            Get
+                Return _Lenght
+            End Get
+            Set(ByVal value As Integer)
+                _Lenght = value
+            End Set
+        End Property
+        ''' <summary>
+        ''' propriété de la variable _CountMethod
+        ''' </summary>
+        Public Property CountMethod() As WECounter.EnuMethodCounter
+            Get
+                Return _CountMethod
+            End Get
+            Set(ByVal value As WECounter.EnuMethodCounter)
+                _CountMethod = value
+            End Set
+        End Property
+
+        ''' <summary>
+        ''' Surcharge de la fonction objet, utilisé pour l'affichage dans la property grid
+        ''' </summary>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
+        Public Overrides Function toString() As String
+            Return My.Resources.text.LocalizableOpen._0146 '"Compteur"
+        End Function
+
+    End Class
+
+End Namespace
+    
+         ]]>
+
+    </code>
+
+    <code lang="C#">
+
+      <![CDATA[ 
+      using Microsoft.VisualBasic;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
+using openElement.WebElement.Elements;
+using openElement.WebElement;
+using System.ComponentModel;
+
+//Namespace de l'élément (Créer le votre ex : Elements.MyCompagny)
+namespace Elements.Stats
+{
+
+	/// <summary>
+	/// L'élément présenté ci-dessous est la copie conforme du code source de l'élément Compteur disponible dans openElement
+	/// Créer une Class Public qui hérite de "openElement.WebElement.Elements.ElementBase".
+	/// Voir la documentation se rapportant à ElementBase pour toutes les explications des fonctions de mybase utilisé dans cette classe.
+	/// Le nom de la class est primordial il doit être unique pour le même Namespace et ne pourra plus être modifié par la suite.
+	/// Il est indispensable d'indiquer cette Class comme sérializable.
+	/// </summary>
+	/// <remarks>Il est préférable de nous soumettre le nom</remarks>
+	[Serializable()]
+	public class WECounter : ElementBase
+	{
+
+		/// <summary>
+		/// Enum contenant les différents types de compteur disponible 
+		/// </summary>
+		/// <remarks></remarks>
+		public enum EnuTypeCounter : short
+		{
+			All = 0,
+			//depuis le début
+			Daily = 1,
+			//depuis le début de la journée
+			Weekly = 2,
+			//depuis le début de la semaine
+			Monthly = 3,
+			//depuis le début du mois
+			Yearly = 4
+			//depuis le début de l'année
+		}
+		/// <summary>
+		/// Enum contenant les différentes méthodes de comptage
+		/// </summary>
+		/// <remarks></remarks>
+		public enum EnuMethodCounter : short
+		{
+			All = 0,
+			Unique = 1
+		}
+
+
+		#region "Propriétés"
+		//Pour les métaTags des propriétés publiques, se rapporter au chapitre concerné                                                                                                      InzM3t5itgmm
+
+		/// <summary>
+		/// Données de configuration du compteur. 
+		/// </summary>
+		/// <remarks></remarks>
+
+		private WECounterConfig _Config;
+		/// <summary>
+		/// Propriété de la variable _Config
+		/// </summary>
+		[Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), Ressource.localizable.LocalizableNameAtt("_N001"), Ressource.localizable.LocalizableDescAtt("_D001"), Editor(typeof(Editors.UITypeCounter), typeof(Drawing.Design.UITypeEditor)), Common.Attributes.ExportVar(System.Data.Common.Attributes.ExportVar.EnuVarType.Php), Common.Attributes.PageUpdateMode(System.Data.Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)]
+		public WECounterConfig Config {
+			get {
+				if (_Config == null)
+					_Config = new WECounterConfig();
+				return _Config;
+			}
+			set { _Config = value; }
+		}
+
+		#endregion
+
+		#region "Constructeur"
+
+		/// <summary>
+		/// Le constructeur doit avoir obligatoirement la forme suivante et faire appel au constructeur de la classe hérité
+		/// Pour les paramètres du contructeur de base, se rapporter à la classe correspondante
+		/// </summary>
+		/// <param name="Page">Référence à la page dans lequel est positionné l'élément(attribuer automatiquement)</param>
+		/// <param name="ParentID">Identifiant du conteneur parent(attribuer automatiquement)</param>
+		/// <param name="TemplateName">Nom du template direct dans lequel est contenu l'élément(attribuer automatiquement)</param>
+		/// <remarks></remarks>
+		public WECounter(Page Page, string ParentID, string TemplateName) : base(EnuElementType.PageEdit, "WECounter", Page, ParentID, TemplateName)
+		{
+
+			//1er initialisations des elements de configuration de base
+			//Attention : il s'agit de valeur par défaut à la création de l'élément et non de valeur par défaut obligatoire
+			Config.CountMethod = EnuMethodCounter.All;
+			Config.InitialValue = 0;
+			Config.TypeCounter = EnuTypeCounter.All;
+			Config.Lenght = 4;
+
+		}
+
+		/// <summary>
+		/// Evènement de démarrage (OnOpen) obligatoire pour la configuration de l'élément
+		/// </summary>
+		/// <remarks></remarks>
+		protected override void OnOpen()
+		{
+			//Nom de l'élément affiché dans la liste des éléments
+			base.ElementInfo.ToolBoxCaption = My.Resources.text.LocalizableOpen._0026;
+			//"Compteur de visites"
+			//Description de l'élément
+			base.ElementInfo.ToolBoxDescription = My.Resources.text.LocalizableOpen._0027;
+			//"Afficher nombre de visiteurs de la page."
+			//Numéro de version majeur de l'élément
+			base.ElementInfo.VersionMajor = 1;
+			//Numéro de version mineur de l'élément
+			base.ElementInfo.VersionMinor = 0;
+			//Groupe de la barre d'outils d'openElement 
+			base.ElementInfo.GroupName = "NBGroupStats";
+			//Icone pour la barre d'outils d'openElement (Taille 16x16) 
+			base.ElementInfo.ToolBoxIco = My.Resources.WECounter;
+			//Propriété à ouvrir automatiquement lors de l'ajout de l'élément dans la page
+			base.ElementInfo.AutoOpenProperty = "Config";
+
+			//Pour rajouter des propriétés dans la liste des acces rapides (icones qui s'affiche en dessous de l'élément lors de sa sélection): 
+			//Ajouter à la liste un nouvel objet SortProperty 
+			//(paramètres : nom de la propriété, nom de l'image associé (celle ci est placé dans le dossier ressource du projet), Texte du tooltip associé)
+			base.ElementInfo.SortPropertyList.Add(new SortProperty("Config", "tools.png", My.Resources.text.LocalizableOpen._0030));
+			//"Configuration"
+
+			//Pour rajouter une zone dans la liste des zone de style (permet l'édition d'un css spécifique à cette zone)
+			//(paramètres : nom de la zone (sera utilisé dans le render) , titre de la zone affiché à l'utilisateur, description de la zone affiché à l'utilisateur, style de la zone (ici : affiché dans le ribbon et l'onglet style)
+			List<StylesManager.ConfigStylesZone> ConfigStylesZones = new List<StylesManager.ConfigStylesZone>();
+			ConfigStylesZones.Add(new StylesManager.ConfigStylesZone("Digit", My.Resources.text.LocalizableOpen._0028, My.Resources.text.LocalizableOpen._0029));
+			//"Chiffres" - "Permet de configurer chacun des chiffres du compteur de visites"
+			base.StylesSkin.SetConfig(ConfigStylesZones);
+
+			//Pour rajouter au projet des fichiers associés, ainsi qu'à la page les liaison vers ces fichier : 
+			//Attention tous les chemins doivent être relatif par rapport au dossier contenant les fichiers
+			//ici ajout d'un fichier de type javascript (paramètres: type du fichier, chemin du fichier dans le projet openElement, chemin de destination du fichier copié dans le site internet)
+			base.AddExternalScripts(System.Data.Common.EnuScriptType.Javascript, "ElementsLibrary\\Common\\Client\\WECounter.js", "WEFiles/Client/WECounter.js");
+			//ici ajout d'un fichier de type script php (paramètres: type du fichier, chemin du fichier dans le projet openElement, chemin de destination du fichier copié dans le site internet) 
+			base.AddExternalScripts(System.Data.Common.EnuScriptType.Php, "ElementsLibrary\\Common\\Server\\WECounter.php", "WEFiles/Server/WECounter.php");
+
+			//A placer obligatoirement à la fin
+			base.OnOpen();
+
+		}
+
+		#endregion
+
+		#region "Render"
+		//Région consacré au rendu html sur la page internet de l'objet 'compteur' (obligatoire pour les éléments de type EnuElementType.PageEdit).
+
+		/// <summary>
+		/// Evènement de rendu (obligatoire pour les éléments de type EnuElementType.PageEdit).
+		/// C'est ici que la création de l'HTML de l'élément se construit.
+		/// </summary>
+		/// <param name="writer"></param>
+		/// <remarks></remarks>
+		protected override void Render(Common.HtmlWriter writer)
+		{
+			int initialValueLenght = Config.InitialValue.ToString().Length;
+
+			//A ajouter obligatoirement en début du rendu html de l'élement
+			base.RenderBeginTag(writer);
+
+			//Vous avez à votre disposition trois périodes pour le render : 
+			//Editor : écriture du rendu html pour la zone d'édition d'openElement,
+			//Export : écriture du rendu html final, c'est celui qui sera sur les pages htm exportées lors de la mise en ligne
+			//Preview : écriture du rendu html pour la page de prévisualisation.
+
+			//Ici on n'écris le code html du compteur que pour le fichier final exporté lors de la mise en ligne (le code php associé ne s'execute qu'en ligne)
+			if (base.Page.RenderMode != openElement.WebElement.Page.EnuTypeRenderMode.Export) {
+				for (i = 1; i <= this.Config.Lenght - initialValueLenght; i++) {
+					DivRender(writer, "0");
+				}
+				for (i = 1; i <= this.Config.Lenght; i++) {
+					if (initialValueLenght >= i)
+						DivRender(writer, Config.InitialValue.ToString()[i - 1]);
+				}
+			}
+			//A ajouter obligatoirement en fin du rendu html de l'élement
+			base.RenderEndTag(writer);
+		}
+
+		private void DivRender(Common.HtmlWriter writer, string value)
+		{
+			writer.WriteBeginTag("div");
+			//Ajout de la zone de style déclarer dans la fonction 'OnOpen' 
+			writer.WriteAttribute("class", GetStyleZoneClass("Digit"));
+			writer.Write(System.Web.UI.HtmlTextWriter.TagRightChar);
+			writer.Write(value);
+			writer.WriteEndTag("div");
+			writer.WriteLine();
+		}
+
+
+		#endregion
+
+	}
+
+	/// <summary>
+	/// Classe de configuration de l'élément compteur
+	/// Cette classe est utilisée dans une propriété d'un élément, elle doit obligatoirement  
+	/// être déclarée Serializable  (exeption :  si la propriété est elle déclarée 'non sérialisable')
+	/// </summary>
+	/// <remarks>Création de cette classe pour faciliter l'échange d'informations</remarks>
+	[Serializable()]
+	public class WECounterConfig
+	{
+		/// <summary>
+		/// Type du compteur 
+		/// </summary>
+		private WECounter.EnuTypeCounter _TypeCounter;
+		/// <summary>
+		/// Valeur initiale du compteur
+		/// </summary>
+		private int _InitialValue;
+		/// <summary>
+		/// Nombre de chiffre au compteur
+		/// </summary>
+		private int _Lenght;
+		/// <summary>
+		/// Méthode de comptage utilisé
+		/// </summary>
+
+		private WECounter.EnuMethodCounter _CountMethod;
+		/// <summary>
+		/// propriété de la variable _TypeCounter
+		/// </summary>
+		public WECounter.EnuTypeCounter TypeCounter {
+			get { return _TypeCounter; }
+			set { _TypeCounter = value; }
+		}
+		/// <summary>
+		/// propriété de la variable _InitialValue
+		/// </summary>
+		public int InitialValue {
+			get { return _InitialValue; }
+			set { _InitialValue = value; }
+		}
+		/// <summary>
+		/// propriété de la variable _Lenght
+		/// </summary>
+		public int Lenght {
+			get { return _Lenght; }
+			set { _Lenght = value; }
+		}
+		/// <summary>
+		/// propriété de la variable _CountMethod
+		/// </summary>
+		public WECounter.EnuMethodCounter CountMethod {
+			get { return _CountMethod; }
+			set { _CountMethod = value; }
+		}
+
+		/// <summary>
+		/// Surcharge de la fonction objet, utilisé pour l'affichage dans la property grid
+		/// </summary>
+		/// <returns></returns>
+		/// <remarks></remarks>
+		public override string toString()
+		{
+			return My.Resources.text.LocalizableOpen._0146;
+			//"Compteur"
+		}
+
+	}
+
+}
+            ]]>
+
+    </code>
+  </example>
+</doc>
+
