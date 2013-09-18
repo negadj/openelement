@@ -1,4 +1,7 @@
-﻿Imports System.Resources
+﻿Imports System.ComponentModel
+Imports System.Resources
+
+Imports WebElement.My.Resources.text
 
 Namespace Ressource.localizable
 
@@ -8,7 +11,40 @@ Namespace Ressource.localizable
     ''' <remarks></remarks>
     <AttributeUsage(AttributeTargets.All)> _
     Public Class LocalizableCatAtt
-        Inherits System.ComponentModel.CategoryAttribute
+        Inherits CategoryAttribute
+
+        #Region "Fields"
+
+        ''' <summary>
+        ''' Enum associé à la ressource
+        ''' </summary>
+        ''' <remarks></remarks>
+        Private _Category As EnumWECategory
+
+        ''' <summary>
+        ''' Fichier de ressource associé
+        ''' </summary>
+        ''' <remarks></remarks>
+        Private _ResourceManager As ResourceManager
+
+        #End Region 'Fields
+
+        #Region "Constructors"
+
+        ''' <summary>
+        ''' Constructeur simple 
+        ''' </summary>
+        ''' <param name="category">Category choisi</param>
+        ''' <remarks>Il est impossible d'utiliser un autre fichier de ressource que celui par défaut fourni par l'equipe d'openElement</remarks>
+        Public Sub New(ByVal category As EnumWECategory)
+            MyBase.New()
+            _ResourceManager = LocalizablePropertyCategory.ResourceManager
+            _Category = category
+        End Sub
+
+        #End Region 'Constructors
+
+        #Region "Enumerations"
 
         ''' <summary>
         ''' Enum contenant la liste des catégories disponibles pour la classification des propriétés des éléments
@@ -19,41 +55,26 @@ Namespace Ressource.localizable
             Behavior = 2
             EditMode = 3
             Edition = 4
-            settings = 5
+            Settings = 5
             Expert = 6
             Noise = 7
             Characters = 8
             Automatique = 9
         End Enum
 
-        ''' <summary>
-        ''' Fichier de ressource associé
-        ''' </summary>
-        ''' <remarks></remarks>
-        Private _ResourceManager As ResourceManager
-        ''' <summary>
-        ''' Enum associé à la ressource
-        ''' </summary>
-        ''' <remarks></remarks>
-        Private _Category As EnumWECategory
+        #End Region 'Enumerations
 
-        ''' <summary>
-        ''' Constructeur simple 
-        ''' </summary>
-        ''' <param name="category">Category choisi</param>
-        ''' <remarks>Il est impossible d'utiliser un autre fichier de ressource que celui par défaut fourni par l'equipe d'openElement</remarks>
-        Public Sub New(ByVal category As EnumWECategory)
-            MyBase.New()
-            _ResourceManager = My.Resources.text.LocalizablePropertyCategory.ResourceManager
-            _Category = category
-        End Sub
+        #Region "Properties"
 
- 
         Public Overloads ReadOnly Property Category() As String
             Get
                 Return GetLocalizedString(MyBase.Category)
             End Get
         End Property
+
+        #End Region 'Properties
+
+        #Region "Methods"
 
         ''' <summary>
         ''' Retourne la valeur du champs localisé en fonction de l'enum choisi
@@ -82,8 +103,6 @@ Namespace Ressource.localizable
                         value = "_08"
                     Case EnumWECategory.Automatique
                         value = "_09"
-                    Case Else
-
                 End Select
 
                 Dim localizedDescription As String = _ResourceManager.GetString(value)
@@ -94,6 +113,9 @@ Namespace Ressource.localizable
             Return String.Empty
         End Function
 
+        #End Region 'Methods
+
     End Class
 
 End Namespace
+

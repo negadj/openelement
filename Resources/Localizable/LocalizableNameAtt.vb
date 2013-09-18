@@ -1,5 +1,7 @@
-﻿Imports System.Resources
+﻿Imports System.ComponentModel
+Imports System.Resources
 
+Imports WebElement.My.Resources.text
 
 Namespace Ressource.localizable
 
@@ -9,9 +11,15 @@ Namespace Ressource.localizable
     ''' <remarks></remarks>
     <AttributeUsage(AttributeTargets.All)> _
     Public Class LocalizableNameAtt
-        Inherits System.ComponentModel.DisplayNameAttribute
+        Inherits DisplayNameAttribute
+
+        #Region "Fields"
 
         Private _ResourceManager As ResourceManager
+
+        #End Region 'Fields
+
+        #Region "Constructors"
 
         ''' <summary>
         ''' Constructeur utilisé si le ResourceManager est différent de celui par défaut
@@ -23,6 +31,7 @@ Namespace Ressource.localizable
             MyBase.New(ressName)
             _ResourceManager = ressourceManager
         End Sub
+
         ''' <summary>
         ''' Constructeur simple (réservé)
         ''' </summary>
@@ -30,9 +39,12 @@ Namespace Ressource.localizable
         ''' <remarks></remarks>
         Public Sub New(ByVal ressName As String)
             MyBase.New(ressName)
-            _ResourceManager = My.Resources.text.LocalizablePropertyNames.ResourceManager
+            _ResourceManager = LocalizablePropertyNames.ResourceManager
         End Sub
 
+        #End Region 'Constructors
+
+        #Region "Properties"
 
         Public Overloads Overrides ReadOnly Property DisplayName() As String
             Get
@@ -46,6 +58,9 @@ Namespace Ressource.localizable
             End Get
         End Property
 
+        #End Region 'Properties
+
     End Class
 
 End Namespace
+

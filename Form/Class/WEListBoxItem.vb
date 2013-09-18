@@ -1,5 +1,10 @@
 ﻿Imports System.ComponentModel
-Imports openElement.WebElement
+
+Imports openElement.WebElement.Common.Attributes.EditListOf
+Imports openElement.WebElement.Editors.Converter
+
+Imports WebElement.My.Resources.text
+Imports WebElement.Ressource.localizable
 
 Namespace Elements.Form
 
@@ -7,22 +12,38 @@ Namespace Elements.Form
     ''' listbox generic class
     ''' </summary>
     ''' <remarks></remarks>
-    <Serializable()> _
+    <Serializable> _
     Public Class WEListBoxItem
+
+        #Region "Fields"
+
         Private _Name As LocalizableString
-        Private _Value As LocalizableString
         Private _Selected As Boolean
+        Private _Value As LocalizableString
 
-#Region "Properties"
+        #End Region 'Fields
 
-        <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), _
-        Ressource.localizable.LocalizableNameAtt("_N007"), _
-        Ressource.localizable.LocalizableDescAtt("_D007"), _
-        TypeConverter(GetType(openElement.WebElement.Editors.Converter.TConvLocalizableString)), _
-        Common.Attributes.EditListOf.ShowColumn()> _
+        #Region "Constructors"
+
+        Public Sub New()
+        End Sub
+
+        Public Sub New(ByVal selected As Boolean)
+            _Selected = selected
+        End Sub
+
+        #End Region 'Constructors
+
+        #Region "Properties"
+
+        <LocalizableCatAtt(LocalizableCatAtt.EnumWECategory.Edition), _
+        LocalizableNameAtt("_N007"), _
+        LocalizableDescAtt("_D007"), _
+        TypeConverter(GetType(TConvLocalizableString)), _
+        ShowColumn> _
         Public Property Name() As LocalizableString
             Get
-                If _Name Is Nothing Then _Name = New LocalizableString(My.Resources.text.LocalizablePropertyDefaultValue._0008)
+                If _Name Is Nothing Then _Name = New LocalizableString(LocalizablePropertyDefaultValue._0008)
                 Return _Name
             End Get
             Set(ByVal value As LocalizableString)
@@ -30,25 +51,10 @@ Namespace Elements.Form
             End Set
         End Property
 
-        <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), _
-        Ressource.localizable.LocalizableNameAtt("_N075"), _
-        Ressource.localizable.LocalizableDescAtt("_D075"), _
-        TypeConverter(GetType(openElement.WebElement.Editors.Converter.TConvLocalizableString)), _
-        Common.Attributes.EditListOf.ShowColumn()> _
-        Public Property Value() As LocalizableString
-            Get
-                If _Value Is Nothing Then _Value = New LocalizableString(My.Resources.text.LocalizablePropertyDefaultValue._0009)
-                Return _Value
-            End Get
-            Set(ByVal value As LocalizableString)
-                _Value = value
-            End Set
-        End Property
-
-        <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), _
-        Ressource.localizable.LocalizableNameAtt("_N209"), _
-        Ressource.localizable.LocalizableDescAtt("_D209"), _
-        Common.Attributes.EditListOf.ShowColumn(Common.Attributes.EditListOf.ShowColumn.ENURepositoryType.RepositoryItemCheckEdit, Common.Attributes.EditListOf.ShowColumn.EnuCheckStyle.Radio)> _
+        <LocalizableCatAtt(LocalizableCatAtt.EnumWECategory.Edition), _
+        LocalizableNameAtt("_N209"), _
+        LocalizableDescAtt("_D209"), _
+        ShowColumn(ShowColumn.EnuRepositoryType.RepositoryItemCheckEdit, ShowColumn.EnuCheckStyle.Radio)> _
         Public Property Selected() As Boolean
             Get
                 Return _Selected
@@ -57,16 +63,25 @@ Namespace Elements.Form
                 _Selected = value
             End Set
         End Property
-#End Region
 
-        Public Sub New()
-        End Sub
+        <LocalizableCatAtt(LocalizableCatAtt.EnumWECategory.Edition), _
+        LocalizableNameAtt("_N075"), _
+        LocalizableDescAtt("_D075"), _
+        TypeConverter(GetType(TConvLocalizableString)), _
+        ShowColumn> _
+        Public Property Value() As LocalizableString
+            Get
+                If _Value Is Nothing Then _Value = New LocalizableString(LocalizablePropertyDefaultValue._0009)
+                Return _Value
+            End Get
+            Set(ByVal value As LocalizableString)
+                _Value = value
+            End Set
+        End Property
 
-        Public Sub New(ByVal Selected As Boolean)
-            _Selected = Selected
-        End Sub
-
+        #End Region 'Properties
 
     End Class
 
 End Namespace
+

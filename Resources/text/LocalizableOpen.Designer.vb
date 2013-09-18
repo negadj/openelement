@@ -1190,7 +1190,7 @@ Namespace My.Resources.text
         End Property
         
         '''<summary>
-        '''  Recherche une chaîne localisée semblable à Bloc de code visuel.
+        '''  Recherche une chaîne localisée semblable à Bloc de code graphique.
         '''</summary>
         Friend Shared ReadOnly Property _0126() As String
             Get
@@ -1874,7 +1874,7 @@ Namespace My.Resources.text
         End Property
         
         '''<summary>
-        '''  Recherche une chaîne localisée semblable à Bloc de code source.
+        '''  Recherche une chaîne localisée semblable à Bloc de code.
         '''</summary>
         Friend Shared ReadOnly Property _0202() As String
             Get

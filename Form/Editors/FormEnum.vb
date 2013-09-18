@@ -1,40 +1,46 @@
 ﻿Imports System.ComponentModel
 
+Imports WebElement.Elements.Form.Editors.Converter
+
 Namespace Elements.Form.Editors
 
-    'Liste de tous les Enum génériques utiser dans le dossier Forms
-
-    <TypeConverter(GetType(Editors.Converter.TConvTextBoxEnumTextPosition))> _
-   Public Enum TextPosition As Short
-        lefttop = 0
-        leftmiddle = 1
-        leftbottom = 2
-        top = 3
-        righttop = 4
-        rightmiddle = 5
-        rightbottom = 6
-        bottom = 7
-    End Enum
-
-    <TypeConverter(GetType(Editors.Converter.TConvTextAreaScrollOverFlow))> _
-    Public Enum TextAreaScrollOverFlow As Short
-        auto = 0
-        scroll = 1
-        hidden = 2
-    End Enum
+    #Region "Enumerations"
 
     Public Enum RadioButtonDisposition As Short
-        verticalAlign = 0
+        VerticalAlign = 0
         Vertical = 1
-        horizontal = 2
+        Horizontal = 2
     End Enum
 
-    <TypeConverter(GetType(Editors.Converter.TConvTextBoxEnumTextPositionSimple))> _
-    Public Enum TextPositionSimple As Short
-        left = 0
-        top = 1
-        right = 2
-        bottom = 3
+    <TypeConverter(GetType(TConvTextAreaScrollOverFlow))> _
+    Public Enum TextAreaScrollOverFlow As Short
+        Auto = 0
+        Scroll = 1
+        Hidden = 2
     End Enum
+
+    'Liste de tous les Enum génériques utiser dans le dossier Forms
+    <TypeConverter(GetType(TConvTextBoxEnumTextPosition))> _
+    Public Enum TextPosition As Short
+        Lefttop = 0
+        Leftmiddle = 1
+        Leftbottom = 2
+        Top = 3
+        Righttop = 4
+        Rightmiddle = 5
+        Rightbottom = 6
+        Bottom = 7
+    End Enum
+
+    <TypeConverter(GetType(TConvTextBoxEnumTextPositionSimple))> _
+    Public Enum TextPositionSimple As Short
+        Left = 0
+        Top = 1
+        Right = 2
+        Bottom = 3
+    End Enum
+
+    #End Region 'Enumerations
 
 End Namespace
+

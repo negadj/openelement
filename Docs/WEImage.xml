@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <doc>
-  <summary>Code source de l'élément "Image" (WEImage)</summary>
+  <summary>Source code of "Image" element (WEImage)</summary>
   <example>
 
     <code lang="VB">
@@ -12,108 +12,117 @@ Imports openElement.WebElement.Elements
 Imports openElement.WebElement
 Imports openElement
 
-'Namespace de l'élément (Créer le votre ex : Elements.MyCompagny)
+'NameSpace of element (create yours ex: Elements.MyCompagny)
 Namespace Elements.Standard
 
     ''' <summary>
-    ''' L'élément présenté ci-dessous est la copie conforme du code source de l'élément Image disponible dans openElement
-    ''' Créer une Class Public qui hérite de "openElement.WebElement.Elements.ElementBase".
-    ''' Voir la documentation se rapportant à ElementBase pour toutes les explications des fonctions de mybase utilisé dans cette classe.
-    ''' Le nom de la class est primordial il doit être unique pour le même Namespace et ne pourra plus être modifié par la suite.
-    ''' Il est indispensable d'indiquer cette Class comme sérializable.
+    ''' This class is the source code of openElement's element : WEImage (Image)
+    ''' Create a public class with inherit ElementBase (complete namespace : openElement.WebElement.Elements.ElementBase)
+    ''' See comments in elementBase for all explanations of methods of mybase used in this class.
+    '''  the class's name must to be unique in the namespace. he can't will be changing after
+    ''' This class must to be  "Serializable"
     ''' </summary>
-    ''' <remarks>Il est préférable de nous soumettre le nom</remarks>
+    ''' <remarks>it'd be better of us to subject the class name</remarks>
     <Serializable()> _
     Public Class WEImage
         Inherits ElementBase
 
-#Region "Propriétés"
-        'Pour les métaTags des propriétés publiques, se rapporter au chapitre concerné
+#Region "Properties"
+        'For public property metaTags, see specific xml docs
 
         ''' <summary>
-        ''' Contient les différents chemins de l'image d'origine en fonction de la culture de la page
+        ''' Object with all paths of image according to culture (language) of page
         ''' </summary>
-        ''' <remarks></remarks>
         Private _ImageLink As LinksManager.Link
         ''' <summary>
-        ''' Contient les différents chemins de l'image redimensionnée (si besoin) en fonction de la culture de la page 
+        ''' object with all paths of resizing image (only if necessary) according to culture of page
         ''' </summary>
-        ''' <remarks></remarks>
         Private _ImageResizeLink As LinksManager.Link
         ''' <summary>
-        ''' Contient les différents liens en fonction de la culture, de l'image sur une action de click. 
+        ''' Object with all links on mouse click event, according to culture of page
         ''' </summary>
-        ''' <remarks></remarks>
         Private _PageLink As LinksManager.Link
         ''' <summary>
-        ''' Texte alternatif de l'image. Ne s'affiche que si le chemin vers l'image n'est plus valide.
+        ''' Alternat text of image : text is displaying if the image path is in fail, according to culture of page
         ''' </summary>
-        ''' <remarks></remarks>
         Private _AlternateText As DataType.LocalizableString
-        ''' <summary>
-        ''' Renseigne si c'est le chemin de l'image d'origine (valeur true) qui est utilisé ou celui de l'image redimensionnée(valeur false). 
+        ''' <summary> 
+        ''' true if we uses the source image. False if it's the resize image
         ''' </summary>
-        ''' <remarks>Cette valeur est modifiée automatiquement par redimensionnement manuel de l'utilisateur et peut être modifié manuellement par celui ci dans les propriétés.</remarks>
+        ''' <remarks>This value is automatically updated by manuel resizing of user. That can too to be updated in the property grid</remarks>
         Private _DefaultImage As Boolean
         ''' <summary>
-        ''' Dimension de l'image dans la page html.
+        ''' Image size in html page
         ''' </summary>
-        ''' <remarks></remarks>
         Private _ImageSize As Drawing.Size
 
         ''' <summary>
-        ''' Propriété de la variable _DefaultImage
+        ''' This property is tagging as NonSerialized(), it will not be saving in the .dat file
         ''' </summary>
+        ''' <remarks></remarks>
+        <NonSerialized()> Private _LockResizeEvent As Boolean
+
+        ''' <summary>
+        ''' true if we uses the default image
+        ''' </summary>
+        ''' <value></value>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
         <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Appearance), _
         Ressource.localizable.LocalizableNameAtt("_N093"), _
         Ressource.localizable.LocalizableDescAtt("_D094"), _
         Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)> _
-        Public Property DefaultImage() As Boolean
+        Protected Friend Property DefaultImage() As Boolean
             Get
                 Return _DefaultImage
+
             End Get
             Set(ByVal value As Boolean)
                 _DefaultImage = value
-                If value = True Then SetDefaultSize()
+                If _DefaultImage Then
+                    _ImageResizeLink = Nothing
+                End If
             End Set
         End Property
 
         ''' <summary>
-        ''' Propriété de la variable _ImageLink
+        ''' Image relativ path (localizable)
         ''' </summary>
-        ''' <remarks>Cette valeur ne peut jamais être à nothing</remarks>
+        ''' <remarks>not to be at nothing (by default, it the default image's path)</remarks>
         <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), _
         Ressource.localizable.LocalizableNameAtt("_N002"), _
         Ressource.localizable.LocalizableDescAtt("_D002"), _
         Editor(GetType(openElement.WebElement.Editors.UITypeLinkFile), GetType(Drawing.Design.UITypeEditor)), _
         TypeConverter(GetType(openElement.WebElement.Editors.Converter.TConvLinkFile)), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.Element), _
+        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.ElementWithCss), _
         Common.Attributes.ConfigBiblio(True, False, False, False, False)> _
         Public Property ImageLink() As LinksManager.Link
             Get
                 If _ImageLink Is Nothing Then
                     _ImageLink = New LinksManager.Link()
-                    _ImageLink.CreateLinkByResX(LinksManager.Link.EnuLinkType.ElementImage, My.Resources.ImageDefault, "WEFiles/Image/ImageDefault.png")
-                    Call SetDefaultSize()
                 End If
+                If DefaultImage Then _ImageLink.BannedFromUpload = False Else _ImageLink.BannedFromUpload = True
                 Return _ImageLink
             End Get
             Set(ByVal value As LinksManager.Link)
                 _ImageLink = value
-                Call SetDefaultSize()
-                Call CreateImageResizeLink()
+                SetDefaultSize()
             End Set
         End Property
 
         ''' <summary>
-        ''' Propriété de la variable _ImageResizeLink
+        ''' paths of resizing image (only if necessary) according to culture of page
         ''' </summary>
+        ''' <value></value>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
         <Browsable(False)> _
         Public Property ImageResizeLink() As LinksManager.Link
             Get
                 If _ImageResizeLink Is Nothing Then
                     _ImageResizeLink = New LinksManager.Link()
                 End If
+                If DefaultImage Then _ImageResizeLink.BannedFromUpload = True Else _ImageResizeLink.BannedFromUpload = False
                 Return _ImageResizeLink
             End Get
             Set(ByVal value As LinksManager.Link)
@@ -122,8 +131,11 @@ Namespace Elements.Standard
         End Property
 
         ''' <summary>
-        ''' Propriété de la variable _PageLink
+        ''' links on mouse click event, according to culture of page
         ''' </summary>
+        ''' <value></value>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
         <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), _
         Ressource.localizable.LocalizableNameAtt("_N003"), _
         Ressource.localizable.LocalizableDescAtt("_D003"), _
@@ -141,8 +153,11 @@ Namespace Elements.Standard
         End Property
 
         ''' <summary>
-        ''' Propriété de la variable _AlternateText
+        ''' Alternat text of image : text is displaying if the image path is in fail, according to culture of page
         ''' </summary>
+        ''' <value></value>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
         <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), _
         Ressource.localizable.LocalizableNameAtt("_N004"), _
         Ressource.localizable.LocalizableDescAtt("_D004"), _
@@ -156,221 +171,402 @@ Namespace Elements.Standard
                 Return _AlternateText
             End Get
             Set(ByVal value As DataType.LocalizableString)
-                _AlternateText = value
+                _AlternateText = Tools.WebElem.PropertiesLocalizableStringFormat(value, MyBase.Page.Culture, Tools.Enu.ProgLanguage.Html)
             End Set
         End Property
 
 #End Region
 
-#Region "Construction"
+#Region "Builder required function"
 
         ''' <summary>
-        ''' Le constructeur doit avoir obligatoirement la forme suivante et faire appel au constructeur de la classe hérité
-        ''' Pour les paramètres du contructeur de base, se rapporter à la classe correspondante
+        ''' Obligatory configuration of constructor. The base constructor call is necessary 
+        ''' for parameter, see comments in ElementBase class
         ''' </summary>
-        ''' <param name="Page">Référence à la page dans lequel est positionné l'élément(attribuer automatiquement)</param>
-        ''' <param name="ParentID">Identifiant du conteneur parent(attribuer automatiquement)</param>
-        ''' <param name="TemplateName">Nom du template direct dans lequel est contenu l'élément(attribuer automatiquement)</param>
+        ''' <param name="page"> Page reference which element belongs </param>
+        ''' <param name="parentID"> Unique ID of parent container</param>
+        ''' <param name="templateName"> template's name which element belongs</param>
         ''' <remarks></remarks>
-        Public Sub New(ByVal Page As Page, ByVal ParentID As String, ByVal TemplateName As String)
+        Public Sub New(ByVal page As Page, ByVal parentID As String, ByVal templateName As String)
+            MyBase.New(EnuElementType.PageEdit, "WEImage", page, parentID, templateName)
+            MyBase.NumUpdate = 1
+            Me.DefaultImage = True
 
-            MyBase.New(EnuElementType.PageEdit, "WEImage", Page, ParentID, TemplateName)
         End Sub
 
+        ''' <summary>         
+        ''' Required function who allow to complete elementInfo object        
+        ''' </summary>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
+        Protected Overrides Function OnGetInfo() As ElementInfo
+
+            Dim info As New ElementInfo(Me)
+            'Element's name displayed in element's list
+            info.ToolBoxCaption = My.Resources.text.LocalizableOpen._0007 'this text is a localizable variable for traduction
+            'Element's description
+            info.ToolBoxDescription = My.Resources.text.LocalizableOpen._0008 '   
+            'Number of major version
+            info.VersionMajor = 1
+            'Number of minor version
+            info.VersionMinor = 0
+            'openElement's toolsbox group which the item belongs
+            info.GroupName = "NBGroupStandard"
+            'Icon display in the openElement's toolsbox (size : 16*16px)
+            info.ToolBoxIco = My.Resources.WEImage
+            'Automatic opening property when the element will be adding in the page
+            info.AutoOpenProperty = "ImageLink"
+
+            'Add a fast acces of the property in bottom bar (Icon display below the element when he's selecting)
+            '(parameter: Property's name, associated icon's name, associated tooltip text)
+            info.SortPropertyList.Add(New SortProperty("ImageLink", "folder.png", My.Resources.text.LocalizableOpen._0009))
+            info.SortPropertyList.Add(New SortProperty("PageLink", "link.png", My.Resources.text.LocalizableOpen._0010))
+            Return info
+
+        End Function
+
         ''' <summary>
-        ''' Evènement de démarrage (OnOpen) obligatoire pour la configuration de l'élément
+        ''' start event. Necessary for configuration of element
         ''' </summary>
         ''' <remarks></remarks>
         Protected Overrides Sub OnOpen()
-            'Nom de l'élément affiché dans la liste des éléments
-            MyBase.ElementInfo.ToolBoxCaption = My.Resources.text.LocalizableOpen._0007 'Image
-            'Description de l'élément
-            MyBase.ElementInfo.ToolBoxDescription = My.Resources.text.LocalizableOpen._0008 '  "Ajouter une image de la bibliothèque de ressource."
-            'Numéro de version majeur de l'élément
-            MyBase.ElementInfo.VersionMajor = 1
-            'Numéro de version mineur de l'élément
-            MyBase.ElementInfo.VersionMinor = 0
-            'Groupe de la barre d'outils d'openElement (NBGroupStandard,)
-            MyBase.ElementInfo.GroupName = "NBGroupStandard"
-            'Icone pour la barre d'outils d'openElement (Taille 16x16) 
-            MyBase.ElementInfo.ToolBoxIco = My.Resources.WEImage
-            'Propriété à ouvrir automatiquement lors de l'ajout de l'élément dans la page
-            MyBase.ElementInfo.AutoOpenProperty = "ImageLink"
 
-            'Pour rajouter des propriétés dans la liste des acces rapides (icones qui s'affiche en dessous de l'élément lors de sa sélection): 
-            'Ajouter à la liste un nouvel objet SortProperty 
-            '(paramètres : nom de la propriété, nom de l'image associé (celle ci est placé dans le dossier ressource du projet), Texte du tooltip associé)
-            MyBase.ElementInfo.SortPropertyList.Add(New SortProperty("ImageLink", "folder.png", My.Resources.text.LocalizableOpen._0009)) ' "Sélection de l'image Principale"))
-            MyBase.ElementInfo.SortPropertyList.Add(New SortProperty("PageLink", "link.png", My.Resources.text.LocalizableOpen._0010)) ' "Sélection du lien principal"))
-
-
-            'A placer obligatoirement à la fin
+            'Obligatory at end
             MyBase.OnOpen()
 
         End Sub
 
-#End Region
-
-#Region "Render"
-        'Région consacré au rendu html sur la page internet de l'objet 'image' (obligatoire pour les éléments de type EnuElementType.PageEdit).
-
         ''' <summary>
-        ''' Surcharge de l'evénemenent déclenché avant l'ecriture du rendu de la page  
-        ''' Ne pas oublier l'appel à l'évenement correspondant de la classe hérité
+        ''' Event called at the page loading in the editor
         ''' </summary>
         ''' <remarks></remarks>
-        Protected Overrides Sub OnPageBeforeRender()
-            Call CreateImageResizeLink()
-            MyBase.OnPageBeforeRender()
+        Protected Overrides Sub OnPageInit()
+            If MyBase.NumUpdate = 0 Then
+                CreateImageResizeLink()
+                MyBase.NumUpdate = 1
+            End If
+            MyBase.OnPageInit()
+        End Sub
+#End Region
+
+        ''' <summary>
+        ''' Event called before the page render. Don't forget to call the parent class's event
+        ''' </summary>
+        ''' <remarks></remarks>
+        Protected Overrides Sub OnPageBeforeRender(ByVal mode As Page.EnuTypeRenderMode)
+
+            MyBase.OnPageBeforeRender(mode)
         End Sub
 
         ''' <summary>
-        ''' Surcharge de l'événement déclenché après l'écriture du rendu de la page
-        ''' Ne pas oublier l'appel à l'évenement correspondant de la classe hérité
+        ''' Event called after one manual image resize.  Don't forget to call the parent class's event
         ''' </summary>
         ''' <remarks></remarks>
         Protected Overrides Sub OnResizeEnd()
-            Call CreateImageResizeLink()
+            If _LockResizeEvent Then Exit Sub
+            CreateImageResizeLink()
+            MyBase.LiveUpdateHtmlProperty("img", "src", GetStrImageLink)
             MyBase.OnResizeEnd()
         End Sub
 
         ''' <summary>
-        ''' Fonction de construction des propriétés css directement dans le tag de l'image
+        ''' Event called before the changing of resizing's type of element 
+        ''' </summary>
+        ''' <param name="oldType"></param>
+        ''' <param name="newType"></param>
+        ''' <remarks></remarks>
+        Protected Overrides Sub OnTypeResizeChange(ByVal oldType As EnuTypeResize, ByRef newType As EnuTypeResize)
+            _LockResizeEvent = True
+            If String.IsNullOrEmpty(MyBase.StylesSkin.BaseDiv.BaseStyles.Width.Value) Then
+                MyBase.StylesSkin.BaseDiv.BaseStyles.Width.Value = _ImageSize.Width
+            End If
+            If String.IsNullOrEmpty(MyBase.StylesSkin.BaseDiv.BaseStyles.Height.Value) Then
+                MyBase.StylesSkin.BaseDiv.BaseStyles.Height.Value = _ImageSize.Height
+            End If
+            _LockResizeEvent = False
+            MyBase.OnTypeResizeChange(oldType, newType)
+        End Sub
+
+        ''' <summary>
+        ''' selects which resource to upload (source or resize image)
+        ''' </summary>
+        ''' <remarks></remarks>
+        Private Sub SelectLinkToUpload()
+            If Me.DefaultImage Then
+                Me.ImageLink.BannedFromUpload = False
+                Me.ImageResizeLink.BannedFromUpload = True
+            Else
+                Me.ImageLink.BannedFromUpload = True
+                Me.ImageResizeLink.BannedFromUpload = False
+            End If
+        End Sub
+
+#Region "Render"
+        'html render functions. (obligatory for element of type 'EnuElementType.PageEdit')
+
+        ''' <summary>
+        ''' writing css property inside image tag
         ''' </summary>
         ''' <returns></returns>
         ''' <remarks></remarks>
         Private Function GetImageStyle() As String
 
-            Dim Builder As New Text.StringBuilder()
+            Dim builder As New Text.StringBuilder()
 
-            If _ImageSize.Height > 0 And _ImageSize.Height < 15 Then
-                Dim Prop As Integer = Math.Round((100 * _ImageSize.Height) / 15, 0)
-                Builder.Append(String.Concat("height:", Prop, "%;"))
+            If MyBase.StylesSkin.BaseDiv.BaseStyles.Height.Auto Then
+                builder.Append(String.Concat("height:", _ImageSize.Height, "px;"))
             Else
-                Builder.Append("height:100%;")
+                If _ImageSize.Height > 0 And _ImageSize.Height < 15 Then
+                    Dim prop As Integer = Math.Round((100 * _ImageSize.Height) / 15, 0)
+                    builder.Append(String.Concat("height:", prop, "%;"))
+                End If
             End If
 
-            If _ImageSize.Width > 0 And _ImageSize.Width < 15 Then
-                Dim Prop As Integer = Math.Round((100 * _ImageSize.Width) / 15, 0)
-                Builder.Append(String.Concat("width:", Prop, "%;"))
+            If MyBase.StylesSkin.BaseDiv.BaseStyles.Width.Auto Then
+                builder.Append(String.Concat("width:", _ImageSize.Width, "px;"))
             Else
-                Builder.Append("width:100%;")
+                If _ImageSize.Width > 0 And _ImageSize.Width < 15 Then
+                    Dim prop As Integer = Math.Round((100 * _ImageSize.Width) / 15, 0)
+                    builder.Append(String.Concat("width:", prop, "%;"))
+                End If
             End If
 
-            Return Builder.ToString
+            Return builder.ToString
 
         End Function
 
         ''' <summary>
-        ''' Evènement de rendu (obligatoire pour les éléments de type EnuElementType.PageEdit).
-        ''' C'est ici que la création de l'HTML de l'élément se construit.
+        ''' get the image path (source or resize path as the case)
         ''' </summary>
-        ''' <param name="writer"></param>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
+        Public Function GetStrImageLink() As String
+
+            If Me.DefaultImage Then
+                Return MyBase.GetLink(Me.ImageLink)
+            Else
+                Return MyBase.GetLink(Me.ImageResizeLink)
+            End If
+
+        End Function
+
+        ''' <summary>
+        ''' Main event of element's render. it's obligatory for element at type of EnuElementType.PageEdit
+        ''' here, we write the html of the element
+        ''' </summary>
+        ''' <param name="writer">Writer object</param>
         ''' <remarks></remarks>
         Protected Overrides Sub Render(ByVal writer As Common.HtmlWriter)
 
-            Dim pageLink As String = MyBase.GetLinkHref(Me.PageLink)
-            'récupération du lien de l'image (originel ou redimensionné)
-            Dim ImageLink As String = String.Empty
-            If Me.DefaultImage Then
-                ImageLink = MyBase.GetLinkHref(Me.ImageLink)
-            Else
-                ImageLink = MyBase.GetLinkHref(Me.ImageResizeLink)
-            End If
+            Dim strPageLink As String = MyBase.GetLink(Me.PageLink)
+            Dim strImageLink As String = GetStrImageLink()
 
-            'A ajouter obligatoirement en début du rendu html de l'élement
+            'to add obligatory at begining of element's html render
             MyBase.RenderBeginTag(writer)
 
-            'Code html spécifique de l'image 
-            If Not String.IsNullOrEmpty(pageLink) Then
+            'Specific html code of element WEImage
+            If Not String.IsNullOrEmpty(strPageLink) Then
                 writer.WriteBeginTag("a")
-                writer.WriteAttribute("href", pageLink)
+                writer.WriteHrefAttribute(Me, Me.PageLink, True)
                 writer.Write(System.Web.UI.HtmlTextWriter.TagRightChar)
             End If
-            writer.WriteBeginTag("img")
-            writer.WriteAttribute("style", GetImageStyle())
-            writer.WriteAttribute("src", ImageLink)
-            Dim alternateTxt = Me.AlternateText.GetValue(MyBase.Page.Culture)
-            If Not String.IsNullOrEmpty(alternateTxt) Then writer.WriteAttribute("alt", alternateTxt)
-            writer.Write(System.Web.UI.HtmlTextWriter.SelfClosingTagEnd)
-            If Not pageLink = String.Empty Then
+
+            If Not String.IsNullOrEmpty(strImageLink) Then
+                writer.WriteBeginTag("img")
+                writer.WriteAttribute("style", GetImageStyle())
+                writer.WriteAttribute("src", strImageLink)
+                writer.WriteAttribute("alt", Me.AlternateText.GetValue(MyBase.Page.Culture))
+                writer.Write(System.Web.UI.HtmlTextWriter.SelfClosingTagEnd)
+            End If
+
+            If Not String.IsNullOrEmpty(strPageLink) Then
                 writer.WriteEndTag("a")
             End If
-            
-            'A ajouter obligatoirement en fin du rendu html de l'élement
+
+            'to Add obligarory at ending of element's html render
             MyBase.RenderEndTag(writer)
 
         End Sub
 
 #End Region
 
+#Region "Size calculation and css update"
+
         ''' <summary>
-        ''' Détermine si la taille de l'image utilisé est conforme au taille minimum fixé
-        ''' Cette taille minimum est necessaire pour permette la selection de l'élément dans l'éditeur par un clic de souris
+        ''' Private method for to update the css size style of parent div of element.
         ''' </summary>
         ''' <remarks></remarks>
-        Private Sub SetDefaultSize()
+        Private Sub UpdateMinMaxSize()
 
-            Dim OriginFullPath As String = MyBase.GetLinkIOPath(Me.ImageLink)
-            Dim OriginBitmap As Drawing.Bitmap = New Drawing.Bitmap(OriginFullPath)
-
-            'taille minimum de l'image fixé à 15px de largeur
-            If OriginBitmap.Width < 15 Then
-                MyBase.StylesSkin.BaseDiv.BaseStyles.Width.SetCss(15)
+            If MyBase.StylesSkin.BaseDiv.BaseStyles.Height.Auto Then
+                MyBase.StylesSkin.BaseDiv.BaseStyles.MinHeight.SetCss(_ImageSize.Height)
+                MyBase.StylesSkin.BaseDiv.BaseStyles.MaxHeight.SetCss(_ImageSize.Height)
             Else
-                MyBase.StylesSkin.BaseDiv.BaseStyles.Width.SetCss(OriginBitmap.Width)
+                MyBase.StylesSkin.BaseDiv.BaseStyles.MinHeight.SetCss("")
+                MyBase.StylesSkin.BaseDiv.BaseStyles.MaxHeight.SetCss("")
             End If
 
-            'et 15 px de hauteur
-            If OriginBitmap.Height < 15 Then
-                MyBase.StylesSkin.BaseDiv.BaseStyles.Height.SetCss(15)
+            If MyBase.StylesSkin.BaseDiv.BaseStyles.Width.Auto Then
+                MyBase.StylesSkin.BaseDiv.BaseStyles.MinWidth.SetCss(_ImageSize.Width)
+                MyBase.StylesSkin.BaseDiv.BaseStyles.MaxWidth.SetCss(_ImageSize.Width)
             Else
-                MyBase.StylesSkin.BaseDiv.BaseStyles.Height.SetCss(OriginBitmap.Height)
+                MyBase.StylesSkin.BaseDiv.BaseStyles.MinWidth.SetCss("")
+                MyBase.StylesSkin.BaseDiv.BaseStyles.MaxWidth.SetCss("")
             End If
-
-            _ImageSize = New Drawing.Size(OriginBitmap.Width, OriginBitmap.Height)
 
         End Sub
 
         ''' <summary>
-        ''' Fonction qui détermine si l'image doit être redimensionné
-        ''' Cela se décide en fonction des dimensions de l'image d'origine et des dimensions de l'image sur la page
-        ''' Cela permet de diminuer suivant les cas de considérablement la taille de l'image
-        ''' et par conséquence celle de la page à charger dans le navigateur
+        ''' Private Method for to check the image size. this graphic element must to be a mininal size (15*15px). It's necessary for select him at the mouve clic event in the editor
+        ''' </summary>
+        ''' <remarks></remarks>
+        Private Sub SetDefaultSize()
+
+            Dim imgSrc = MyBase.GetLinkIOPath(Me.ImageLink)
+            If String.IsNullOrEmpty(imgSrc) Then _ImageSize = New Drawing.Size(15, 15) : Exit Sub
+
+            'Get bitmap size
+            Dim originBitmap As OBitmap = MyBase.OpenBitmap(imgSrc)
+            If originBitmap.Bitmap Is Nothing Then Exit Sub
+            _ImageSize = originBitmap.Bitmap.Size
+            MyBase.CloseBitmap(originBitmap)
+
+            'minimal width is 15px
+            If _ImageSize.Width < 15 Then
+                MyBase.StylesSkin.BaseDiv.BaseStyles.Width.SetCss(15)
+            Else
+                MyBase.StylesSkin.BaseDiv.BaseStyles.Width.SetCss(_ImageSize.Width)
+            End If
+
+            'minimal height is 15px
+            If _ImageSize.Height < 15 Then
+                MyBase.StylesSkin.BaseDiv.BaseStyles.Height.SetCss(15)
+            Else
+                MyBase.StylesSkin.BaseDiv.BaseStyles.Height.SetCss(_ImageSize.Height)
+            End If
+        End Sub
+
+        ''' <summary>
+        ''' Private method for to see if the image must to be resizing
+        ''' It's determinate by the source image sizing and the image size on page. 
+        ''' that's allow to reduce the image's weight et so, the page loading time.
         ''' </summary>
         ''' <remarks></remarks>
         Private Sub CreateImageResizeLink()
 
             If _ImageLink Is Nothing Then Exit Sub
 
-            Dim OriginFullPath As String = MyBase.GetLinkIOPath(Me.ImageLink)
-            If Not IO.File.Exists(OriginFullPath) Then Exit Sub
-            Dim OriginBitmap As Drawing.Bitmap = New Drawing.Bitmap(OriginFullPath)
-            Dim OriginImageFormat As Drawing.Imaging.ImageFormat = OriginBitmap.RawFormat
-            Dim OriginWidth As Integer = OriginBitmap.Width
-            Dim OriginHeight As Integer = OriginBitmap.Height
-            Dim NewWidth As String = MyBase.StylesSkin.BaseDiv.BaseStyles.Width.Number
-            Dim NewHeight As String = MyBase.StylesSkin.BaseDiv.BaseStyles.Height.Number
+            Try
 
-            If String.IsNullOrEmpty(NewWidth) Or String.IsNullOrEmpty(NewHeight) Then
-                Me.DefaultImage = True
-                OriginBitmap.Dispose()
-                Exit Sub
-            End If
+                _LockResizeEvent = True
 
-            If OriginWidth = NewWidth And OriginHeight = NewHeight Then
-                Me.DefaultImage = True
-                Me.ImageResizeLink.Dispose()
-            Else
-                Dim FullPath As String = MyBase.GetLinkIOPath(Me.ImageResizeLink)
-                Dim NewBitmap As Drawing.Bitmap = Tools.Picture.Resize(OriginBitmap, NewWidth, NewHeight)
-                Me.ImageResizeLink.CreateLinkByResX(LinksManager.Link.EnuLinkType.ElementImage, NewBitmap, String.Concat("WEFiles/Image/WEImage/", Me.ImageResizeLink.ID, Utils.ExtByImageFormat(OriginImageFormat)))
-                Me.DefaultImage = False
-            End If
+                Dim originFullPath As String = MyBase.GetLinkIOPath(Me.ImageLink)
+                If String.IsNullOrEmpty(originFullPath) Then Exit Sub
 
-            OriginBitmap.Dispose()
+                Dim imageFormat As Drawing.Imaging.ImageFormat = Tools.Picture.ImageFormatByExt(IO.Path.GetExtension(originFullPath))
+                If imageFormat.Equals(Drawing.Imaging.ImageFormat.Gif) Then
+                    Me.DefaultImage = True
+                    Exit Sub
+                End If
+
+                Dim originBitmap As OBitmap = MyBase.OpenBitmap(originFullPath)
+                If originBitmap Is Nothing OrElse originBitmap.Bitmap Is Nothing Then ' originBitmap Is Nothing may happen (= happened for one of user projects) on project upgrade (becomes important as we now may call this function on PageInit
+                    Exit Sub
+                End If
+
+                Dim originWidth As Integer = originBitmap.Bitmap.Width
+                Dim originHeight As Integer = originBitmap.Bitmap.Height
+                Dim newWidth As String = MyBase.StylesSkin.BaseDiv.BaseStyles.Width.Value
+                Dim newHeight As String = MyBase.StylesSkin.BaseDiv.BaseStyles.Height.Value
+
+                If MyBase.StylesSkin.BaseDiv.BaseStyles.Width.Auto Or String.IsNullOrEmpty(newWidth) Then
+                    newWidth = originWidth
+                    MyBase.StylesSkin.BaseDiv.BaseStyles.Width.Value = originWidth
+                End If
+
+                If MyBase.StylesSkin.BaseDiv.BaseStyles.Height.Auto Or String.IsNullOrEmpty(newHeight) Then
+                    newHeight = originHeight
+                    MyBase.StylesSkin.BaseDiv.BaseStyles.Height.Value = originHeight
+                End If
+
+
+                If originWidth = newWidth And originHeight = newHeight Then
+                    Me.DefaultImage = True
+                    If MyBase.NumUpdate = 0 Then
+                        MyBase.TypeResize = EnuTypeResize.None
+                    End If
+                Else
+
+                    For Each culture As String In ImageLink.GetListSitePath().Keys
+
+                        Dim fullCulturePath As String = MyBase.GetLinkIOPath(Me.ImageLink, culture)
+
+                        Dim cultureBitmap As OBitmap = MyBase.OpenBitmap(fullCulturePath)
+                        cultureBitmap.Resize(New Drawing.Size(newWidth, newHeight))
+
+                        Dim linkPath As String = String.Concat("WEFiles/Image/WEImage/", Me.ImageResizeLink.ID, culture, IO.Path.GetExtension(fullCulturePath))
+                        MyBase.CreateAutoRessourceByBitmap(Me.ImageResizeLink, LinksManager.Link.EnuLinkType.ElementImage, cultureBitmap.Bitmap, linkPath, culture)
+
+                        MyBase.CloseBitmap(cultureBitmap)
+
+                    Next
+
+                    Me.DefaultImage = False
+
+                    If MyBase.NumUpdate = 0 Then
+
+                        If Not originWidth = newWidth And Not originHeight = newHeight Then
+                            MyBase.TypeResize = EnuTypeResize.Both
+                        ElseIf Not originWidth = newWidth Then
+                            MyBase.TypeResize = EnuTypeResize.Width
+                        ElseIf Not originHeight = newHeight Then
+                            MyBase.TypeResize = EnuTypeResize.Height
+                        End If
+
+                    End If
+
+
+                End If
+
+                Me.SelectLinkToUpload()
+
+                MyBase.CloseBitmap(originBitmap)
+
+
+            Catch ex As Exception
+                OEBug.Capture(ex, True, True)
+            Finally
+                UpdateMinMaxSize()
+                _LockResizeEvent = False
+            End Try
 
         End Sub
+
+#End Region
+
+
+#Region "DD Translation of LocalizableStrings"
+
+        ' See comments in ElementBase class
+        Public Overrides Function GetLocalizableStringsForTranslationSystem( _
+                                        ByVal accListLS As Dictionary(Of String, DataType.LocalizableString), _
+                                        ByVal accListInfo As Dictionary(Of String, String), _
+                                        Optional ByVal onlyNonEmpty As Boolean = True) As Boolean
+            If accListLS Is Nothing Or accListInfo Is Nothing Then Return False
+
+            If _AlternateText Is Nothing OrElse (onlyNonEmpty AndAlso _AlternateText.IsEmpty) Then Return False
+
+            Dim lsID As String = "WEImage." & ID & ".AltText"
+            accListLS(lsID) = _AlternateText
+
+            If Not String.IsNullOrEmpty(Me.Name) Then
+                accListInfo(lsID) = "Element name: " & Me.Name & " (Image)"
+            End If
+
+            Return True
+        End Function
+
+#End Region
 
 
     End Class
@@ -395,107 +591,126 @@ using openElement.WebElement.Elements;
 using openElement.WebElement;
 using openElement;
 
-//Namespace de l'élément (Créer le votre ex : Elements.MyCompagny)
+//Namespace de l'élément (Créer le votre. ex : Elements.MyCompagny)
+//NameSpace of element (create your. ex: Elements.MyCompagny)
 namespace Elements.Standard
 {
 
 	/// <summary>
-	/// L'élément présenté ci-dessous est la copie conforme du code source de l'élément Image disponible dans openElement
-	/// Créer une Class Public qui hérite de "openElement.WebElement.Elements.ElementBase".
-	/// Voir la documentation se rapportant à ElementBase pour toutes les explications des fonctions de mybase utilisé dans cette classe.
-	/// Le nom de la class est primordial il doit être unique pour le même Namespace et ne pourra plus être modifié par la suite.
-	/// Il est indispensable d'indiquer cette Class comme sérializable.
+	/// This class is the source code of openElement's element : WEImage (Image)
+	/// Create a public class with inherit ElementBase (complete namespace : openElement.WebElement.Elements.ElementBase)
+	/// See comments in elementBase for all explanations of methods of mybase used in this class.
+	///  the class's name must to be unique in the namespace. he can't will be changing after
+	/// This class must to be  "Serializable"
 	/// </summary>
-	/// <remarks>Il est préférable de nous soumettre le nom</remarks>
+	/// <remarks>it'd be better of us to subject the class name</remarks>
 	[Serializable()]
 	public class WEImage : ElementBase
 	{
 
-		#region "Propriétés"
-		//Pour les métaTags des propriétés publiques, se rapporter au chapitre concerné
+		#region "Properties"
+		//For public property metaTags, see specific xml docs
 
 		/// <summary>
-		/// Contient les différents chemins de l'image d'origine en fonction de la culture de la page
+		/// Object with all paths of image according to culture (language) of page
 		/// </summary>
-		/// <remarks></remarks>
 		private LinksManager.Link _ImageLink;
 		/// <summary>
-		/// Contient les différents chemins de l'image redimensionnée (si besoin) en fonction de la culture de la page 
+		/// object with all paths of resizing image (only if necessary) according to culture of page
 		/// </summary>
-		/// <remarks></remarks>
 		private LinksManager.Link _ImageResizeLink;
 		/// <summary>
-		/// Contient les différents liens en fonction de la culture, de l'image sur une action de click. 
+		/// Object with all links on mouse click event, according to culture of page
 		/// </summary>
-		/// <remarks></remarks>
 		private LinksManager.Link _PageLink;
 		/// <summary>
-		/// Texte alternatif de l'image. Ne s'affiche que si le chemin vers l'image n'est plus valide.
+		/// Alternat text of image : text is displaying if the image path is in fail, according to culture of page
 		/// </summary>
-		/// <remarks></remarks>
 		private DataType.LocalizableString _AlternateText;
-		/// <summary>
-		/// Renseigne si c'est le chemin de l'image d'origine (valeur true) qui est utilisé ou celui de l'image redimensionnée(valeur false). 
+		/// <summary> 
+		/// true if we uses the source image. False if it's the resize image
 		/// </summary>
-		/// <remarks>Cette valeur est modifiée automatiquement par redimensionnement manuel de l'utilisateur et peut être modifié manuellement par celui ci dans les propriétés.</remarks>
+		/// <remarks>This value is automatically updated by manuel resizing of user. That can too to be updated in the property grid</remarks>
 		private bool _DefaultImage;
 		/// <summary>
-		/// Dimension de l'image dans la page html.
+		/// Image size in html page
 		/// </summary>
-		/// <remarks></remarks>
 
 		private System.Drawing.Size _ImageSize;
 		/// <summary>
-		/// Propriété de la variable _DefaultImage
+		/// This property is tagging as NonSerialized(), it will not be saving in the .dat file
 		/// </summary>
+		/// <remarks></remarks>
+		[NonSerialized()]
+
+		private bool _LockResizeEvent;
+		/// <summary>
+		/// true if we uses the default image
+		/// </summary>
+		/// <value></value>
+		/// <returns></returns>
+		/// <remarks></remarks>
 		[Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Appearance), Ressource.localizable.LocalizableNameAtt("_N093"), Ressource.localizable.LocalizableDescAtt("_D094"), Common.Attributes.PageUpdateMode(System.Data.Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)]
-		public bool DefaultImage {
+		protected internal bool DefaultImage {
+
 			get { return _DefaultImage; }
 			set {
 				_DefaultImage = value;
-				if (value == true)
-					SetDefaultSize();
+				if (_DefaultImage) {
+					_ImageResizeLink = null;
+				}
 			}
 		}
 
 		/// <summary>
-		/// Propriété de la variable _ImageLink
+		/// Image relativ path (localizable)
 		/// </summary>
-		/// <remarks>Cette valeur ne peut jamais être à nothing</remarks>
-		[Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), Ressource.localizable.LocalizableNameAtt("_N002"), Ressource.localizable.LocalizableDescAtt("_D002"), Editor(typeof(openElement.WebElement.Editors.UITypeLinkFile), typeof(Drawing.Design.UITypeEditor)), TypeConverter(typeof(openElement.WebElement.Editors.Converter.TConvLinkFile)), Common.Attributes.PageUpdateMode(System.Data.Common.Attributes.PageUpdateMode.EnuUpdateMode.Element), Common.Attributes.ConfigBiblio(true, false, false, false, false)]
+		/// <remarks>not to be at nothing (by default, it the default image's path)</remarks>
+		[Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), Ressource.localizable.LocalizableNameAtt("_N002"), Ressource.localizable.LocalizableDescAtt("_D002"), Editor(typeof(openElement.WebElement.Editors.UITypeLinkFile), typeof(Drawing.Design.UITypeEditor)), TypeConverter(typeof(openElement.WebElement.Editors.Converter.TConvLinkFile)), Common.Attributes.PageUpdateMode(System.Data.Common.Attributes.PageUpdateMode.EnuUpdateMode.ElementWithCss), Common.Attributes.ConfigBiblio(true, false, false, false, false)]
 		public LinksManager.Link ImageLink {
 			get {
 				if (_ImageLink == null) {
 					_ImageLink = new LinksManager.Link();
-					_ImageLink.CreateLinkByResX(LinksManager.Link.EnuLinkType.ElementImage, My.Resources.ImageDefault, "WEFiles/Image/ImageDefault.png");
-					SetDefaultSize();
 				}
+				if (DefaultImage)
+					_ImageLink.BannedFromUpload = false;
+				else
+					_ImageLink.BannedFromUpload = true;
 				return _ImageLink;
 			}
 			set {
 				_ImageLink = value;
 				SetDefaultSize();
-				CreateImageResizeLink();
 			}
 		}
 
 		/// <summary>
-		/// Propriété de la variable _ImageResizeLink
+		/// paths of resizing image (only if necessary) according to culture of page
 		/// </summary>
+		/// <value></value>
+		/// <returns></returns>
+		/// <remarks></remarks>
 		[Browsable(false)]
 		public LinksManager.Link ImageResizeLink {
 			get {
 				if (_ImageResizeLink == null) {
 					_ImageResizeLink = new LinksManager.Link();
 				}
+				if (DefaultImage)
+					_ImageResizeLink.BannedFromUpload = true;
+				else
+					_ImageResizeLink.BannedFromUpload = false;
 				return _ImageResizeLink;
 			}
 			set { _ImageResizeLink = value; }
 		}
 
 		/// <summary>
-		/// Propriété de la variable _PageLink
+		/// links on mouse click event, according to culture of page
 		/// </summary>
+		/// <value></value>
+		/// <returns></returns>
+		/// <remarks></remarks>
 		[Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), Ressource.localizable.LocalizableNameAtt("_N003"), Ressource.localizable.LocalizableDescAtt("_D003"), Editor(typeof(openElement.WebElement.Editors.UITypeLinkPage), typeof(Drawing.Design.UITypeEditor)), TypeConverter(typeof(openElement.WebElement.Editors.Converter.TConvLinkFile)), Common.Attributes.PageUpdateMode(System.Data.Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)]
 		public LinksManager.Link PageLink {
 			get {
@@ -507,8 +722,11 @@ namespace Elements.Standard
 		}
 
 		/// <summary>
-		/// Propriété de la variable _AlternateText
+		/// Alternat text of image : text is displaying if the image path is in fail, according to culture of page
 		/// </summary>
+		/// <value></value>
+		/// <returns></returns>
+		/// <remarks></remarks>
 		[Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), Ressource.localizable.LocalizableNameAtt("_N004"), Ressource.localizable.LocalizableDescAtt("_D004"), TypeConverter(typeof(openElement.WebElement.Editors.Converter.TConvLocalizableString)), Common.Attributes.PageUpdateMode(System.Data.Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)]
 		public DataType.LocalizableString AlternateText {
 			get {
@@ -517,197 +735,301 @@ namespace Elements.Standard
 				}
 				return _AlternateText;
 			}
-			set { _AlternateText = value; }
+			set { _AlternateText = Tools.WebElem.PropertiesLocalizableStringFormat(value, base.Page.Culture, Tools.Enu.ProgLanguage.Html); }
 		}
 
 		#endregion
 
-		#region "Construction"
+		#region "Builder required function"
 
 		/// <summary>
-		/// Le constructeur doit avoir obligatoirement la forme suivante et faire appel au constructeur de la classe hérité
-		/// Pour les paramètres du contructeur de base, se rapporter à la classe correspondante
+		/// Obligatory configuration of constructor. The base constructor call is necessary 
+		/// for parameter, see comments in ElementBase class
 		/// </summary>
-		/// <param name="Page">Référence à la page dans lequel est positionné l'élément(attribuer automatiquement)</param>
-		/// <param name="ParentID">Identifiant du conteneur parent(attribuer automatiquement)</param>
-		/// <param name="TemplateName">Nom du template direct dans lequel est contenu l'élément(attribuer automatiquement)</param>
+		/// <param name="page"> Page reference which element belongs </param>
+		/// <param name="parentID"> Unique ID of parent container</param>
+		/// <param name="templateName"> template's name which element belongs</param>
 		/// <remarks></remarks>
-
-		public WEImage(Page Page, string ParentID, string TemplateName) : base(EnuElementType.PageEdit, "WEImage", Page, ParentID, TemplateName)
+		public WEImage(Page page, string parentID, string templateName) : base(EnuElementType.PageEdit, "WEImage", page, parentID, templateName)
 		{
+			base.NumUpdate = 1;
+			this.DefaultImage = true;
+
+		}
+
+		/// <summary>         
+		/// Required function who allow to complete elementInfo object        
+		/// </summary>
+		/// <returns></returns>
+		/// <remarks></remarks>
+		protected override ElementInfo OnGetInfo()
+		{
+
+			ElementInfo info = new ElementInfo(this);
+			//Element's name displayed in element's list
+			info.ToolBoxCaption = My.Resources.text.LocalizableOpen._0007;
+			//this text is a localizable variable for traduction
+			//Element's description
+			info.ToolBoxDescription = My.Resources.text.LocalizableOpen._0008;
+			//   
+			//Number of major version
+			info.VersionMajor = 1;
+			//Number of minor version
+			info.VersionMinor = 0;
+			//openElement's toolsbox group which the item belongs
+			info.GroupName = "NBGroupStandard";
+			//Icon display in the openElement's toolsbox (size : 16*16px)
+			info.ToolBoxIco = My.Resources.WEImage;
+			//Automatic opening property when the element will be adding in the page
+			info.AutoOpenProperty = "ImageLink";
+
+			//Add a fast acces of the property in bottom bar (Icon display below the element when he's selecting)
+			//(parameter: Property's name, associated icon's name, associated tooltip text)
+			info.SortPropertyList.Add(new SortProperty("ImageLink", "folder.png", My.Resources.text.LocalizableOpen._0009));
+			info.SortPropertyList.Add(new SortProperty("PageLink", "link.png", My.Resources.text.LocalizableOpen._0010));
+			return info;
+
 		}
 
 		/// <summary>
-		/// Evènement de démarrage (OnOpen) obligatoire pour la configuration de l'élément
+		/// start event. Necessary for configuration of element
 		/// </summary>
 		/// <remarks></remarks>
+
 		protected override void OnOpen()
 		{
-			//Nom de l'élément affiché dans la liste des éléments
-			base.ElementInfo.ToolBoxCaption = My.Resources.text.LocalizableOpen._0007;
-			//Image
-			//Description de l'élément
-			base.ElementInfo.ToolBoxDescription = My.Resources.text.LocalizableOpen._0008;
-			//  "Ajouter une image de la bibliothèque de ressource."
-			//Numéro de version majeur de l'élément
-			base.ElementInfo.VersionMajor = 1;
-			//Numéro de version mineur de l'élément
-			base.ElementInfo.VersionMinor = 0;
-			//Groupe de la barre d'outils d'openElement (NBGroupStandard,)
-			base.ElementInfo.GroupName = "NBGroupStandard";
-			//Icone pour la barre d'outils d'openElement (Taille 16x16) 
-			base.ElementInfo.ToolBoxIco = My.Resources.WEImage;
-			//Propriété à ouvrir automatiquement lors de l'ajout de l'élément dans la page
-			base.ElementInfo.AutoOpenProperty = "ImageLink";
-
-			//Pour rajouter des propriétés dans la liste des acces rapides (icones qui s'affiche en dessous de l'élément lors de sa sélection): 
-			//Ajouter à la liste un nouvel objet SortProperty 
-			//(paramètres : nom de la propriété, nom de l'image associé (celle ci est placé dans le dossier ressource du projet), Texte du tooltip associé)
-			base.ElementInfo.SortPropertyList.Add(new SortProperty("ImageLink", "folder.png", My.Resources.text.LocalizableOpen._0009));
-			// "Sélection de l'image Principale"))
-			base.ElementInfo.SortPropertyList.Add(new SortProperty("PageLink", "link.png", My.Resources.text.LocalizableOpen._0010));
-			// "Sélection du lien principal"))
-
-
-			//A placer obligatoirement à la fin
+			//Obligatory at end
 			base.OnOpen();
 
 		}
 
-		#endregion
-
-		#region "Render"
-		//Région consacré au rendu html sur la page internet de l'objet 'image' (obligatoire pour les éléments de type EnuElementType.PageEdit).
-
 		/// <summary>
-		/// Surcharge de l'evénemenent déclenché avant l'ecriture du rendu de la page  
-		/// Ne pas oublier l'appel à l'évenement correspondant de la classe hérité
+		/// Event called at the page loading in the editor
 		/// </summary>
 		/// <remarks></remarks>
-		protected override void OnPageBeforeRender()
+		protected override void OnPageInit()
 		{
-			CreateImageResizeLink();
-			base.OnPageBeforeRender();
+			if (base.NumUpdate == 0) {
+				CreateImageResizeLink();
+				base.NumUpdate = 1;
+			}
+			base.OnPageInit();
+		}
+		#endregion
+
+		/// <summary>
+		/// Event called before the page render. Don't forget to call the parent class's event
+		/// </summary>
+		/// <remarks></remarks>
+
+		protected override void OnPageBeforeRender(Page.EnuTypeRenderMode mode)
+		{
+			base.OnPageBeforeRender(mode);
 		}
 
 		/// <summary>
-		/// Surcharge de l'événement déclenché après l'écriture du rendu de la page
-		/// Ne pas oublier l'appel à l'évenement correspondant de la classe hérité
+		/// Event called after one manual image resize.  Don't forget to call the parent class's event
 		/// </summary>
 		/// <remarks></remarks>
 		protected override void OnResizeEnd()
 		{
+			if (_LockResizeEvent)
+				return;
 			CreateImageResizeLink();
+			base.LiveUpdateHtmlProperty("img", "src", GetStrImageLink());
 			base.OnResizeEnd();
 		}
 
 		/// <summary>
-		/// Fonction de construction des propriétés css directement dans le tag de l'image
+		/// Event called before the changing of resizing's type of element 
+		/// </summary>
+		/// <param name="oldType"></param>
+		/// <param name="newType"></param>
+		/// <remarks></remarks>
+		protected override void OnTypeResizeChange(EnuTypeResize oldType, ref EnuTypeResize newType)
+		{
+			_LockResizeEvent = true;
+			if (string.IsNullOrEmpty(base.StylesSkin.BaseDiv.BaseStyles.Width.Value)) {
+				base.StylesSkin.BaseDiv.BaseStyles.Width.Value = _ImageSize.Width;
+			}
+			if (string.IsNullOrEmpty(base.StylesSkin.BaseDiv.BaseStyles.Height.Value)) {
+				base.StylesSkin.BaseDiv.BaseStyles.Height.Value = _ImageSize.Height;
+			}
+			_LockResizeEvent = false;
+			base.OnTypeResizeChange(oldType, newType);
+		}
+
+		/// <summary>
+		/// selects which resource to upload (source or resize image)
+		/// </summary>
+		/// <remarks></remarks>
+		private void SelectLinkToUpload()
+		{
+			if (this.DefaultImage) {
+				this.ImageLink.BannedFromUpload = false;
+				this.ImageResizeLink.BannedFromUpload = true;
+			} else {
+				this.ImageLink.BannedFromUpload = true;
+				this.ImageResizeLink.BannedFromUpload = false;
+			}
+		}
+
+		#region "Render"
+		//html render functions. (obligatory for element of type 'EnuElementType.PageEdit')
+
+		/// <summary>
+		/// writing css property inside image tag
 		/// </summary>
 		/// <returns></returns>
 		/// <remarks></remarks>
 		private string GetImageStyle()
 		{
 
-			System.Text.StringBuilder Builder = new System.Text.StringBuilder();
+			System.Text.StringBuilder builder = new System.Text.StringBuilder();
 
-			if (_ImageSize.Height > 0 & _ImageSize.Height < 15) {
-				int Prop = Math.Round((100 * _ImageSize.Height) / 15, 0);
-				Builder.Append(string.Concat("height:", Prop, "%;"));
+			if (base.StylesSkin.BaseDiv.BaseStyles.Height.Auto) {
+				builder.Append(string.Concat("height:", _ImageSize.Height, "px;"));
 			} else {
-				Builder.Append("height:100%;");
+				if (_ImageSize.Height > 0 & _ImageSize.Height < 15) {
+					int prop = Math.Round((100 * _ImageSize.Height) / 15, 0);
+					builder.Append(string.Concat("height:", prop, "%;"));
+				}
 			}
 
-			if (_ImageSize.Width > 0 & _ImageSize.Width < 15) {
-				int Prop = Math.Round((100 * _ImageSize.Width) / 15, 0);
-				Builder.Append(string.Concat("width:", Prop, "%;"));
+			if (base.StylesSkin.BaseDiv.BaseStyles.Width.Auto) {
+				builder.Append(string.Concat("width:", _ImageSize.Width, "px;"));
 			} else {
-				Builder.Append("width:100%;");
+				if (_ImageSize.Width > 0 & _ImageSize.Width < 15) {
+					int prop = Math.Round((100 * _ImageSize.Width) / 15, 0);
+					builder.Append(string.Concat("width:", prop, "%;"));
+				}
 			}
 
-			return Builder.ToString();
+			return builder.ToString();
 
 		}
 
 		/// <summary>
-		/// Evènement de rendu (obligatoire pour les éléments de type EnuElementType.PageEdit).
-		/// C'est ici que la création de l'HTML de l'élément se construit.
+		/// get the image path (source or resize path as the case)
 		/// </summary>
-		/// <param name="writer"></param>
+		/// <returns></returns>
+		/// <remarks></remarks>
+		public string GetStrImageLink()
+		{
+
+			if (this.DefaultImage) {
+				return base.GetLink(this.ImageLink);
+			} else {
+				return base.GetLink(this.ImageResizeLink);
+			}
+
+		}
+
+		/// <summary>
+		/// Main event of element's render. it's obligatory for element at type of EnuElementType.PageEdit
+		/// here, we write the html of the element
+		/// </summary>
+		/// <param name="writer">Writer object</param>
 		/// <remarks></remarks>
 
 		protected override void Render(Common.HtmlWriter writer)
 		{
-			string pageLink = base.GetLinkHref(this.PageLink);
-			//récupération du lien de l'image (originel ou redimensionné)
-			string ImageLink = string.Empty;
-			if (this.DefaultImage) {
-				ImageLink = base.GetLinkHref(this.ImageLink);
-			} else {
-				ImageLink = base.GetLinkHref(this.ImageResizeLink);
-			}
+			string strPageLink = base.GetLink(this.PageLink);
+			string strImageLink = GetStrImageLink();
 
-			//A ajouter obligatoirement en début du rendu html de l'élement
+			//to add obligatory at begining of element's html render
 			base.RenderBeginTag(writer);
 
-			//Code html spécifique de l'image 
-			if (!string.IsNullOrEmpty(pageLink)) {
+			//Specific html code of element WEImage
+			if (!string.IsNullOrEmpty(strPageLink)) {
 				writer.WriteBeginTag("a");
-				writer.WriteAttribute("href", pageLink);
+				writer.WriteHrefAttribute(this, this.PageLink, true);
 				writer.Write(System.Web.UI.HtmlTextWriter.TagRightChar);
 			}
-			writer.WriteBeginTag("img");
-			writer.WriteAttribute("style", GetImageStyle());
-			writer.WriteAttribute("src", ImageLink);
-			dynamic alternateTxt = this.AlternateText.GetValue(base.Page.Culture);
-			if (!string.IsNullOrEmpty(alternateTxt))
-				writer.WriteAttribute("alt", alternateTxt);
-			writer.Write(System.Web.UI.HtmlTextWriter.SelfClosingTagEnd);
-			if (!(pageLink == string.Empty)) {
+
+			if (!string.IsNullOrEmpty(strImageLink)) {
+				writer.WriteBeginTag("img");
+				writer.WriteAttribute("style", GetImageStyle());
+				writer.WriteAttribute("src", strImageLink);
+				writer.WriteAttribute("alt", this.AlternateText.GetValue(base.Page.Culture));
+				writer.Write(System.Web.UI.HtmlTextWriter.SelfClosingTagEnd);
+			}
+
+			if (!string.IsNullOrEmpty(strPageLink)) {
 				writer.WriteEndTag("a");
 			}
 
-			//A ajouter obligatoirement en fin du rendu html de l'élement
+			//to Add obligarory at ending of element's html render
 			base.RenderEndTag(writer);
 
 		}
 
 		#endregion
 
+		#region "Size calculation and css update"
+
 		/// <summary>
-		/// Détermine si la taille de l'image utilisé est conforme au taille minimum fixé
-		/// Cette taille minimum est necessaire pour permette la selection de l'élément dans l'éditeur par un clic de souris
+		/// Private method for to update the css size style of parent div of element.
+		/// </summary>
+		/// <remarks></remarks>
+
+		private void UpdateMinMaxSize()
+		{
+			if (base.StylesSkin.BaseDiv.BaseStyles.Height.Auto) {
+				base.StylesSkin.BaseDiv.BaseStyles.MinHeight.SetCss(_ImageSize.Height);
+				base.StylesSkin.BaseDiv.BaseStyles.MaxHeight.SetCss(_ImageSize.Height);
+			} else {
+				base.StylesSkin.BaseDiv.BaseStyles.MinHeight.SetCss("");
+				base.StylesSkin.BaseDiv.BaseStyles.MaxHeight.SetCss("");
+			}
+
+			if (base.StylesSkin.BaseDiv.BaseStyles.Width.Auto) {
+				base.StylesSkin.BaseDiv.BaseStyles.MinWidth.SetCss(_ImageSize.Width);
+				base.StylesSkin.BaseDiv.BaseStyles.MaxWidth.SetCss(_ImageSize.Width);
+			} else {
+				base.StylesSkin.BaseDiv.BaseStyles.MinWidth.SetCss("");
+				base.StylesSkin.BaseDiv.BaseStyles.MaxWidth.SetCss("");
+			}
+
+		}
+
+		/// <summary>
+		/// Private Method for to check the image size. this graphic element must to be a mininal size (15*15px). It's necessary for select him at the mouve clic event in the editor
 		/// </summary>
 		/// <remarks></remarks>
 
 		private void SetDefaultSize()
 		{
-			string OriginFullPath = base.GetLinkIOPath(this.ImageLink);
-			System.Drawing.Bitmap OriginBitmap = new System.Drawing.Bitmap(OriginFullPath);
+			dynamic imgSrc = base.GetLinkIOPath(this.ImageLink);
+			if (string.IsNullOrEmpty(imgSrc)){_ImageSize = new System.Drawing.Size(15, 15);return;
+}
 
-			//taille minimum de l'image fixé à 15px de largeur
-			if (OriginBitmap.Width < 15) {
+			//Get bitmap size
+			OBitmap originBitmap = base.OpenBitmap(imgSrc);
+			if (originBitmap.Bitmap == null)
+				return;
+			_ImageSize = originBitmap.Bitmap.Size;
+			base.CloseBitmap(originBitmap);
+
+			//minimal width is 15px
+			if (_ImageSize.Width < 15) {
 				base.StylesSkin.BaseDiv.BaseStyles.Width.SetCss(15);
 			} else {
-				base.StylesSkin.BaseDiv.BaseStyles.Width.SetCss(OriginBitmap.Width);
+				base.StylesSkin.BaseDiv.BaseStyles.Width.SetCss(_ImageSize.Width);
 			}
 
-			//et 15 px de hauteur
-			if (OriginBitmap.Height < 15) {
+			//minimal height is 15px
+			if (_ImageSize.Height < 15) {
 				base.StylesSkin.BaseDiv.BaseStyles.Height.SetCss(15);
 			} else {
-				base.StylesSkin.BaseDiv.BaseStyles.Height.SetCss(OriginBitmap.Height);
+				base.StylesSkin.BaseDiv.BaseStyles.Height.SetCss(_ImageSize.Height);
 			}
-
-			_ImageSize = new System.Drawing.Size(OriginBitmap.Width, OriginBitmap.Height);
-
 		}
 
 		/// <summary>
-		/// Fonction qui détermine si l'image doit être redimensionné
-		/// Cela se décide en fonction des dimensions de l'image d'origine et des dimensions de l'image sur la page
-		/// Cela permet de diminuer suivant les cas de considérablement la taille de l'image
-		/// et par conséquence celle de la page à charger dans le navigateur
+		/// Private method for to see if the image must to be resizing
+		/// It's determinate by the source image sizing and the image size on page. 
+		/// that's allow to reduce the image's weight et so, the page loading time.
 		/// </summary>
 		/// <remarks></remarks>
 
@@ -716,37 +1038,125 @@ namespace Elements.Standard
 			if (_ImageLink == null)
 				return;
 
-			string OriginFullPath = base.GetLinkIOPath(this.ImageLink);
-			if (!System.IO.File.Exists(OriginFullPath))
-				return;
-			System.Drawing.Bitmap OriginBitmap = new System.Drawing.Bitmap(OriginFullPath);
-			System.Drawing.Imaging.ImageFormat OriginImageFormat = OriginBitmap.RawFormat;
-			int OriginWidth = OriginBitmap.Width;
-			int OriginHeight = OriginBitmap.Height;
-			string NewWidth = base.StylesSkin.BaseDiv.BaseStyles.Width.Number;
-			string NewHeight = base.StylesSkin.BaseDiv.BaseStyles.Height.Number;
 
-			if (string.IsNullOrEmpty(NewWidth) | string.IsNullOrEmpty(NewHeight)) {
-				this.DefaultImage = true;
-				OriginBitmap.Dispose();
-				return;
+			try {
+				_LockResizeEvent = true;
+
+				string originFullPath = base.GetLinkIOPath(this.ImageLink);
+				if (string.IsNullOrEmpty(originFullPath))
+					return;
+
+				System.Drawing.Imaging.ImageFormat imageFormat = Tools.Picture.ImageFormatByExt(System.IO.Path.GetExtension(originFullPath));
+				if (imageFormat.Equals(System.Drawing.Imaging.ImageFormat.Gif)) {
+					this.DefaultImage = true;
+					return;
+				}
+
+				OBitmap originBitmap = base.OpenBitmap(originFullPath);
+				// originBitmap Is Nothing may happen (= happened for one of user projects) on project upgrade (becomes important as we now may call this function on PageInit
+				if (originBitmap == null || originBitmap.Bitmap == null) {
+					return;
+				}
+
+				int originWidth = originBitmap.Bitmap.Width;
+				int originHeight = originBitmap.Bitmap.Height;
+				string newWidth = base.StylesSkin.BaseDiv.BaseStyles.Width.Value;
+				string newHeight = base.StylesSkin.BaseDiv.BaseStyles.Height.Value;
+
+				if (base.StylesSkin.BaseDiv.BaseStyles.Width.Auto | string.IsNullOrEmpty(newWidth)) {
+					newWidth = originWidth;
+					base.StylesSkin.BaseDiv.BaseStyles.Width.Value = originWidth;
+				}
+
+				if (base.StylesSkin.BaseDiv.BaseStyles.Height.Auto | string.IsNullOrEmpty(newHeight)) {
+					newHeight = originHeight;
+					base.StylesSkin.BaseDiv.BaseStyles.Height.Value = originHeight;
+				}
+
+
+				if (originWidth == newWidth & originHeight == newHeight) {
+					this.DefaultImage = true;
+					if (base.NumUpdate == 0) {
+						base.TypeResize = EnuTypeResize.None;
+					}
+
+				} else {
+
+					foreach (string culture in ImageLink.GetListSitePath().Keys) {
+						string fullCulturePath = base.GetLinkIOPath(this.ImageLink, culture);
+
+						OBitmap cultureBitmap = base.OpenBitmap(fullCulturePath);
+						cultureBitmap.Resize(new System.Drawing.Size(newWidth, newHeight));
+
+						string linkPath = string.Concat("WEFiles/Image/WEImage/", this.ImageResizeLink.ID, culture, System.IO.Path.GetExtension(fullCulturePath));
+						base.CreateAutoRessourceByBitmap(this.ImageResizeLink, LinksManager.Link.EnuLinkType.ElementImage, cultureBitmap.Bitmap, linkPath, culture);
+
+						base.CloseBitmap(cultureBitmap);
+
+					}
+
+					this.DefaultImage = false;
+
+
+					if (base.NumUpdate == 0) {
+						if (!(originWidth == newWidth) & !(originHeight == newHeight)) {
+							base.TypeResize = EnuTypeResize.Both;
+						} else if (!(originWidth == newWidth)) {
+							base.TypeResize = EnuTypeResize.Width;
+						} else if (!(originHeight == newHeight)) {
+							base.TypeResize = EnuTypeResize.Height;
+						}
+
+					}
+
+
+				}
+
+				this.SelectLinkToUpload();
+
+				base.CloseBitmap(originBitmap);
+
+
+			} catch (Exception ex) {
+				OEBug.Capture(ex, true, true);
+			} finally {
+				UpdateMinMaxSize();
+				_LockResizeEvent = false;
 			}
-
-			if (OriginWidth == NewWidth & OriginHeight == NewHeight) {
-				this.DefaultImage = true; 
-				this.ImageResizeLink.Dispose();
-			} else {
-				string FullPath = base.GetLinkIOPath(this.ImageResizeLink);
-				System.Drawing.Bitmap NewBitmap = Tools.Picture.Resize(OriginBitmap, NewWidth, NewHeight);
-				this.ImageResizeLink.CreateLinkByResX(LinksManager.Link.EnuLinkType.ElementImage, NewBitmap, string.Concat("WEFiles/Image/WEImage/", this.ImageResizeLink.ID, Utils.ExtByImageFormat(OriginImageFormat)));
-				this.DefaultImage = false;
-			}
-
-			OriginBitmap.Dispose();
 
 		}
+
+		#endregion
+
+
+		#region "DD Translation of LocalizableStrings"
+
+		// See comments in ElementBase class
+		public override bool GetLocalizableStringsForTranslationSystem(Dictionary<string, DataType.LocalizableString> accListLS, Dictionary<string, string> accListInfo, bool onlyNonEmpty = true)
+		{
+			if (accListLS == null | accListInfo == null)
+				return false;
+
+			if (_AlternateText == null || (onlyNonEmpty && _AlternateText.IsEmpty))
+				return false;
+
+			string lsID = "WEImage." + ID + ".AltText";
+			accListLS[lsID] = _AlternateText;
+
+			if (!string.IsNullOrEmpty(this.Name)) {
+				accListInfo[lsID] = "Element name: " + this.Name + " (Image)";
+			}
+
+			return true;
+		}
+
+		#endregion
+
+
 	}
+
 }
+
       ]]>
 
     </code>

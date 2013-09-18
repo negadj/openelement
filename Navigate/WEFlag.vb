@@ -1,20 +1,45 @@
-﻿Imports openElement.WebElement.Elements
-Imports openElement.WebElement
-Imports System.ComponentModel
-Imports openElement
-Imports openElement.WebSite.Config
+﻿Imports System.ComponentModel
+Imports System.Drawing.Design
 Imports System.Text
+Imports System.Web.UI
+
+Imports openElement.Tools
+Imports openElement.WebElement.Common
+Imports openElement.WebElement.Common.Attributes
+Imports openElement.WebElement.Elements
 Imports openElement.WebElement.LinksManager
+Imports openElement.WebElement.StylesManager
+Imports openElement.WebSite.Config
+
+Imports WebElement.Elements.Navigate.Editors
+Imports WebElement.My.Resources.text
+Imports WebElement.Ressource.localizable
 
 Namespace Elements.Navigate
 
-    <Serializable()> _
+    <Serializable> _
     Public Class WEFlag
         Inherits ElementBase
 
-        <Common.Attributes.ContainsLinks()> _
-         Private _ListConfigLanguage As List(Of openElement.WebElement.DataType.WEConfigLanguage)
+        #Region "Fields"
+
+        <ContainsLinks> _
+        Private _ListConfigLanguage As List(Of WEConfigLanguage)
         Private _ViewType As EnuViewType
+
+        #End Region 'Fields
+
+        #Region "Constructors"
+
+        Public Sub New(ByVal page As openElement.WebElement.Page, ByVal parentID As String, ByVal templateName As String)
+            MyBase.New(EnuElementType.PageEdit, "WEFlag", page, parentID, templateName)
+            MyBase.TypeResize = EnuTypeResize.None
+            UpdateLinkFlag()
+        End Sub
+
+        #End Region 'Constructors
+
+        #Region "Enumerations"
 
         Public Enum EnuViewType As Short
             OnlyFlag = 0
@@ -22,34 +47,33 @@ Namespace Elements.Navigate
             FlagAndText = 2
         End Enum
 
-        <NonSerialized(), Obsolete(), Common.Attributes.OEObsolete(1, 32)> Private _ListEOLanguage As List(Of Language)
+        #End Region 'Enumerations
 
-#Region "Properties"
+        #Region "Properties"
 
         <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), _
         Ressource.localizable.LocalizableNameAtt("_N237"), _
-        Ressource.localizable.LocalizableDescAtt("_D237"), _
-        Editor(GetType(Editors.UITypeListConfigLanguage), GetType(Drawing.Design.UITypeEditor)), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)> _
-        Public Property ListConfigLanguage() As List(Of openElement.WebElement.DataType.WEConfigLanguage)
+        LocalizableDescAtt("_D237"), _
+        Editor(GetType(UITypeListConfigLanguage), GetType(UITypeEditor)), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.Element)> _
+        Public Property ListConfigLanguage() As List(Of WEConfigLanguage)
             Get
                 If _ListConfigLanguage Is Nothing Then
-                    _ListConfigLanguage = New List(Of openElement.WebElement.DataType.WEConfigLanguage)
+                    _ListConfigLanguage = New List(Of WEConfigLanguage)
                 End If
 
                 Return _ListConfigLanguage
             End Get
-            Set(ByVal value As List(Of openElement.WebElement.DataType.WEConfigLanguage))
+            Set(ByVal value As List(Of WEConfigLanguage))
                 _ListConfigLanguage = value
             End Set
         End Property
 
-
         <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), _
         Ressource.localizable.LocalizableNameAtt("_N237"), _
-        Ressource.localizable.LocalizableDescAtt("_D237"), _
-        Editor(GetType(Editors.UITypeFlagView), GetType(Drawing.Design.UITypeEditor)), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)> _
+        LocalizableDescAtt("_D237"), _
+        Editor(GetType(UITypeFlagView), GetType(UITypeEditor)), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.Element)> _
         Public Property ViewType() As EnuViewType
             Get
                 Return _ViewType
@@ -59,128 +83,43 @@ Namespace Elements.Navigate
             End Set
         End Property
 
-#End Region
+        #End Region 'Properties
 
-#Region "Builder required function"
-
-        Public Sub New(ByVal page As Page, ByVal parentID As String, ByVal templateName As String)
-            MyBase.New(EnuElementType.PageEdit, "WEFlag", page, parentID, templateName)
-            MyBase.TypeResize = EnuTypeResize.None
-            UpdateLinkFlag()
-        End Sub
+        #Region "Methods"
 
         Protected Overrides Function OnGetInfo() As ElementInfo
-
             Dim info As New ElementInfo(Me)
-            info.ToolBoxCaption = My.Resources.text.LocalizableOpen._0109
+            info.ToolBoxCaption = LocalizableOpen._0109
             info.VersionMajor = 1
             info.VersionMinor = 0
             info.GroupName = "NBGroupNavigate"
             info.ToolBoxIco = My.Resources.WEFlag
-            info.ToolBoxDescription = My.Resources.text.LocalizableOpen._0110
-            info.SortPropertyList.Add(New SortProperty("ListConfigLanguage", "tools.png", My.Resources.text.LocalizableOpen._0030))
+            info.ToolBoxDescription = LocalizableOpen._0110
+            info.SortPropertyList.Add(New SortProperty("ListConfigLanguage", "tools.png", LocalizableOpen._0030))
             Return info
-
         End Function
 
         Protected Overrides Sub OnOpen()
-
-            Dim configStylesZones As New List(Of StylesManager.ConfigStylesZone)
-            configStylesZones.Add(New StylesManager.ConfigStylesZone("Flag", My.Resources.text.LocalizableOpen._0111, My.Resources.text.LocalizableOpen._0112))
+            Dim configStylesZones As New List(Of ConfigStylesZone)
+            configStylesZones.Add(New ConfigStylesZone("Flag", LocalizableOpen._0111, LocalizableOpen._0112))
 
             Update()
 
             MyBase.OnOpen(configStylesZones)
         End Sub
 
+        Protected Overrides Sub OnPageBeforeRender(ByVal mode As openElement.WebElement.Page.EnuTypeRenderMode)
+            AddRewriteServerQueryString(mode)
+            MyBase.OnPageBeforeRender(mode)
+        End Sub
 
         Protected Overrides Sub OnPageInit()
             UpdateLinkFlag()
             MyBase.OnPageInit()
         End Sub
 
-        Protected Overrides Sub OnPageBeforeRender(ByVal mode As Page.EnuTypeRenderMode)
-            AddRewriteServerQueryString(mode)
-            MyBase.OnPageBeforeRender(mode)
-        End Sub
-
-#End Region
-
-        ''' <summary>
-        ''' Configlanguage update
-        ''' </summary>
-        ''' <remarks></remarks>
-        Private Sub Update()
-
-            If MyBase.NumUpdate = 0 Then
-                For Each item In ListConfigLanguage
-                    item.ParentElement = Me
-                Next
-                MyBase.NumUpdate = 1
-            End If
-
-        End Sub
-
-
-        ''' <summary>
-        ''' Update of the list of flag's image link (when adding language)
-        ''' </summary>
-        ''' <remarks></remarks>
-        Private Sub UpdateLinkFlag()
-            Dim list As ListOfLanguage = Tools.Various.GetListLanguage
-            If list IsNot Nothing Then
-                'update list
-                For Each lang As Language In list.ListOfActiveLanguage
-                    Dim exist As Boolean = False
-                    For Each configLanguage As DataType.WEConfigLanguage In ListConfigLanguage
-                        If exist OrElse lang.TrueCode.Equals(configLanguage.TrueCode) Then
-                            exist = True
-                            Exit For
-                        End If
-                    Next
-                    If Not exist Then ListConfigLanguage.Add(New WEConfigLanguage(Me, lang.TrueCode))
-                Next
-            End If
-
-        End Sub
-
-        Private Sub AddRewriteServerQueryString(ByVal mode As Page.EnuTypeRenderMode)
-
-            If mode = Page.EnuTypeRenderMode.Export _
-            And Me.Page.RenderSubMode = Page.EnuTypeRenderSubMode.Upload Then
-
-                Select Case Me.Page.ServerSiteScripting
-
-                    Case Page.EnuServerSiteScripting.Php
-
-                        Dim script As New StringBuilder
-                        script.AppendLine("function addCurrentURLParams($newURL) {")
-                        script.AppendLine(" $currURL = $_SERVER['REQUEST_URI'];")
-                        script.AppendLine(" if (!$newURL || !$currURL) return $newURL;")
-                        script.AppendLine(" $pos = strpos($currURL, '?'); if (!$pos) return $newURL; // no parameters")
-                        script.AppendLine(" $params = substr($currURL, $pos);")
-                        script.AppendLine(" return $newURL.$params;")
-                        script.AppendLine("}")
-
-                        Dim scriptBlock As New Common.ScriptBlock("RewriteQueryString", Common.EnuScriptType.Php, Common.EnuScriptPosition.StartDocument)
-                        scriptBlock.Code.SetValue(script.ToString)
-                        MyBase.AddBlockScripts(scriptBlock)
-
-                    Case Else
-
-                End Select
-
-            End If
-
-        End Sub
- 
-#Region "Render"
-
-
-        Protected Overrides Sub Render(ByVal writer As Common.HtmlWriter)
-
+        Protected Overrides Sub Render(ByVal writer As HtmlWriter)
             MyBase.RenderBeginTag(writer)
-
 
             For Each configLanguage As WEConfigLanguage In Me.ListConfigLanguage
 
@@ -192,7 +131,7 @@ Namespace Elements.Navigate
                 Dim url As String
                 Dim current As String
 
-                If Me.Page.RenderSubMode = Page.EnuTypeRenderSubMode.Upload Then
+                If Me.Page.RenderSubMode = openElement.WebElement.Page.EnuTypeRenderSubMode.Upload Then
                     current = Me.Page.GetHtmlFileName(pageLanguage.Code, True, True)
                 Else
                     current = Me.Page.GetHtmlFileName(pageLanguage.Code, False, False)
@@ -208,10 +147,10 @@ Namespace Elements.Navigate
                     url = MyBase.GetLink(flagLink, "DEFAULT")
                 End If
 
-                If Me.Page.RenderMode = Page.EnuTypeRenderMode.Export _
-                And Me.Page.RenderSubMode = Page.EnuTypeRenderSubMode.Upload Then
+                If Me.Page.RenderMode = openElement.WebElement.Page.EnuTypeRenderMode.Export _
+                And Me.Page.RenderSubMode = openElement.WebElement.Page.EnuTypeRenderSubMode.Upload Then
                     Select Case Me.Page.ServerSiteScripting
-                        Case Page.EnuServerSiteScripting.Php
+                        Case openElement.WebElement.Page.EnuServerSiteScripting.Php
                             url = String.Concat("<?php echo addCurrentURLParams('", url, "'); ?>")
                     End Select
                 End If
@@ -223,20 +162,17 @@ Namespace Elements.Navigate
                     imageSrc = MyBase.GetLink(configLanguage.Image, "DEFAULT")
                 End If
 
-                Dim isCurrentCulture As Boolean = False
-                If Me.Page.Culture.Equals(pageLanguage.Code) Then
-                    isCurrentCulture = True
-                End If
+                Dim isCurrentCulture = Me.Page.Culture.Equals(pageLanguage.Code)
 
                 writer.WriteBeginTag("div")
                 writer.WriteAttribute("class", MyBase.GetStyleZoneClass("Flag"))
-                writer.Write(Web.UI.HtmlTextWriter.TagRightChar)
+                writer.Write(HtmlTextWriter.TagRightChar)
                 If Not isCurrentCulture Then
                     writer.WriteBeginTag("a")
                     writer.WriteAttribute("href", url)
                     writer.WriteAttribute("rel", "alternate")
                     writer.WriteAttribute("hreflang", pageLanguage.TrueCode)
-                    writer.Write(Web.UI.HtmlTextWriter.TagRightChar)
+                    writer.Write(HtmlTextWriter.TagRightChar)
                 End If
 
                 If Not ViewType = EnuViewType.OnlyText Then
@@ -244,7 +180,7 @@ Namespace Elements.Navigate
                     writer.WriteAttribute("style", "border:none;vertical-align:bottom")
                     writer.WriteAttribute("src", imageSrc)
                     writer.WriteAttribute("alt", pageLanguage.Name)
-                    writer.Write(Web.UI.HtmlTextWriter.SelfClosingTagEnd)
+                    writer.Write(HtmlTextWriter.SelfClosingTagEnd)
                 End If
 
                 If Not ViewType = EnuViewType.OnlyFlag Then
@@ -260,14 +196,71 @@ Namespace Elements.Navigate
             Next
 
             MyBase.RenderEndTag(writer)
-
         End Sub
-#End Region
 
+        Private Sub AddRewriteServerQueryString(ByVal mode As openElement.WebElement.Page.EnuTypeRenderMode)
+            If mode = openElement.WebElement.Page.EnuTypeRenderMode.Export _
+            And Me.Page.RenderSubMode = openElement.WebElement.Page.EnuTypeRenderSubMode.Upload Then
+
+                Select Case Me.Page.ServerSiteScripting
+
+                    Case openElement.WebElement.Page.EnuServerSiteScripting.Php
+
+                        Dim script As New StringBuilder
+                        script.AppendLine("function addCurrentURLParams($newURL) {")
+                        script.AppendLine(" $currURL = $_SERVER['REQUEST_URI'];")
+                        script.AppendLine(" if (!$newURL || !$currURL) return $newURL;")
+                        script.AppendLine(" $pos = strpos($currURL, '?'); if (!$pos) return $newURL; // no parameters")
+                        script.AppendLine(" $params = substr($currURL, $pos);")
+                        script.AppendLine(" return $newURL.$params;")
+                        script.AppendLine("}")
+
+                        Dim scriptBlock As New ScriptBlock("RewriteQueryString", EnuScriptType.Php, EnuScriptPosition.StartDocument)
+                        scriptBlock.Code.SetValue(script.ToString)
+                        MyBase.AddBlockScripts(scriptBlock)
+
+                End Select
+
+            End If
+        End Sub
+
+        ''' <summary>
+        ''' Configlanguage update
+        ''' </summary>
+        ''' <remarks></remarks>
+        Private Sub Update()
+            If MyBase.NumUpdate = 0 Then
+                For Each item In ListConfigLanguage
+                    item.ParentElement = Me
+                Next
+                MyBase.NumUpdate = 1
+            End If
+        End Sub
+
+        ''' <summary>
+        ''' Update of the list of flag's image link (when adding language)
+        ''' </summary>
+        ''' <remarks></remarks>
+        Private Sub UpdateLinkFlag()
+            Dim list As ListOfLanguage = Various.GetListLanguage
+            If list IsNot Nothing Then
+                'update list
+                For Each lang As Language In list.ListOfActiveLanguage
+                    Dim exist As Boolean = False
+                    For Each configLanguage As WEConfigLanguage In ListConfigLanguage
+                        If exist OrElse lang.TrueCode.Equals(configLanguage.TrueCode) Then
+                            exist = True
+                            Exit For
+                        End If
+                    Next
+                    If Not exist Then ListConfigLanguage.Add(New WEConfigLanguage(Me, lang.TrueCode))
+                Next
+            End If
+        End Sub
+
+        #End Region 'Methods
 
     End Class
 
-
-
-
 End Namespace
+

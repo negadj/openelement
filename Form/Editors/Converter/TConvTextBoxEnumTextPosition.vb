@@ -1,64 +1,81 @@
 ﻿Imports System.ComponentModel
+Imports System.Globalization
+
+Imports WebElement.My.Resources.text
 
 Namespace Elements.Form.Editors.Converter
 
     Public Class TConvTextBoxEnumTextPosition
         Inherits EnumConverter
 
+        #Region "Constructors"
+
         Public Sub New()
             MyBase.New(GetType(TextPosition))
         End Sub
 
-        Public Overrides Function ConvertTo(ByVal context As System.ComponentModel.ITypeDescriptorContext, ByVal culture As System.Globalization.CultureInfo, ByVal value As Object, ByVal destinationType As System.Type) As Object
+        #End Region 'Constructors
+
+        #Region "Methods"
+
+        Public Overrides Function ConvertTo(ByVal context As ITypeDescriptorContext, ByVal culture As CultureInfo, ByVal value As Object, ByVal destinationType As Type) As Object
             Select Case CType(value, TextPosition)
                 Case TextPosition.lefttop
-                    Return My.Resources.text.LocalizableFormAndConverter._0005
+                    Return LocalizableFormAndConverter._0005
                 Case TextPosition.leftmiddle
-                    Return My.Resources.text.LocalizableFormAndConverter._0006
+                    Return LocalizableFormAndConverter._0006
                 Case TextPosition.leftbottom
-                    Return My.Resources.text.LocalizableFormAndConverter._0007
+                    Return LocalizableFormAndConverter._0007
                 Case TextPosition.top
-                    Return My.Resources.text.LocalizableFormAndConverter._0008
+                    Return LocalizableFormAndConverter._0008
                 Case TextPosition.righttop
-                    Return My.Resources.text.LocalizableFormAndConverter._0009
+                    Return LocalizableFormAndConverter._0009
                 Case TextPosition.rightmiddle
-                    Return My.Resources.text.LocalizableFormAndConverter._0010
+                    Return LocalizableFormAndConverter._0010
                 Case TextPosition.rightbottom
-                    Return My.Resources.text.LocalizableFormAndConverter._0011
+                    Return LocalizableFormAndConverter._0011
                 Case TextPosition.bottom
-                    Return My.Resources.text.LocalizableFormAndConverter._0012
+                    Return LocalizableFormAndConverter._0012
                 Case Else
                     Return ""
             End Select
-            Return MyBase.ConvertTo(context, culture, value, destinationType)
         End Function
-    End Class
 
+        #End Region 'Methods
+
+    End Class
 
     Public Class TConvTextBoxEnumTextPositionSimple
         Inherits EnumConverter
+
+        #Region "Constructors"
 
         Public Sub New()
             MyBase.New(GetType(TextPositionSimple))
         End Sub
 
-        Public Overrides Function ConvertTo(ByVal context As System.ComponentModel.ITypeDescriptorContext, ByVal culture As System.Globalization.CultureInfo, ByVal value As Object, ByVal destinationType As System.Type) As Object
+        #End Region 'Constructors
+
+        #Region "Methods"
+
+        Public Overrides Function ConvertTo(ByVal context As ITypeDescriptorContext, ByVal culture As CultureInfo, ByVal value As Object, ByVal destinationType As Type) As Object
             Select Case CType(value, TextPositionSimple)
                 Case TextPositionSimple.bottom
-                    Return My.Resources.text.LocalizableFormAndConverter._0012
-                Case TextPositionSimple.left
-                    Return My.Resources.text.LocalizableFormAndConverter._0013
-                Case TextPositionSimple.right
-                    Return My.Resources.text.LocalizableFormAndConverter._0014
+                    Return LocalizableFormAndConverter._0012
+                Case TextPositionSimple.Left
+                    Return LocalizableFormAndConverter._0013
+                Case TextPositionSimple.Right
+                    Return LocalizableFormAndConverter._0014
                 Case TextPositionSimple.top
-                    Return My.Resources.text.LocalizableFormAndConverter._0008
+                    Return LocalizableFormAndConverter._0008
                 Case Else
                     Return ""
             End Select
-            Return MyBase.ConvertTo(context, culture, value, destinationType)
         End Function
+
+        #End Region 'Methods
 
     End Class
 
-
 End Namespace
+

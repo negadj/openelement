@@ -1,29 +1,37 @@
 ﻿Imports System.ComponentModel
+Imports System.Globalization
 
+Imports WebElement.My.Resources.text
 
 Namespace Elements.Media.Editors.Converter
 
     Public Class TConvEnuCarrouselTypeEffect
         Inherits EnumConverter
 
+        #Region "Constructors"
+
         Public Sub New()
-            MyBase.New(GetType(EnuCarrousel_TypeEffect))
+            MyBase.New(GetType(EnuCarrouselTypeEffect))
         End Sub
 
-        Public Overrides Function ConvertTo(ByVal context As System.ComponentModel.ITypeDescriptorContext, ByVal culture As System.Globalization.CultureInfo, ByVal value As Object, ByVal destinationType As System.Type) As Object
-            Select Case CType(value, EnuCarrousel_TypeEffect)
-                Case EnuCarrousel_TypeEffect.linear_linear
-                    Return My.Resources.text.LocalizableFormAndConverter._0123
-                Case EnuCarrousel_TypeEffect.sequential
-                    Return My.Resources.text.LocalizableFormAndConverter._0125
+        #End Region 'Constructors
+
+        #Region "Methods"
+
+        Public Overrides Function ConvertTo(ByVal context As ITypeDescriptorContext, ByVal culture As CultureInfo, ByVal value As Object, ByVal destinationType As Type) As Object
+            Select Case CType(value, EnuCarrouselTypeEffect)
+                Case EnuCarrouselTypeEffect.LinearLinear
+                    Return LocalizableFormAndConverter._0123
+                Case EnuCarrouselTypeEffect.sequential
+                    Return LocalizableFormAndConverter._0125
                 Case Else
-                    Return My.Resources.text.LocalizableFormAndConverter._0093
+                    Return LocalizableFormAndConverter._0093
             End Select
-            Return MyBase.ConvertTo(context, culture, value, destinationType)
         End Function
+
+        #End Region 'Methods
 
     End Class
 
-
-
 End Namespace
+

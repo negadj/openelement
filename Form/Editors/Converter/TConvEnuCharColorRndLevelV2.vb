@@ -1,35 +1,43 @@
 ﻿Imports System.ComponentModel
-Imports WebElement.Elements.Form.WECaptchaV2
+Imports System.Globalization
+
+Imports WebElement.My.Resources.text
 
 Namespace Elements.Form.Editors.Converter
 
     Public Class TConvEnuCharColorRndLevelV2
         Inherits EnumConverter
 
+        #Region "Constructors"
+
         Public Sub New()
-            MyBase.New(GetType(Enu_CharColorRndLevel))
+            MyBase.New(GetType(WECaptchaV2.EnuCharColorRndLevel))
         End Sub
 
-        Public Overrides Function ConvertTo(ByVal context As System.ComponentModel.ITypeDescriptorContext, ByVal culture As System.Globalization.CultureInfo, ByVal value As Object, ByVal destinationType As System.Type) As Object
-            Select Case CType(value, Enu_CharColorRndLevel)
-                Case Enu_CharColorRndLevel.Dark
-                    Return My.Resources.text.LocalizableFormAndConverter._0135
-                Case Enu_CharColorRndLevel.Light
-                    Return My.Resources.text.LocalizableFormAndConverter._0136
-                Case Enu_CharColorRndLevel.None
-                    Return My.Resources.text.LocalizableFormAndConverter._0137
-                Case Enu_CharColorRndLevel.VeryDark
-                    Return My.Resources.text.LocalizableFormAndConverter._0138
-                Case Enu_CharColorRndLevel.VeryLight
-                    Return My.Resources.text.LocalizableFormAndConverter._0139
+        #End Region 'Constructors
+
+        #Region "Methods"
+
+        Public Overrides Function ConvertTo(ByVal context As ITypeDescriptorContext, ByVal culture As CultureInfo, ByVal value As Object, ByVal destinationType As Type) As Object
+            Select Case CType(value, WECaptchaV2.EnuCharColorRndLevel)
+                Case WECaptchaV2.EnuCharColorRndLevel.Dark
+                    Return LocalizableFormAndConverter._0135
+                Case WECaptchaV2.EnuCharColorRndLevel.Light
+                    Return LocalizableFormAndConverter._0136
+                Case WECaptchaV2.EnuCharColorRndLevel.None
+                    Return LocalizableFormAndConverter._0137
+                Case WECaptchaV2.EnuCharColorRndLevel.VeryDark
+                    Return LocalizableFormAndConverter._0138
+                Case WECaptchaV2.EnuCharColorRndLevel.VeryLight
+                    Return LocalizableFormAndConverter._0139
                 Case Else
                     Return ""
             End Select
-            Return MyBase.ConvertTo(context, culture, value, destinationType)
         End Function
 
-
+        #End Region 'Methods
 
     End Class
 
 End Namespace
+

@@ -10,75 +10,63 @@
 Imports openElement.WebElement.Elements
 Imports openElement.WebElement
 Imports System.ComponentModel
+Imports openElement.DB.DBElem
 
-
-'Namespace de l'élément (Créer le votre ex : Elements.MyCompagny)
+'NameSpace of element (create yours ex: Elements.MyCompagny)
 Namespace Elements.Standard
 
-
     ''' <summary>
-    ''' L'élément présenté ci-dessous est la copie conforme du code source du label disponible dans openElement
-    ''' Créer une Class Public qui hérite de "openElement.WebElement.Elements.ElementBase".
-    ''' Le nom de la class est primordial il doit être unique pour le même Namespace et ne pourra plus être modifier par la suite.
-    ''' Indiquer aussi que cette Class est sérializable.
+    ''' This class is the source code of openElement's element : WELabel (text)
+    ''' Create a public class with inherit ElementBase (complete namespace : openElement.WebElement.Elements.ElementBase) 
+    ''' or another ElementBase class daughter (ElementBaseTextIcon or WEDynamic
+    ''' See comments in elementBase for all explanations of methods of mybase used in this class.
+    '''  the class's name must to be unique in the namespace. he can't will be changing after
+    ''' This class must to be  "Serializable"
     ''' </summary>
-    ''' <remarks>Il est préférable de nous soumettre le nom</remarks>
+    ''' <remarks>it'd be better of us to subject the class name</remarks>
     <Serializable()> _
     Public Class WELabel
-        Inherits ElementBase
+        Inherits ElementBaseTextIcon
 
         ''' <summary>
-        ''' Création d'une variable privé qui sera enregistré lors de la sauvegarde de la page puis rechargé à l'ouverture.
+        ''' List ofHTML headings (important for seo)
         ''' </summary>
-        ''' <remarks>Pour ne pas enregistrer utiliser l'attribut NonSerialized</remarks>
+        ''' <remarks></remarks>
+        Public Enum EnuBaliseH As Integer
+            none = 0
+            H1 = 1
+            H2 = 2
+            H3 = 3
+            H4 = 4
+            H5 = 5
+            H6 = 6
+        End Enum
+
+#Region "Properties"
+
+        ''' <summary>
+        ''' list of Texts values of element according to page culture
+        ''' </summary>
+        ''' <remarks></remarks>
+        <Common.Attributes.ContainsLinks()> _
         Private _Text As DataType.LocalizableHtml
 
         ''' <summary>
-        ''' Le constructeur doit avoir obligatoirement la forme suivante
+        ''' tag 'H' write around the label in html page. If value is none then no tag is writing
         ''' </summary>
         ''' <remarks></remarks>
-        Public Sub New(ByVal Page As Page, ByVal ParentID As String, ByVal TemplateName As String)
-            '1er paramètre (Type d'élément), 2ème nom unique (généralement nom de la class) puis (Page, ParentID, TemplateName)
-            MyBase.New(EnuElementType.PageEdit, "WELabel", Page, ParentID, TemplateName)
-        End Sub
-
+        Private _BaliseHx As EnuBaliseH
 
         ''' <summary>
-        ''' Evènement de démarrage (OnOpen) obligatoire pour la configuration de l'élément
+        ''' Public property of private variable '_text' 
+        ''' value should not be at nothing  
+        ''' Browsable(False) means that the property isn't showing in the element property grid
+        ''' see in openElement's documentation, the differents 'dataType' available  
         ''' </summary>
-        ''' <remarks></remarks>
-        Protected Overrides Sub OnOpen()
-            'Nom de l'élément
-            MyBase.ElementInfo.ToolBoxCaption = My.Resources.text.LocalizableOpen._0005 '"Texte simple ligne"
-            'Description de l'élément
-            MyBase.ElementInfo.ToolBoxDescription = My.Resources.text.LocalizableOpen._0006 '"Ajouter un texte simple ligne."
-            'Numéro de version majeur de l'élément
-            MyBase.ElementInfo.VersionMajor = 1
-            'Numéro de version mineur de l'élément
-            MyBase.ElementInfo.VersionMinor = 0
-            'Groupe de la barre d'outils d'openElement (NBGroupStandard,)
-            MyBase.ElementInfo.GroupName = "NBGroupStandard"
-            'Icone pour la barre d'outils d'openElement (Taille 16x16)
-            MyBase.ElementInfo.ToolBoxIco = My.Resources.WELabel
-            'Mode de redimentionnement autorisé
-            MyBase.TypeResize = EnuTypeResize.Width
-            'A placer obligatoirement à la fin
-            MyBase.OnOpen()
-        End Sub
-
-        ''' <summary>
-        ''' Propriété de la variable local "_Text"
-        ''' Faire un test si nothing puis création de l'Objet
-        ''' Browsable(False) dans cette situation indique que la propriété n'est pas éditable directement sur les propriétés de l'élément.
-        ''' Voir les différents "DataType" disponible sur l'aide
-        ''' </summary>
-        ''' <value></value>
-        ''' <returns></returns>
-        ''' <remarks></remarks>
         <Browsable(False)> _
         Public Property Text() As DataType.LocalizableHtml
             Get
-                If _Text Is Nothing Then _Text = New DataType.LocalizableHtml(My.Resources.text.LocalizableProperty._Att02) 'Mon texte simple")
+                If _Text Is Nothing Then _Text = New DataType.LocalizableHtml(My.Resources.text.LocalizablePropertyDefaultValue._0002) 'Mon texte simple")
                 Return _Text
             End Get
             Set(ByVal value As DataType.LocalizableHtml)
@@ -86,35 +74,182 @@ Namespace Elements.Standard
             End Set
         End Property
 
+        ''' <summary>
+        ''' Public property of private variable '_BaliseHx' 
+        ''' </summary>
+        ''' <value></value>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
+        <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Expert), _
+         Ressource.localizable.LocalizableNameAtt("_N154"), _
+         Ressource.localizable.LocalizableDescAtt("_D154"), _
+         TypeConverter(GetType(Elements.Standard.Editors.Converter.TConvEnuBaliseH)), _
+         Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)> _
+        Public Property BaliseHx() As EnuBaliseH
+            Get
+                Return _BaliseHx
+            End Get
+            Set(ByVal value As EnuBaliseH)
+                _BaliseHx = value
+            End Set
+        End Property
+
+
+#End Region
+
+#Region "Builder required function"
 
         ''' <summary>
-        ''' Evènement de rendu (obligatoire pour les éléments de type EnuElementType.PageEdit).
-        ''' C'est ici que la création de l'HTML de l'élément se construit.
+        ''' Obligatory configuration of constructor. The base constructor call is necessary 
+        ''' for parameter, see comments in ElementBase class
+        ''' </summary>
+        ''' <param name="page"> Page reference which element belongs </param>
+        ''' <param name="parentID"> Unique ID of parent container</param>
+        ''' <param name="templateName"> template's name which element belongs</param>
+        ''' <remarks></remarks>
+        Public Sub New(ByVal page As Page, ByVal parentID As String, ByVal templateName As String)
+
+            MyBase.New(EnuElementType.PageEdit, "WELabel", page, parentID, templateName)
+
+            'resizing mode by default
+            MyBase.TypeResize = EnuTypeResize.None
+        End Sub
+
+        ''' <summary>         
+        ''' Required function who allow to complete elementInfo object        
+        ''' </summary>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
+        Protected Overrides Function OnGetInfo() As ElementInfo
+
+            Dim info As New ElementInfo(Me)
+            'Element's name displayed in element's list
+            info.ToolBoxCaption = My.Resources.text.LocalizableOpen._0005 'this text is a localizable variable for traduction
+            'Element's description
+            info.ToolBoxDescription = My.Resources.text.LocalizableOpen._0006 '"Ajouter un texte simple ligne."
+            'Number of major version
+            info.VersionMajor = 2
+            'Number of minor version
+            info.VersionMinor = 0
+            'openElement's toolsbox group which the item belongs
+            info.GroupName = "NBGroupStandard"
+            'Icon display in the openElement's toolsbox (size : 16*16px)
+            info.ToolBoxIco = My.Resources.WELabel
+
+            'contrary to WEImage element, WELabel hasn't neither Automatic opening property nor sortPropertyList value
+
+            Return info
+
+        End Function
+
+        ''' <summary>
+        ''' start event. Necessary for configuration of element
+        ''' </summary>
+        ''' <remarks></remarks>
+        Protected Overrides Sub OnOpen()
+
+            'configuration of style zones. Here, we are only one specific zone 
+            Dim configStylesZones As New List(Of StylesManager.ConfigStylesZone)
+            configStylesZones.Add(New StylesManager.ConfigStylesZone("Text", My.Resources.text.LocalizableOpen._0300, My.Resources.text.LocalizableOpen._0300))
+
+            MyBase.TextIconZoneName = "Text"
+
+            'Obligatory at end
+            MyBase.OnOpen(configStylesZones)
+
+
+        End Sub
+
+#End Region
+
+#Region "Render"
+
+        ''' <summary>
+        ''' Main event of element's render. it's obligatory for element at type of EnuElementType.PageEdit
+        ''' here, we write the html of the element
         ''' </summary>
         ''' <param name="writer"></param>
         ''' <remarks></remarks>
         Protected Overrides Sub Render(ByVal writer As Common.HtmlWriter)
 
-            'A ajouter obligatoirement en début
+            'to add obligatory at begining of element's html render
             MyBase.RenderBeginTag(writer)
 
-            'Création d'une zone éditable directement dans l'éditeur de page
-            MyBase.RenderBeginTextEdit(writer, "Text", False)
+            If Not BaliseHx = EnuBaliseH.none Then
+                Select Case BaliseHx
+                    Case EnuBaliseH.H1
+                        writer.WriteBeginTag("h1")
+                    Case EnuBaliseH.H2
+                        writer.WriteBeginTag("h2")
+                    Case EnuBaliseH.H3
+                        writer.WriteBeginTag("h3")
+                    Case EnuBaliseH.H4
+                        writer.WriteBeginTag("h4")
+                    Case EnuBaliseH.H5
+                        writer.WriteBeginTag("h5")
+                    Case EnuBaliseH.H6
+                        writer.WriteBeginTag("h6")
+                End Select
+                writer.WriteAttribute("class", "ContentBox")
+                writer.Write(Web.UI.HtmlTextWriter.TagRightChar)
+            End If
 
-            'Ecriture du contenu de la propriété "Text"
-            writer.Write(Me.Text.GetHtmlValue(Me))
 
-            'Fin de la zone éditable
-            MyBase.RenderEndTextEdit(writer)
+            Dim textAttr As New Dictionary(Of String, String)
+            textAttr.Add("class", MyBase.GetStyleZoneClass("Text"))
+            writer.WriteHtmlBlockEdit(Me, "Text", False, textAttr)
 
-            'A ajouter obligatoirement en fin
+
+            Select Case BaliseHx
+                Case EnuBaliseH.H1
+                    writer.WriteEndTag("h1")
+                Case EnuBaliseH.H2
+                    writer.WriteEndTag("h2")
+                Case EnuBaliseH.H3
+                    writer.WriteEndTag("h3")
+                Case EnuBaliseH.H4
+                    writer.WriteEndTag("h4")
+                Case EnuBaliseH.H5
+                    writer.WriteEndTag("h5")
+                Case EnuBaliseH.H6
+                    writer.WriteEndTag("h6")
+            End Select
+
+            'Obligatory at end
             MyBase.RenderEndTag(writer)
 
         End Sub
+#End Region
+
+
+#Region "DD Translation of LocalizableStrings"
+
+        ' See comments in ElementBase class
+        Public Overrides Function GetLocalizableStringsForTranslationSystem( _
+                                        ByVal accListLS As Dictionary(Of String, DataType.LocalizableString), _
+                                        ByVal accListInfo As Dictionary(Of String, String), _
+                                        Optional ByVal onlyNonEmpty As Boolean = True) As Boolean
+            If accListLS Is Nothing Or accListInfo Is Nothing Then Return False
+
+            If _Text Is Nothing OrElse (onlyNonEmpty AndAlso _Text.IsEmpty) Then Return False
+
+            Dim lsID As String = "WELabel." & ID & ".Text"
+            accListLS(lsID) = _Text
+
+            If Not String.IsNullOrEmpty(Me.Name) Then
+                accListInfo(lsID) = "Element name: " & Me.Name & " (Single-line text)"
+            End If
+
+            Return True
+        End Function
+
+#End Region
+
 
     End Class
 
 End Namespace
+
 ]]>
 
 </code>
@@ -123,6 +258,7 @@ End Namespace
 
 <![CDATA[
 
+using Microsoft.VisualBasic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -131,115 +267,257 @@ using System.Diagnostics;
 using openElement.WebElement.Elements;
 using openElement.WebElement;
 using System.ComponentModel;
+using openElement.DB.DBElem;
 
 
-//Namespace de l'élément (Créer le votre ex : Elements.MyCompagny)
+//NameSpace of element (create yours ex: Elements.MyCompagny)
 namespace Elements.Standard
 {
 
 
 	/// <summary>
-	/// L'élément présenté ci-dessous est la copie conforme du code source du label disponible dans openElement
-	/// Créer une Class Public qui hérite de "openElement.WebElement.Elements.ElementBase".
-	/// Le nom de la class est primordial il doit être unique pour le même Namespace et ne pourra plus être modifier par la suite.
-	/// Indiquer aussi que cette Class est sérializable.
+	/// This class is the source code of openElement's element : WELabel (text)
+	/// Create a public class with inherit ElementBase (complete namespace : openElement.WebElement.Elements.ElementBase) 
+	/// or another ElementBase class daughter (ElementBaseTextIcon or WEDynamic
+	/// See comments in elementBase for all explanations of methods of mybase used in this class.
+	///  the class's name must to be unique in the namespace. he can't will be changing after
+	/// This class must to be  "Serializable"
 	/// </summary>
-	/// <remarks>Il est préférable de nous soumettre le nom</remarks>
+	/// <remarks>it'd be better of us to subject the class name</remarks>
 	[Serializable()]
-	public class WELabel : ElementBase
+	public class WELabel : ElementBaseTextIcon
 	{
 
 		/// <summary>
-		/// Création d'une variable privé qui sera enregistré lors de la sauvegarde de la page puis rechargé à l'ouverture.
+		/// List ofHTML headings (important for seo)
 		/// </summary>
-		/// <remarks>Pour ne pas enregistrer utiliser l'attribut NonSerialized</remarks>
+		/// <remarks></remarks>
+		public enum EnuBaliseH : int
+		{
+			none = 0,
+			H1 = 1,
+			H2 = 2,
+			H3 = 3,
+			H4 = 4,
+			H5 = 5,
+			H6 = 6
+		}
+
+		#region "Properties"
+
+		/// <summary>
+		/// list of Texts values of element according to page culture
+		/// </summary>
+		/// <remarks></remarks>
+		[Common.Attributes.ContainsLinks()]
 
 		private DataType.LocalizableHtml _Text;
 		/// <summary>
-		/// Le constructeur doit avoir obligatoirement la forme suivante
+		/// tag 'H' write around the label in html page. If value is none then no tag is writing
 		/// </summary>
 		/// <remarks></remarks>
-		//1er paramètre (Type d'élément), 2ème nom unique (généralement nom de la class) puis (Page, ParentID, TemplateName)
-		public WELabel(Page Page, string ParentID, string TemplateName) : base(EnuElementType.PageEdit, "WELabel", Page, ParentID, TemplateName)
-		{
-		}
 
-
+		private EnuBaliseH _BaliseHx;
 		/// <summary>
-		/// Evènement de démarrage (OnOpen) obligatoire pour la configuration de l'élément
+		/// Public property of private variable '_text' 
+		/// value should not be at nothing  
+		/// Browsable(False) means that the property isn't showing in the element property grid
+		/// see in openElement's documentation, the differents 'dataType' available  
 		/// </summary>
-		/// <remarks></remarks>
-		protected override void OnOpen()
-		{
-			//Nom de l'élément
-			base.ElementInfo.ToolBoxCaption = My.Resources.text.LocalizableOpen._0005;
-			//"Texte simple ligne"
-			//Description de l'élément
-			base.ElementInfo.ToolBoxDescription = My.Resources.text.LocalizableOpen._0006;
-			//"Ajouter un texte simple ligne."
-			//Numéro de version majeur de l'élément
-			base.ElementInfo.VersionMajor = 1;
-			//Numéro de version mineur de l'élément
-			base.ElementInfo.VersionMinor = 0;
-			//Groupe de la barre d'outils d'openElement (NBGroupStandard,)
-			base.ElementInfo.GroupName = "NBGroupStandard";
-			//Icone pour la barre d'outils d'openElement (Taille 16x16)
-			base.ElementInfo.ToolBoxIco = My.Resources.WELabel;
-			//Mode de redimentionnement autorisé
-			base.TypeResize = EnuTypeResize.Width;
-			//A placer obligatoirement à la fin
-			base.OnOpen();
-		}
-
-		/// <summary>
-		/// Propriété de la variable local "_Text"
-		/// Faire un test si nothing puis création de l'Objet
-		/// Browsable(False) dans cette situation indique que la propriété n'est pas éditable directement sur les propriétés de l'élément.
-		/// Voir les différents "DataType" disponible sur l'aide
-		/// </summary>
-		/// <value></value>
-		/// <returns></returns>
-		/// <remarks></remarks>
 		[Browsable(false)]
 		public DataType.LocalizableHtml Text {
 			get {
 				if (_Text == null)
-					_Text = new DataType.LocalizableHtml(My.Resources.text.LocalizableProperty._Att02);
+					_Text = new DataType.LocalizableHtml(My.Resources.text.LocalizablePropertyDefaultValue._0002);
 				//Mon texte simple")
 				return _Text;
 			}
 			set { _Text = value; }
 		}
 
+		/// <summary>
+		/// Public property of private variable '_BaliseHx' 
+		/// </summary>
+		/// <value></value>
+		/// <returns></returns>
+		/// <remarks></remarks>
+		[Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Expert), Ressource.localizable.LocalizableNameAtt("_N154"), Ressource.localizable.LocalizableDescAtt("_D154"), TypeConverter(typeof(Elements.Standard.Editors.Converter.TConvEnuBaliseH)), Common.Attributes.PageUpdateMode(System.Data.Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)]
+		public EnuBaliseH BaliseHx {
+			get { return _BaliseHx; }
+			set { _BaliseHx = value; }
+		}
+
+
+		#endregion
+
+		#region "Builder required function"
 
 		/// <summary>
-		/// Evènement de rendu (obligatoire pour les éléments de type EnuElementType.PageEdit).
-		/// C'est ici que la création de l'HTML de l'élément se construit.
+		/// Obligatory configuration of constructor. The base constructor call is necessary 
+		/// for parameter, see comments in ElementBase class
+		/// </summary>
+		/// <param name="page"> Page reference which element belongs </param>
+		/// <param name="parentID"> Unique ID of parent container</param>
+		/// <param name="templateName"> template's name which element belongs</param>
+		/// <remarks></remarks>
+
+		public WELabel(Page page, string parentID, string templateName) : base(EnuElementType.PageEdit, "WELabel", page, parentID, templateName)
+		{
+
+			//resizing mode by default
+			base.TypeResize = EnuTypeResize.None;
+		}
+
+		/// <summary>         
+		/// Required function who allow to complete elementInfo object        
+		/// </summary>
+		/// <returns></returns>
+		/// <remarks></remarks>
+		protected override ElementInfo OnGetInfo()
+		{
+
+			ElementInfo info = new ElementInfo(this);
+			//Element's name displayed in element's list
+			info.ToolBoxCaption = My.Resources.text.LocalizableOpen._0005;
+			//this text is a localizable variable for traduction
+			//Element's description
+			info.ToolBoxDescription = My.Resources.text.LocalizableOpen._0006;
+			//"Ajouter un texte simple ligne."
+			//Number of major version
+			info.VersionMajor = 2;
+			//Number of minor version
+			info.VersionMinor = 0;
+			//openElement's toolsbox group which the item belongs
+			info.GroupName = "NBGroupStandard";
+			//Icon display in the openElement's toolsbox (size : 16*16px)
+			info.ToolBoxIco = My.Resources.WELabel;
+
+			//contrary to WEImage element, WELabel hasn't neither Automatic opening property nor sortPropertyList value
+
+			return info;
+
+		}
+
+		/// <summary>
+		/// start event. Necessary for configuration of element
+		/// </summary>
+		/// <remarks></remarks>
+
+		protected override void OnOpen()
+		{
+			//configuration of style zones. Here, we are only one specific zone 
+			List<StylesManager.ConfigStylesZone> configStylesZones = new List<StylesManager.ConfigStylesZone>();
+			configStylesZones.Add(new StylesManager.ConfigStylesZone("Text", My.Resources.text.LocalizableOpen._0300, My.Resources.text.LocalizableOpen._0300));
+
+			base.TextIconZoneName = "Text";
+
+			//Obligatory at end
+			base.OnOpen(configStylesZones);
+
+
+		}
+
+		#endregion
+
+		#region "Render"
+
+		/// <summary>
+		/// Main event of element's render. it's obligatory for element at type of EnuElementType.PageEdit
+		/// here, we write the html of the element
 		/// </summary>
 		/// <param name="writer"></param>
 		/// <remarks></remarks>
 
 		protected override void Render(Common.HtmlWriter writer)
 		{
-			//A ajouter obligatoirement en début
+			//to add obligatory at begining of element's html render
 			base.RenderBeginTag(writer);
 
-			//Création d'une zone éditable directement dans l'éditeur de page
-			base.RenderBeginTextEdit(writer, "Text", false);
+			if (!(BaliseHx == EnuBaliseH.none)) {
+				switch (BaliseHx) {
+					case EnuBaliseH.H1:
+						writer.WriteBeginTag("h1");
+						break;
+					case EnuBaliseH.H2:
+						writer.WriteBeginTag("h2");
+						break;
+					case EnuBaliseH.H3:
+						writer.WriteBeginTag("h3");
+						break;
+					case EnuBaliseH.H4:
+						writer.WriteBeginTag("h4");
+						break;
+					case EnuBaliseH.H5:
+						writer.WriteBeginTag("h5");
+						break;
+					case EnuBaliseH.H6:
+						writer.WriteBeginTag("h6");
+						break;
+				}
+				writer.WriteAttribute("class", "ContentBox");
+				writer.Write(System.Web.UI.HtmlTextWriter.TagRightChar);
+			}
 
-			//Ecriture du contenu de la propriété "Text"
-			writer.Write(this.Text.GetHtmlValue(this));
 
-			//Fin de la zone éditable
-			base.RenderEndTextEdit(writer);
+			Dictionary<string, string> textAttr = new Dictionary<string, string>();
+			textAttr.Add("class", base.GetStyleZoneClass("Text"));
+			writer.WriteHtmlBlockEdit(this, "Text", false, textAttr);
 
-			//A ajouter obligatoirement en fin
+
+			switch (BaliseHx) {
+				case EnuBaliseH.H1:
+					writer.WriteEndTag("h1");
+					break;
+				case EnuBaliseH.H2:
+					writer.WriteEndTag("h2");
+					break;
+				case EnuBaliseH.H3:
+					writer.WriteEndTag("h3");
+					break;
+				case EnuBaliseH.H4:
+					writer.WriteEndTag("h4");
+					break;
+				case EnuBaliseH.H5:
+					writer.WriteEndTag("h5");
+					break;
+				case EnuBaliseH.H6:
+					writer.WriteEndTag("h6");
+					break;
+			}
+
+			//Obligatory at end
 			base.RenderEndTag(writer);
 
 		}
 
-	}
 
+		#endregion
+
+
+		#region "DD Translation of LocalizableStrings"
+
+		// See comments in ElementBase class
+		public override bool GetLocalizableStringsForTranslationSystem(Dictionary<string, DataType.LocalizableString> accListLS, Dictionary<string, string> accListInfo, bool onlyNonEmpty = true)
+		{
+			if (accListLS == null | accListInfo == null)
+				return false;
+
+			if (_Text == null || (onlyNonEmpty && _Text.IsEmpty))
+				return false;
+
+			string lsID = "WELabel." + ID + ".Text";
+			accListLS[lsID] = _Text;
+
+			if (!string.IsNullOrEmpty(this.Name)) {
+				accListInfo[lsID] = "Element name: " + this.Name + " (Single-line text)";
+			}
+
+			return true;
+		}
+
+		#endregion
+
+	}
 }
 
 ]]>
