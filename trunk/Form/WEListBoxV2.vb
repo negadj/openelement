@@ -1,46 +1,89 @@
-﻿Imports openElement.WebElement.Elements
-Imports openElement.WebElement
-Imports System.ComponentModel
-Imports openElement.WebElement.Editors.Control.CtlEditListOf
+﻿Imports System.ComponentModel
+Imports System.Drawing.Design
+Imports System.Web.UI
 
+Imports openElement.WebElement.Common
+Imports openElement.WebElement.Common.Attributes
+Imports openElement.WebElement.Editors
+Imports openElement.WebElement.Editors.Control
+Imports openElement.WebElement.Elements
+Imports openElement.WebElement.StylesManager
+
+Imports WebElement.My.Resources.text
+Imports WebElement.Ressource.localizable
 
 Namespace Elements.Form.Class
 
-    <Serializable()> _
+    <Serializable> _
     Public Class WEListBoxV2
         Inherits WEFormFieldBase
 
-        Private _Multiple As Boolean
+        #Region "Fields"
+
+        Private _ActivateDynamicList As Boolean
+        Private _InputReadOnly As Boolean
+
         'Private _InputName As String
         Private _ListBoxItem As List(Of WEListBoxItem)
-        Private _InputReadOnly As Boolean
-        Private _ActivateDynamicList As Boolean
+        Private _Multiple As Boolean
+        Private _Validator As Validator
 
+        #End Region 'Fields
 
-        Private _Validator As DataType.Validator
+        #Region "Constructors"
 
-#Region "Proprietes"
-        '<Category("Comportement"), _
-        'DisplayName("Choix multiple"), _
-        'Description("Autoriser les choix multiples d'éléments."), _
-        <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Behavior), _
-        Ressource.localizable.LocalizableNameAtt("_N070"), _
-        Ressource.localizable.LocalizableDescAtt("_D070"), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)> _
-        Public Property Multiple() As Boolean
+        Public Sub New(ByVal page As openElement.WebElement.Page, ByVal parentID As String, ByVal templateName As String)
+            MyBase.New("WEListBox2", page, parentID, templateName)
+            MyBase.TypeResize = EnuTypeResize.Width
+        End Sub
+
+        #End Region 'Constructors
+
+        #Region "Properties"
+
+        ''' <summary>
+        ''' Activates rendering of dynamic list (ex. from database)
+        ''' </summary>
+        ''' <value></value>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
+        <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Expert), _
+        Ressource.localizable.LocalizableNameAtt("_N244"), _
+        LocalizableDescAtt("_D244"), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.Element)> _
+        Public Property ActivateDynamicList() As Boolean
             Get
-                Return _Multiple
+                Return _ActivateDynamicList
             End Get
             Set(ByVal value As Boolean)
-                _Multiple = value
+                _ActivateDynamicList = value
+            End Set
+        End Property
+
+        ''' <summary>
+        ''' Renseigne si la case à coché est en 'lecture seule'
+        ''' </summary>
+        ''' <value></value>
+        ''' <returns></returns>
+        ''' <remarks></remarks>
+        <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Behavior), _
+        Ressource.localizable.LocalizableNameAtt("_N057"), _
+        LocalizableDescAtt("_D077"), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.Element)> _
+        Public Property InputReadOnly() As Boolean
+            Get
+                Return _InputReadOnly
+            End Get
+            Set(ByVal value As Boolean)
+                _InputReadOnly = value
             End Set
         End Property
 
         <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), _
         Ressource.localizable.LocalizableNameAtt("_N069"), _
-        Ressource.localizable.LocalizableDescAtt("_D069"), _
-        Editor(GetType(openElement.WebElement.Editors.UITypeEditListOf), GetType(Drawing.Design.UITypeEditor)), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)> _
+        LocalizableDescAtt("_D069"), _
+        Editor(GetType(UITypeEditListOf), GetType(UITypeEditor)), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.Element)> _
         Public Property ListBoxItem() As List(Of WEListBoxItem)
             Get
                 If _ListBoxItem Is Nothing Then
@@ -56,44 +99,21 @@ Namespace Elements.Form.Class
             End Set
         End Property
 
-        ''' <summary>
-        ''' Renseigne si la case à coché est en 'lecture seule'
-        ''' </summary>
-        ''' <value></value>
-        ''' <returns></returns>
-        ''' <remarks></remarks>
+        '<Category("Comportement"), _
+        'DisplayName("Choix multiple"), _
+        'Description("Autoriser les choix multiples d'éléments."), _
         <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Behavior), _
-        Ressource.localizable.LocalizableNameAtt("_N057"), _
-        Ressource.localizable.LocalizableDescAtt("_D077"), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)> _
-        Public Property InputReadOnly() As Boolean
+        Ressource.localizable.LocalizableNameAtt("_N070"), _
+        LocalizableDescAtt("_D070"), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.Element)> _
+        Public Property Multiple() As Boolean
             Get
-                Return _InputReadOnly
+                Return _Multiple
             End Get
             Set(ByVal value As Boolean)
-                _InputReadOnly = value
+                _Multiple = value
             End Set
         End Property
-
-        ''' <summary>
-        ''' Activates rendering of dynamic list (ex. from database)
-        ''' </summary>
-        ''' <value></value>
-        ''' <returns></returns>
-        ''' <remarks></remarks>
-        <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Expert), _
-        Ressource.localizable.LocalizableNameAtt("_N244"), _
-        Ressource.localizable.LocalizableDescAtt("_D244"), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)> _
-        Public Property ActivateDynamicList() As Boolean
-            Get
-                Return _ActivateDynamicList
-            End Get
-            Set(ByVal value As Boolean)
-                _ActivateDynamicList = value
-            End Set
-        End Property
-
 
         '''' <summary>
         '''' Nom de l'input dans le HTML
@@ -116,71 +136,71 @@ Namespace Elements.Form.Class
         '        _InputName = value
         '    End Set
         'End Property
-
-    
-
         <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Behavior), _
         Ressource.localizable.LocalizableNameAtt("_N051"), _
-        Ressource.localizable.LocalizableDescAtt("_D051"), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.None), _
-        Editor(GetType(openElement.WebElement.Editors.UITypeValidator), GetType(Drawing.Design.UITypeEditor))> _
-        Public Property Validator() As DataType.Validator
+        LocalizableDescAtt("_D051"), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.None), _
+        Editor(GetType(UITypeValidator), GetType(UITypeEditor))> _
+        Public Property Validator() As Validator
             Get
-                If _Validator Is Nothing Then _Validator = New DataType.Validator(DataType.Validator.TypeValueToValidate.Bool)
+                If _Validator Is Nothing Then _Validator = New Validator(Validator.TypeValueToValidate.Bool)
                 Return _Validator
             End Get
-            Set(ByVal value As DataType.Validator)
+            Set(ByVal value As Validator)
                 _Validator = value
             End Set
         End Property
 
-#End Region
+        #End Region 'Properties
 
-#Region "Constructeur"
+        #Region "Methods"
 
-        Public Sub New(ByVal page As Page, ByVal parentID As String, ByVal templateName As String)
-            MyBase.New("WEListBox2", page, parentID, templateName)
-            MyBase.TypeResize = EnuTypeResize.Width
-        End Sub
+        ' See comments in ElementBase class
+        Public Overrides Function GetLocalizableStringsForTranslationSystem( _
+            ByVal accListLS As Dictionary(Of String, LocalizableString), _
+            ByVal accListInfo As Dictionary(Of String, String), _
+            Optional ByVal onlyNonEmpty As Boolean = True) As Boolean
+            If _ListBoxItem Is Nothing OrElse _ListBoxItem.Count < 1 Then Return False
 
-        Protected Overrides Function OnGetInfo() As ElementInfo
-
-            Dim info As New ElementInfo(Me)
-            info.ToolBoxCaption = My.Resources.text.LocalizableOpen._0101 '"Liste déroulante"
-            info.ToolBoxIco = My.Resources.WEListBox
-            info.ToolBoxDescription = My.Resources.text.LocalizableOpen._0102 '"Liste déroulante d'élements"
-            info.ScriptVarName = "OEConfWEListBox"
-            info.SortPropertyList.Add(New SortProperty("ListBoxItem", "DataTable.png", My.Resources.text.LocalizableOpen._0030)) '  "Configurer"
-            info.SortPropertyList.Add(New SortProperty("Validator", "Valid.png", My.Resources.text.LocalizableOpen._0081)) '"Sélection des règles de validation"
-            info.AutoOpenProperty = "ListBoxItem"
-            Return info
-
+            Dim r As Boolean = False
+            Dim cntr As Integer = 0
+            For Each item In _ListBoxItem
+                cntr += 1
+                r = r Or AddFrmFieldLSForTranslationSystem(item.Name, "List.Row" & cntr.ToString & ".Title", "ListBox", accListLS, accListInfo, onlyNonEmpty)
+                r = r Or AddFrmFieldLSForTranslationSystem(item.Value, "List.Row" & cntr.ToString & ".Value", "ListBox", accListLS, accListInfo, onlyNonEmpty)
+            Next
+            Return r
         End Function
 
-        Protected Overrides Sub OnOpen()
-
-            Dim configStylesZones As New List(Of StylesManager.ConfigStylesZone)
-            configStylesZones.Add(New StylesManager.ConfigStylesZone("ListBox", My.Resources.text.LocalizableOpen._0101, My.Resources.text.LocalizableOpen._0108)) '"Liste déroulante","Zone de la liste déroulante d'élements."
-            configStylesZones.Add(New StylesManager.ConfigStylesZone("Options", My.Resources.text.LocalizableOpen._0359, My.Resources.text.LocalizableOpen._0360)) 'Lignes de la liste
-            configStylesZones.Add(New StylesManager.ConfigStylesZone("ListBoxError", My.Resources.text.LocalizableOpen._0364, My.Resources.text.LocalizableOpen._0364)) 'Champ en erreur
-            configStylesZones.Add(New StylesManager.ConfigStylesZone("Validator", My.Resources.text.LocalizableOpen._0365, My.Resources.text.LocalizableOpen._0365)) 'Icône et texte d'erreur
-            'configStylesZones.Add(New StylesManager.ConfigStylesZone("ValidatorToolTip", My.Resources.text.LocalizableOpen._0366, My.Resources.text.LocalizableOpen._0366)) 'Icône et texte d'erreur
-            MyBase.OnOpen(configStylesZones)
-        End Sub
-
-        Protected Overrides Function OnFrmEditListOfAddNewItem(ByVal addButton As AddButton, ByVal selectedNodeTag As NodeTag) As List(Of Object)
+        Protected Overrides Function OnFrmEditListOfAddNewItem(ByVal addButton As CtlEditListOf.AddButton, ByVal selectedNodeTag As CtlEditListOf.NodeTag) As List(Of Object)
             Dim newObs As New List(Of Object)
             newObs.Add(New WEListBoxItem())
             Return newObs
         End Function
-#End Region
 
+        Protected Overrides Function OnGetInfo() As ElementInfo
+            Dim info As New ElementInfo(Me)
+            info.ToolBoxCaption = LocalizableOpen._0101 '"Liste déroulante"
+            info.ToolBoxIco = My.Resources.WEListBox
+            info.ToolBoxDescription = LocalizableOpen._0102 '"Liste déroulante d'élements"
+            info.ScriptVarName = "OEConfWEListBox"
+            info.SortPropertyList.Add(New SortProperty("ListBoxItem", "DataTable.png", LocalizableOpen._0030)) '  "Configurer"
+            info.SortPropertyList.Add(New SortProperty("Validator", "Valid.png", LocalizableOpen._0081)) '"Sélection des règles de validation"
+            info.AutoOpenProperty = "ListBoxItem"
+            Return info
+        End Function
 
-     
+        Protected Overrides Sub OnOpen()
+            Dim configStylesZones As New List(Of ConfigStylesZone)
+            configStylesZones.Add(New ConfigStylesZone("ListBox", LocalizableOpen._0101, LocalizableOpen._0108)) '"Liste déroulante","Zone de la liste déroulante d'élements."
+            configStylesZones.Add(New ConfigStylesZone("Options", LocalizableOpen._0359, LocalizableOpen._0360)) 'Lignes de la liste
+            configStylesZones.Add(New ConfigStylesZone("ListBoxError", LocalizableOpen._0364, LocalizableOpen._0364)) 'Champ en erreur
+            configStylesZones.Add(New ConfigStylesZone("Validator", LocalizableOpen._0365, LocalizableOpen._0365)) 'Icône et texte d'erreur
+            'configStylesZones.Add(New StylesManager.ConfigStylesZone("ValidatorToolTip", My.Resources.text.LocalizableOpen._0366, My.Resources.text.LocalizableOpen._0366)) 'Icône et texte d'erreur
+            MyBase.OnOpen(configStylesZones)
+        End Sub
 
-#Region "Render"
-
-        Protected Overrides Sub Render(ByVal writer As Common.HtmlWriter)
+        Protected Overrides Sub Render(ByVal writer As HtmlWriter)
             MyBase.RenderBeginTag(writer)
 
             DTWriteBeginTagWithIterators("select", writer)
@@ -196,15 +216,15 @@ Namespace Elements.Form.Class
 
             If Not ActivateDynamicList Then
                 ' Static list dfined in editor
-                For Each Item As WEListBoxItem In ListBoxItem
-                    Dim champs As DataType.LocalizableString = CType(Item.Name, DataType.LocalizableString)
-                    Dim value As DataType.LocalizableString = CType(Item.Value, DataType.LocalizableString)
+                For Each item As WEListBoxItem In ListBoxItem
+                    Dim champs As LocalizableString = item.Name
+                    Dim value As LocalizableString = item.Value
 
                     writer.WriteBeginTag("option")
                     writer.WriteAttribute("value", value.GetValue(MyBase.Page.Culture))
                     writer.WriteAttribute("class", MyBase.GetStyleZoneClass("Options"))
-                    If Item.Selected Then writer.WriteAttribute("selected", "selected")
-                    writer.Write(System.Web.UI.HtmlTextWriter.TagRightChar)
+                    If item.Selected Then writer.WriteAttribute("selected", "selected")
+                    writer.Write(HtmlTextWriter.TagRightChar)
                     writer.Write(champs.GetValue(MyBase.Page.Culture))
                     writer.WriteEndTag("option")
                     writer.WriteLine()
@@ -241,38 +261,12 @@ Namespace Elements.Form.Class
 
             DTWriteEndTag("select")
 
-
-
             MyBase.RenderEndTag(writer)
         End Sub
 
-#End Region
-
-
-#Region "DD Translation of LocalizableStrings"
-
-        ' See comments in ElementBase class
-        Public Overrides Function GetLocalizableStringsForTranslationSystem( _
-                                        ByVal accListLS As Dictionary(Of String, DataType.LocalizableString), _
-                                        ByVal accListInfo As Dictionary(Of String, String), _
-                                        Optional ByVal onlyNonEmpty As Boolean = True) As Boolean
-
-            If _ListBoxItem Is Nothing OrElse _ListBoxItem.Count < 1 Then Return False
-
-            Dim r As Boolean = False
-            Dim cntr As Integer = 0
-            For Each item In _ListBoxItem
-                cntr += 1
-                r = r Or AddFrmFieldLSForTranslationSystem(item.Name, "List.Row" & cntr.ToString & ".Title", "ListBox", accListLS, accListInfo, onlyNonEmpty)
-                r = r Or AddFrmFieldLSForTranslationSystem(item.Value, "List.Row" & cntr.ToString & ".Value", "ListBox", accListLS, accListInfo, onlyNonEmpty)
-            Next
-            Return r
-        End Function
-
-#End Region
+        #End Region 'Methods
 
     End Class
-
 
 End Namespace
 

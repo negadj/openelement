@@ -1,96 +1,112 @@
-﻿Imports openElement.WebElement.Elements
-Imports openElement.WebElement
-Imports openElement.WebElement.StylesManager
+﻿Imports System.ComponentModel
+Imports System.Drawing.Design
 Imports System.Text
-Imports System.ComponentModel
+
+Imports openElement.WebElement
+Imports openElement.WebElement.Common
+Imports openElement.WebElement.Common.Attributes
+Imports openElement.WebElement.Editors
+Imports openElement.WebElement.Editors.Converter
+Imports openElement.WebElement.Elements
+Imports openElement.WebElement.LinksManager
+Imports openElement.WebElement.StylesManager
 Imports openElement.WebElement.StylesManager.CssItems
-Imports WebElement.Elements.Form.Editors.Converter
+
 Imports WebElement.Elements.Form.Editors
+Imports WebElement.Elements.Form.Editors.Converter
+Imports WebElement.My.Resources.text
+Imports WebElement.Ressource.localizable
 
 Namespace Elements.Form
 
-    <Serializable(), openElement.WebElement.Common.Attributes.OEObsolete(1, 31)> _
-Public Class WETextArea
+    <Serializable, _
+    OEObsolete(1, 31)> _
+    Public Class WETextArea
         Inherits ElementBase
 
-#Region "Private variables"
-        Private _Title As DataType.LocalizableHtml
-        Private _TitlePosition As TextPosition
-        Private _TextAreaValue As DataType.LocalizableString
-        Private _TextAreaRows As Integer
+        #Region "Fields"
+
+        Private _ErrorImageLink As Link
+        Private _LeftImageLink As Link
+        Private _LeftImagePosition As CssEnum.VerticalAlign
         Private _TextAreaCols As Integer
         Private _TextAreaReadOnly As Boolean
-        Private _TextAreaWidth As CssItems.CssUnit
+        Private _TextAreaRows As Integer
         Private _TextAreaScrollOverFlow As TextAreaScrollOverFlow
-        Private _LeftImagePosition As CssItems.CssEnum.VerticalAlign
-        Private _LeftImageLink As LinksManager.Link
-        Private _ErrorImageLink As LinksManager.Link
+        Private _TextAreaValue As LocalizableString
+        Private _TextAreaWidth As CssUnit
+        Private _Title As LocalizableHtml
+        Private _TitlePosition As TextPosition
+        Private _Validator As Validator
 
-        Private _Validator As DataType.Validator
+        #End Region 'Fields
 
-#End Region
+        #Region "Constructors"
 
-#Region "Properties"
+        Public Sub New(ByVal page As Page, ByVal parentID As String, ByVal templateName As String)
+            MyBase.New(EnuElementType.PageEdit, "WETextArea", page, parentID, templateName)
+            MyBase.TypeResize = EnuTypeResize.None
+            Me.TitlePosition = TextPosition.leftmiddle
+        End Sub
 
-        <Browsable(False), _
-        Common.Attributes.ExportVar(Common.Attributes.ExportVar.EnuVarType.Php), _
-        TypeConverter(GetType(openElement.WebElement.Editors.Converter.TConvLocalizableString)), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)> _
-        Public Property Title() As DataType.LocalizableHtml
+        #End Region 'Constructors
+
+        #Region "Properties"
+
+        <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), _
+        Ressource.localizable.LocalizableNameAtt("_N052"), _
+        LocalizableDescAtt("_D052"), _
+        Editor(GetType(UITypeLinkFile), GetType(UITypeEditor)), _
+        TypeConverter(GetType(TConvLinkFile)), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.None), _
+        ConfigBiblio(True, False, False, False, False)> _
+        Public Property ErrorImageLink() As Link
             Get
-                If _Title Is Nothing Then _Title = New DataType.LocalizableHtml(My.Resources.text.LocalizablePropertyDefaultValue._0007) 'Nom du champs :
-                Return _Title
+                If _ErrorImageLink Is Nothing OrElse _ErrorImageLink.IsEmpty("DEFAULT") Then
+                    _ErrorImageLink = New Link()
+                    MyBase.CreateAutoRessourceByBitmap(_ErrorImageLink, Link.EnuLinkType.ElementImage, My.Resources.errorDefault, "WEFiles/Image/ErrorImageDefault.png")
+                End If
+                Return _ErrorImageLink
             End Get
-            Set(ByVal value As DataType.LocalizableHtml)
-                _Title = value
-            End Set
-        End Property
-
-        <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Appearance), _
-        Ressource.localizable.LocalizableNameAtt("_N045"), _
-        Ressource.localizable.LocalizableDescAtt("_D064"), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.ElementWithCss)> _
-        Public Property TitlePosition() As TextPosition
-            Get
-                Return _TitlePosition
-            End Get
-            Set(ByVal value As TextPosition)
-                _TitlePosition = value
+            Set(ByVal value As Link)
+                _ErrorImageLink = value
             End Set
         End Property
 
         <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), _
-         Ressource.localizable.LocalizableNameAtt("_N054"), _
-         Ressource.localizable.LocalizableDescAtt("_D054"), _
-        TypeConverter(GetType(openElement.WebElement.Editors.Converter.TConvLocalizableString)), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)> _
-        Public Property TextAreaValue() As DataType.LocalizableString
+        Ressource.localizable.LocalizableNameAtt("_N049"), _
+        LocalizableDescAtt("_D058"), _
+        Editor(GetType(UITypeLinkFile), GetType(UITypeEditor)), _
+        TypeConverter(GetType(TConvLinkFile)), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.Element), _
+        ConfigBiblio(True, False, False, False, False)> _
+        Public Property LeftImageLink() As Link
             Get
-                If _TextAreaValue Is Nothing Then _TextAreaValue = New DataType.LocalizableString("")
-                Return _TextAreaValue
+                If _LeftImageLink Is Nothing Then _LeftImageLink = New Link()
+                Return _LeftImageLink
             End Get
-            Set(ByVal value As DataType.LocalizableString)
-                _TextAreaValue = value
+            Set(ByVal value As Link)
+                _LeftImageLink = value
             End Set
         End Property
 
         <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Appearance), _
-        Ressource.localizable.LocalizableNameAtt("_N063"), _
-        Ressource.localizable.LocalizableDescAtt("_D063"), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)> _
-        Public Property TextAreaRows() As Integer
+        Ressource.localizable.LocalizableNameAtt("_N050"), _
+        LocalizableDescAtt("_D059"), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.Element)> _
+        Public Property LeftImagePosition() As CssEnum.VerticalAlign
             Get
-                Return _TextAreaRows
+                Return _LeftImagePosition
             End Get
-            Set(ByVal value As Integer)
-                _TextAreaRows = value
+            Set(ByVal value As CssEnum.VerticalAlign)
+                _LeftImagePosition = value
             End Set
         End Property
 
         <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Appearance), _
         Ressource.localizable.LocalizableNameAtt("_N062"), _
-        Ressource.localizable.LocalizableDescAtt("_D062"), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)> _
+        LocalizableDescAtt("_D062"), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.Element)> _
         Public Property TextAreaCols() As Integer
             Get
                 Return _TextAreaCols
@@ -102,8 +118,8 @@ Public Class WETextArea
 
         <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Behavior), _
         Ressource.localizable.LocalizableNameAtt("_N057"), _
-        Ressource.localizable.LocalizableDescAtt("_D057"), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)> _
+        LocalizableDescAtt("_D057"), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.Element)> _
         Public Property TextAreaReadOnly() As Boolean
             Get
                 Return _TextAreaReadOnly
@@ -114,23 +130,22 @@ Public Class WETextArea
         End Property
 
         <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Appearance), _
-        Ressource.localizable.LocalizableNameAtt("_N048"), _
-        Ressource.localizable.LocalizableDescAtt("_D060"), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)> _
-        Public Property TextAreaWidth() As CssItems.CssUnit
+        Ressource.localizable.LocalizableNameAtt("_N063"), _
+        LocalizableDescAtt("_D063"), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.Element)> _
+        Public Property TextAreaRows() As Integer
             Get
-                If _TextAreaWidth Is Nothing Then _TextAreaWidth = New CssItems.CssUnit()
-                Return _TextAreaWidth
+                Return _TextAreaRows
             End Get
-            Set(ByVal value As CssItems.CssUnit)
-                _TextAreaWidth = value
+            Set(ByVal value As Integer)
+                _TextAreaRows = value
             End Set
         End Property
 
         <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Appearance), _
         Ressource.localizable.LocalizableNameAtt("_N061"), _
-        Ressource.localizable.LocalizableDescAtt("_D061"), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)> _
+        LocalizableDescAtt("_D061"), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.Element)> _
         Public Property TextAreaScrollOverFlow() As TextAreaScrollOverFlow
             Get
                 Return _TextAreaScrollOverFlow
@@ -140,119 +155,110 @@ Public Class WETextArea
             End Set
         End Property
 
+        <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), _
+        Ressource.localizable.LocalizableNameAtt("_N054"), _
+        LocalizableDescAtt("_D054"), _
+        TypeConverter(GetType(TConvLocalizableString)), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.Element)> _
+        Public Property TextAreaValue() As LocalizableString
+            Get
+                If _TextAreaValue Is Nothing Then _TextAreaValue = New LocalizableString("")
+                Return _TextAreaValue
+            End Get
+            Set(ByVal value As LocalizableString)
+                _TextAreaValue = value
+            End Set
+        End Property
+
         <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Appearance), _
-         Ressource.localizable.LocalizableNameAtt("_N050"), _
-         Ressource.localizable.LocalizableDescAtt("_D059"), _
-         Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)> _
-        Public Property LeftImagePosition() As CssItems.CssEnum.VerticalAlign
+        Ressource.localizable.LocalizableNameAtt("_N048"), _
+        LocalizableDescAtt("_D060"), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.Element)> _
+        Public Property TextAreaWidth() As CssUnit
             Get
-                Return _LeftImagePosition
+                If _TextAreaWidth Is Nothing Then _TextAreaWidth = New CssUnit()
+                Return _TextAreaWidth
             End Get
-            Set(ByVal value As CssItems.CssEnum.VerticalAlign)
-                _LeftImagePosition = value
+            Set(ByVal value As CssUnit)
+                _TextAreaWidth = value
             End Set
         End Property
 
-        <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), _
-        Ressource.localizable.LocalizableNameAtt("_N049"), _
-        Ressource.localizable.LocalizableDescAtt("_D058"), _
-        Editor(GetType(openElement.WebElement.Editors.UITypeLinkFile), GetType(Drawing.Design.UITypeEditor)), _
-        TypeConverter(GetType(openElement.WebElement.Editors.Converter.TConvLinkFile)), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.Element), _
-        Common.Attributes.ConfigBiblio(True, False, False, False, False)> _
-        Public Property LeftImageLink() As LinksManager.Link
+        <Browsable(False), _
+        ExportVar(ExportVar.EnuVarType.Php), _
+        TypeConverter(GetType(TConvLocalizableString)), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.Element)> _
+        Public Property Title() As LocalizableHtml
             Get
-                If _LeftImageLink Is Nothing Then _LeftImageLink = New LinksManager.Link()
-                Return _LeftImageLink
+                If _Title Is Nothing Then _Title = New LocalizableHtml(LocalizablePropertyDefaultValue._0007) 'Nom du champs :
+                Return _Title
             End Get
-            Set(ByVal value As LinksManager.Link)
-                _LeftImageLink = value
+            Set(ByVal value As LocalizableHtml)
+                _Title = value
             End Set
         End Property
 
-        <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), _
-        Ressource.localizable.LocalizableNameAtt("_N052"), _
-        Ressource.localizable.LocalizableDescAtt("_D052"), _
-        Editor(GetType(openElement.WebElement.Editors.UITypeLinkFile), GetType(Drawing.Design.UITypeEditor)), _
-        TypeConverter(GetType(openElement.WebElement.Editors.Converter.TConvLinkFile)), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.None), _
-        Common.Attributes.ConfigBiblio(True, False, False, False, False)> _
-        Public Property ErrorImageLink() As LinksManager.Link
+        <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Appearance), _
+        Ressource.localizable.LocalizableNameAtt("_N045"), _
+        LocalizableDescAtt("_D064"), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.ElementWithCss)> _
+        Public Property TitlePosition() As TextPosition
             Get
-                If _ErrorImageLink Is Nothing OrElse _ErrorImageLink.IsEmpty("DEFAULT") Then
-                    _ErrorImageLink = New LinksManager.Link()
-                    MyBase.CreateAutoRessourceByBitmap(_ErrorImageLink, LinksManager.Link.EnuLinkType.ElementImage, My.Resources.errorDefault, "WEFiles/Image/ErrorImageDefault.png")
-                End If
-                Return _ErrorImageLink
+                Return _TitlePosition
             End Get
-            Set(ByVal value As LinksManager.Link)
-                _ErrorImageLink = value
+            Set(ByVal value As TextPosition)
+                _TitlePosition = value
             End Set
         End Property
 
         <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Behavior), _
         Ressource.localizable.LocalizableNameAtt("_N051"), _
-        Ressource.localizable.LocalizableDescAtt("_D051"), _
-        Editor(GetType(openElement.WebElement.Editors.UITypeValidator), GetType(Drawing.Design.UITypeEditor)), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.None)> _
-        Public Property Validator() As DataType.Validator
+        LocalizableDescAtt("_D051"), _
+        Editor(GetType(UITypeValidator), GetType(UITypeEditor)), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.None)> _
+        Public Property Validator() As Validator
             Get
-                If _Validator Is Nothing Then _Validator = New DataType.Validator(DataType.Validator.TypeValueToValidate.Text)
+                If _Validator Is Nothing Then _Validator = New Validator(Validator.TypeValueToValidate.Text)
                 Return _Validator
             End Get
-            Set(ByVal value As DataType.Validator)
+            Set(ByVal value As Validator)
                 _Validator = value
             End Set
         End Property
 
-#End Region
+        #End Region 'Properties
 
-#Region "Builder required function "
-
-        Public Sub New(ByVal page As Page, ByVal parentID As String, ByVal templateName As String)
-            MyBase.New(EnuElementType.PageEdit, "WETextArea", page, parentID, templateName)
-            MyBase.TypeResize = EnuTypeResize.None
-            Me.TitlePosition = TextPosition.leftmiddle
-        End Sub
+        #Region "Methods"
 
         Protected Overrides Function OnGetInfo() As ElementInfo
-
             Dim info As New ElementInfo(Me)
-            info.ToolBoxCaption = My.Resources.text.LocalizableOpen._0087
+            info.ToolBoxCaption = LocalizableOpen._0087
             info.VersionMajor = 1
             info.VersionMinor = 0
             info.GroupName = "NBGroupForm"
             info.ToolBoxIco = My.Resources.WETextArea
-            info.ToolBoxDescription = My.Resources.text.LocalizableOpen._0088
-            info.SortPropertyList.Add(New SortProperty("LeftImageLink", "image.png", My.Resources.text.LocalizableOpen._0025))
-            info.SortPropertyList.Add(New SortProperty("Validator", "Valid.png", My.Resources.text.LocalizableOpen._0081))
-            info.SortPropertyList.Add(New SortProperty("ErrorImageLink", "imageError.png", My.Resources.text.LocalizableOpen._0082))
+            info.ToolBoxDescription = LocalizableOpen._0088
+            info.SortPropertyList.Add(New SortProperty("LeftImageLink", "image.png", LocalizableOpen._0025))
+            info.SortPropertyList.Add(New SortProperty("Validator", "Valid.png", LocalizableOpen._0081))
+            info.SortPropertyList.Add(New SortProperty("ErrorImageLink", "imageError.png", LocalizableOpen._0082))
             Return info
-
         End Function
 
         Protected Overrides Sub OnOpen()
-
-            Dim configStylesZones As New List(Of StylesManager.ConfigStylesZone)
-            configStylesZones.Add(New StylesManager.ConfigStylesZone("LeftImage", My.Resources.text.LocalizableOpen._0075, My.Resources.text.LocalizableOpen._0085))
-            configStylesZones.Add(New StylesManager.ConfigStylesZone("ErrorImage", My.Resources.text.LocalizableOpen._0077, My.Resources.text.LocalizableOpen._0086))
-            configStylesZones.Add(New StylesManager.ConfigStylesZone("ErrorText", My.Resources.text.LocalizableOpen._0213, My.Resources.text.LocalizableOpen._0214))
-            configStylesZones.Add(New StylesManager.ConfigStylesZone("Label", My.Resources.text.LocalizableOpen._0079, My.Resources.text.LocalizableOpen._0080))
-            configStylesZones.Add(New StylesManager.ConfigStylesZone("TextArea", My.Resources.text.LocalizableOpen._0083, My.Resources.text.LocalizableOpen._0089))
-            configStylesZones.Add(New StylesManager.ConfigStylesZone("LeftInput", My.Resources.text.LocalizableOpen._0215, My.Resources.text.LocalizableOpen._0216))
-            configStylesZones.Add(New StylesManager.ConfigStylesZone("RightInput", My.Resources.text.LocalizableOpen._0217, My.Resources.text.LocalizableOpen._0218))
+            Dim configStylesZones As New List(Of ConfigStylesZone)
+            configStylesZones.Add(New ConfigStylesZone("LeftImage", LocalizableOpen._0075, LocalizableOpen._0085))
+            configStylesZones.Add(New ConfigStylesZone("ErrorImage", LocalizableOpen._0077, LocalizableOpen._0086))
+            configStylesZones.Add(New ConfigStylesZone("ErrorText", LocalizableOpen._0213, LocalizableOpen._0214))
+            configStylesZones.Add(New ConfigStylesZone("Label", LocalizableOpen._0079, LocalizableOpen._0080))
+            configStylesZones.Add(New ConfigStylesZone("TextArea", LocalizableOpen._0083, LocalizableOpen._0089))
+            configStylesZones.Add(New ConfigStylesZone("LeftInput", LocalizableOpen._0215, LocalizableOpen._0216))
+            configStylesZones.Add(New ConfigStylesZone("RightInput", LocalizableOpen._0217, LocalizableOpen._0218))
 
             MyBase.OnOpen(configStylesZones)
         End Sub
 
-#End Region
-
-#Region "Render"
-
-        Protected Overrides Sub Render(ByVal writer As Common.HtmlWriter)
-
+        Protected Overrides Sub Render(ByVal writer As HtmlWriter)
             MyBase.RenderBeginTag(writer)
-
 
             'leftImage
             Dim leftImage As String = MyBase.GetLink(Me.LeftImageLink)
@@ -276,11 +282,11 @@ Public Class WETextArea
             textAreaBuilder.Append(StylesUtils.ConcatCSSValue("overflow-x:", "hidden", ";"))
 
             Dim labelBuilder As New StringBuilder()
- 
+
             writer.Indent = 2
             Select Case TitlePosition
                 Case TextPosition.leftmiddle
-                    
+
                     Call Me.RenderEditableText(writer, labelBuilder)
                     'input
                     Call CSSInputBuilder(textAreaBuilder)
@@ -305,7 +311,6 @@ Public Class WETextArea
                     labelBuilder.Append(StylesUtils.ConcatCSSValue("display : ", "block", ";"))
                     Call Me.RenderEditableText(writer, labelBuilder)
 
-
                 Case TextPosition.righttop, TextPosition.rightmiddle, TextPosition.rightbottom
                     'input
                     Call RenderTextArea(writer, textAreaBuilder)
@@ -315,16 +320,13 @@ Public Class WETextArea
                     labelBuilder.Append(StylesUtils.ConcatCSSValue("text-align : ", "right", ";"))
                     Call Me.RenderEditableText(writer, labelBuilder)
 
-
             End Select
 
             If Validator.Rules.Count <> 0 Then
                 Validator.Render(writer, MyBase.GetLink(Me.ErrorImageLink), MyBase.GetStyleZoneClass("ErrorImage"), MyBase.GetStyleZoneClass("ErrorText"), "")
             End If
             MyBase.RenderEndTag(writer)
-
         End Sub
-
 
         Private Sub CSSInputBuilder(ByRef builder As StringBuilder)
             Select Case TitlePosition
@@ -335,11 +337,9 @@ Public Class WETextArea
                 Case TextPosition.leftbottom, TextPosition.rightbottom
                     builder.Append(StylesUtils.ConcatCSSValue("vertical-align:", "bottom", ";"))
             End Select
-
         End Sub
 
-        Private Sub RenderEditableText(ByVal writer As Common.HtmlWriter, ByVal labelBuilder As StringBuilder)
-
+        Private Sub RenderEditableText(ByVal writer As HtmlWriter, ByVal labelBuilder As StringBuilder)
             writer.WriteBeginTag("span")
             writer.WriteAttribute("class", MyBase.GetStyleZoneClass("Label"))
             writer.WriteAttribute("style", labelBuilder.ToString)
@@ -347,16 +347,14 @@ Public Class WETextArea
 
             writer.WriteHtmlBlockEdit(Me, "Title", False)
             writer.WriteEndTag("span")
-
         End Sub
 
-        Private Sub RenderTextArea(ByVal writer As Common.HtmlWriter, ByVal builder As StringBuilder)
+        Private Sub RenderTextArea(ByVal writer As HtmlWriter, ByVal builder As StringBuilder)
             writer.WriteBeginTag("span")
             writer.WriteAttribute("class", MyBase.GetStyleZoneClass("LeftInput"))
             writer.WriteAttribute("style", "display:inline-block;")
             writer.Write(">")
             writer.WriteEndTag("span")
-
 
             writer.WriteLine()
             writer.Indent = 2
@@ -382,15 +380,11 @@ Public Class WETextArea
             writer.WriteAttribute("style", "display:inline-block;")
             writer.Write(">")
             writer.WriteEndTag("span")
-
         End Sub
 
-
-#End Region
-
-
-
+        #End Region 'Methods
 
     End Class
 
 End Namespace
+

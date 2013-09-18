@@ -1,31 +1,37 @@
-﻿Imports System.Windows.Forms
-Imports System.ComponentModel
+﻿Imports System.ComponentModel
 Imports System.Drawing.Design
+Imports System.Windows.Forms
 Imports System.Windows.Forms.Design
-Imports openElement.WebElement.ElementWECommon.Interactivity.Forms
 
+Imports openElement
+Imports openElement.WebElement.ElementWECommon.Interactivity.Forms
 
 Namespace Elements.Interactivity.Editors
 
     Public Class UITypeRss
         Inherits UITypeEditor
-        Private service As IWindowsFormsEditorService
 
+        #Region "Fields"
+
+        Private _Service As IWindowsFormsEditorService
+
+        #End Region 'Fields
+
+        #Region "Methods"
 
         Public Overrides Function EditValue(ByVal context As ITypeDescriptorContext, ByVal provider As IServiceProvider, ByVal value As Object) As Object
-
             If (Not context Is Nothing And Not context.Instance Is Nothing And Not provider Is Nothing) Then
 
-                service = CType(provider.GetService(GetType(IWindowsFormsEditorService)), IWindowsFormsEditorService)
+                _Service = CType(provider.GetService(GetType(IWindowsFormsEditorService)), IWindowsFormsEditorService)
 
-                If (Not service Is Nothing) Then
+                If (Not _Service Is Nothing) Then
 
-                    Dim RssMeta As FrmRss.MetaRSS = openElement.Serialization.Clone(value)
+                    Dim rssMeta As FrmRss.MetaRSS = Serialization.Clone(value)
 
-                    Dim FrmRss As New FrmRss(RssMeta)
-                    If FrmRss.ShowDialog = DialogResult.OK Then
+                    Dim frmRss As New FrmRss(rssMeta)
+                    If frmRss.ShowDialog = DialogResult.OK Then
 
-                        Return FrmRss.RssMeta
+                        Return frmRss.RssMeta
                     Else
                         Return value
                     End If
@@ -35,18 +41,19 @@ Namespace Elements.Interactivity.Editors
             End If
 
             Return MyBase.EditValue(context, provider, value)
-
         End Function
 
         Public Overloads Overrides Function GetEditStyle(ByVal context As ITypeDescriptorContext) As UITypeEditorEditStyle
-
             If (Not context Is Nothing And Not context.Instance Is Nothing) Then
                 Return UITypeEditorEditStyle.Modal
             End If
 
             Return MyBase.GetEditStyle(context)
-
-
         End Function
+
+        #End Region 'Methods
+
     End Class
+
 End Namespace
+

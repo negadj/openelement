@@ -1,31 +1,37 @@
-﻿Imports WebElement.Elements.Form.WETextBoxV2
-Imports System.ComponentModel
+﻿Imports System.ComponentModel
+Imports System.Globalization
+
+Imports WebElement.My.Resources.text
 
 Namespace Elements.Form.Editors.Converter
 
     Public Class TConvTextBoxEnumType
         Inherits EnumConverter
 
+        #Region "Constructors"
+
         Public Sub New()
-            MyBase.New(GetType(EnuTextBoxtype))
+            MyBase.New(GetType(WETextBoxV2.EnuTextBoxtype))
         End Sub
 
-        Public Overrides Function ConvertTo(ByVal context As System.ComponentModel.ITypeDescriptorContext, ByVal culture As System.Globalization.CultureInfo, ByVal value As Object, ByVal destinationType As System.Type) As Object
-            Select Case CType(value, EnuTextBoxtype)
-                Case EnuTextBoxtype.text
-                    Return My.Resources.text.LocalizableFormAndConverter._0187
-                Case EnuTextBoxtype.password
-                    Return My.Resources.text.LocalizableFormAndConverter._0188
+        #End Region 'Constructors
+
+        #Region "Methods"
+
+        Public Overrides Function ConvertTo(ByVal context As ITypeDescriptorContext, ByVal culture As CultureInfo, ByVal value As Object, ByVal destinationType As Type) As Object
+            Select Case CType(value, WETextBoxV2.EnuTextBoxtype)
+                Case WETextBoxV2.EnuTextBoxtype.text
+                    Return LocalizableFormAndConverter._0187
+                Case WETextBoxV2.EnuTextBoxtype.password
+                    Return LocalizableFormAndConverter._0188
                 Case Else
                     Return ""
             End Select
-            Return MyBase.ConvertTo(context, culture, value, destinationType)
         End Function
+
+        #End Region 'Methods
+
     End Class
 
-
-
-
 End Namespace
-
 

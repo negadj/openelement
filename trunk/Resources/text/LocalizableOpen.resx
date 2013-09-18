@@ -620,7 +620,7 @@ WECheckBox /</comment>
     <comment>WEButton</comment>
   </data>
   <data name="_0126" xml:space="preserve">
-    <value>Bloc de code visuel</value>
+    <value>Bloc de code graphique</value>
     <comment>WECodeBlock</comment>
   </data>
   <data name="_0127" xml:space="preserve">
@@ -924,7 +924,7 @@ WECheckBox /</comment>
     <comment>WELinkImage</comment>
   </data>
   <data name="_0202" xml:space="preserve">
-    <value>Bloc de code source</value>
+    <value>Bloc de code</value>
     <comment>WEScriptHidden</comment>
   </data>
   <data name="_0203" xml:space="preserve">

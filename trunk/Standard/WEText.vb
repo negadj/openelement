@@ -1,87 +1,61 @@
-﻿Imports openElement.WebElement.Elements
+﻿Imports System.ComponentModel
+
 Imports openElement.WebElement
-Imports System.ComponentModel
+Imports openElement.WebElement.Common
+Imports openElement.WebElement.Elements
+
+Imports WebElement.My.Resources.text
 
 Namespace Elements.Standard
 
-
-    <Serializable()> _
+    ''' <summary>
+    ''' Textarea element
+    ''' </summary>
+    ''' <remarks></remarks>
+    <Serializable> _
     Public Class WEText
         Inherits ElementBase
 
+        #Region "Fields"
+
+        Private _Text As LocalizableHtml
+
+        #End Region 'Fields
+
+        #Region "Constructors"
 
         Public Sub New(ByVal page As Page, ByVal parentID As String, ByVal templateName As String)
             MyBase.New(EnuElementType.PageEdit, "WEText", page, parentID, templateName)
-            'Mode de redimentionnement par default
+
             MyBase.TypeResize = EnuTypeResize.Width
-
         End Sub
 
-        Protected Overrides Function OnGetInfo() As ElementInfo
+        #End Region 'Constructors
 
-            Dim info As New ElementInfo(Me)
-            info.ToolBoxCaption = My.Resources.text.LocalizableOpen._0001  '"Texte multi-lignes"
-            info.VersionMajor = 1
-            info.VersionMinor = 0
-            info.GroupName = "NBGroupStandard"
-            info.ToolBoxIco = My.Resources.WEText
-            info.ToolBoxDescription = My.Resources.text.LocalizableOpen._0002 ' "Ajouter un texte multi-lignes."
-            Return info
-
-        End Function
-
-        Protected Overrides Sub OnOpen()
-
-            MyBase.OnOpen()
-        End Sub
-
-
-
-
-
-#Region "Properties"
-
-        Private _Text As DataType.LocalizableHtml
+        #Region "Properties"
 
         <Browsable(False)> _
-        Public Property Text() As DataType.LocalizableHtml
+        Public Property Text() As LocalizableHtml
             Get
                 If _Text Is Nothing Then
-                    _Text = New DataType.LocalizableHtml(My.Resources.text.LocalizablePropertyDefaultValue._0001) '"Mon texte multi-lignes")
+                    _Text = New LocalizableHtml(LocalizablePropertyDefaultValue._0001)
                 End If
                 Return _Text
             End Get
-            Set(ByVal value As DataType.LocalizableHtml)
+            Set(ByVal value As LocalizableHtml)
                 _Text = value
             End Set
         End Property
 
-#End Region
+        #End Region 'Properties
 
-
-
-#Region "Render"
-
-        Protected Overrides Sub Render(ByVal writer As Common.HtmlWriter)
-
-            MyBase.RenderBeginTag(writer)
-
-            writer.WriteHtmlBlockEdit(Me, "Text", True)
-
-            MyBase.RenderEndTag(writer)
-
-        End Sub
-
-#End Region
-
-
-#Region "DD Translation of LocalizableStrings"
+        #Region "Methods"
 
         ' See comments in ElementBase class
         Public Overrides Function GetLocalizableStringsForTranslationSystem( _
-                                        ByVal accListLS As Dictionary(Of String, DataType.LocalizableString), _
-                                        ByVal accListInfo As Dictionary(Of String, String), _
-                                        Optional ByVal onlyNonEmpty As Boolean = True) As Boolean
+            ByVal accListLS As Dictionary(Of String, LocalizableString), _
+            ByVal accListInfo As Dictionary(Of String, String), _
+            Optional ByVal onlyNonEmpty As Boolean = True) As Boolean
             If accListLS Is Nothing Or accListInfo Is Nothing Then Return False
 
             If _Text Is Nothing OrElse (onlyNonEmpty AndAlso _Text.IsEmpty) Then Return False
@@ -96,13 +70,32 @@ Namespace Elements.Standard
             Return True
         End Function
 
-#End Region
+        Protected Overrides Function OnGetInfo() As ElementInfo
+            Dim info As New ElementInfo(Me)
+            info.ToolBoxCaption = LocalizableOpen._0001
+            info.VersionMajor = 1
+            info.VersionMinor = 0
+            info.GroupName = "NBGroupStandard"
+            info.ToolBoxIco = My.Resources.WEText
+            info.ToolBoxDescription = LocalizableOpen._0002
+            Return info
+        End Function
 
+        Protected Overrides Sub OnOpen()
+            MyBase.OnOpen()
+        End Sub
 
+        Protected Overrides Sub Render(ByVal writer As HtmlWriter)
+            MyBase.RenderBeginTag(writer)
+
+            writer.WriteHtmlBlockEdit(Me, "Text", True)
+
+            MyBase.RenderEndTag(writer)
+        End Sub
+
+        #End Region 'Methods
 
     End Class
 
 End Namespace
-
-
 

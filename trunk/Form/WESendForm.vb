@@ -1,42 +1,47 @@
-﻿Imports openElement.WebElement.Elements
-Imports openElement.WebElement
-Imports openElement.WebElement.ElementWECommon.Form.Forms
-Imports System.ComponentModel
+﻿Imports System.ComponentModel
+Imports System.Drawing.Design
+
 Imports openElement.DB.Packs
+Imports openElement.WebElement
+Imports openElement.WebElement.Common
+Imports openElement.WebElement.Common.Attributes
+Imports openElement.WebElement.Elements
+Imports openElement.WebElement.ElementWECommon.Form.Forms
+
+Imports WebElement.Elements.Form.Editors
+Imports WebElement.My.Resources.text
+Imports WebElement.Ressource.localizable
 
 Namespace Elements.Form
 
-    <Serializable()> _
+    <Serializable> _
     Public Class WESendForm
         Inherits ElementBase
-        Implements IDynPackElement ' to update when unpacking an element pack
+        Implements IDynPackElement
 
-        <Common.Attributes.ContainsLinks()> _
+        #Region "Fields"
+
+        ' to update when unpacking an element pack
+        <ContainsLinks> _
         Private _Config As FrmWESendFormConfig.WESendFormConfig
 
-#Region "Properties"
+        #End Region 'Fields
 
-        <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), _
-      Ressource.localizable.LocalizableNameAtt("_N153"), _
-      Ressource.localizable.LocalizableDescAtt("_D153"), _
-      Common.Attributes.ExportVar(Common.Attributes.ExportVar.EnuVarType.Js), _
-      Editor(GetType(Editors.UITypeWESendFormConfig), GetType(Drawing.Design.UITypeEditor)), _
-      Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.None)> _
-      Public Property Config() As FrmWESendFormConfig.WESendFormConfig
-            Get
-                If _Config Is Nothing Then _Config = New FrmWESendFormConfig.WESendFormConfig
-                Return _Config
-            End Get
-            Set(ByVal value As FrmWESendFormConfig.WESendFormConfig)
-                _Config = value
-            End Set
-        End Property
+        #Region "Constructors"
 
+        Public Sub New(ByVal page As Page, ByVal parentID As String, ByVal templateName As String)
+            MyBase.New(EnuElementType.HiddenEdit, "WESendForm", page, parentID, templateName)
+            MyBase.TypeResize = EnuTypeResize.None
+        End Sub
+
+        #End Region 'Constructors
+
+        #Region "Properties"
 
         ''' <summary>Whether to add current URL params to the action link</summary>
         <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Behavior), _
         Ressource.localizable.LocalizableNameAtt("_N241"), _
-        Ressource.localizable.LocalizableDescAtt("_D241")> _
+        LocalizableDescAtt("_D241")> _
         Public Property AddURLParams() As Boolean
             Get
                 Return Config.KeepURLParams
@@ -46,45 +51,28 @@ Namespace Elements.Form
             End Set
         End Property
 
+        <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), _
+        Ressource.localizable.LocalizableNameAtt("_N153"), _
+        LocalizableDescAtt("_D153"), _
+        ExportVar(ExportVar.EnuVarType.Js), _
+        Editor(GetType(UITypeWESendFormConfig), GetType(UITypeEditor)), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.None)> _
+        Public Property Config() As FrmWESendFormConfig.WESendFormConfig
+            Get
+                If _Config Is Nothing Then _Config = New FrmWESendFormConfig.WESendFormConfig
+                Return _Config
+            End Get
+            Set(ByVal value As FrmWESendFormConfig.WESendFormConfig)
+                _Config = value
+            End Set
+        End Property
 
-#End Region
+        #End Region 'Properties
 
-#Region "Builder required function"
-
-        Public Sub New(ByVal page As Page, ByVal parentID As String, ByVal templateName As String)
-            MyBase.New(EnuElementType.HiddenEdit, "WESendForm", page, parentID, templateName)
-            MyBase.TypeResize = EnuTypeResize.None
-        End Sub
-
-        Protected Overrides Function OnGetInfo() As ElementInfo
-
-            Dim info As New ElementInfo(Me)
-            info.ToolBoxCaption = My.Resources.text.LocalizableOpen._0284
-            info.VersionMajor = 1
-            info.VersionMinor = 0
-            info.GroupName = "NBGroupForm"
-            info.ToolBoxIco = My.Resources.WESendForm
-            info.ToolBoxDescription = My.Resources.text.LocalizableOpen._0285
-            info.SortPropertyList.Add(New SortProperty("Config", "Tools.png", My.Resources.text.LocalizableOpen._0092))
-            info.AutoOpenProperty = "Config"
-            Return info
-
-        End Function
-
-        Protected Overrides Sub OnOpen()
-            MyBase.OnOpen()
-        End Sub
-
-        Protected Overrides Sub OnInitExternalFiles()
-            MyBase.AddExternalScripts(Common.EnuScriptType.Javascript, "ElementsLibrary\Common\Client\WESendForm.js", "WEFiles/Client/WESendForm.js")
-            MyBase.AddSharedScripts(Common.EnuSharedScript.jQueryForm)
-            MyBase.OnInitExternalFiles()
-        End Sub
-
-#End Region
+        #Region "Methods"
 
         ''' <summary>Called after unpacking an element pack</summary>
-        Public Sub IDPOnAfterUnpack(ByVal pack As DBElementPack, Optional ByVal targetDS As openElement.WebElement.PageDynStructure = Nothing) Implements IDynPackElement.IDPOnAfterUnpack
+        Public Sub IDPOnAfterUnpack(ByVal pack As DBElementPack, Optional ByVal targetDS As PageDynStructure = Nothing) Implements IDynPackElement.IDPOnAfterUnpack
             If pack Is Nothing Then Exit Sub
 
             If pack.OldToNewElemID.Count > 0 Then
@@ -120,9 +108,32 @@ Namespace Elements.Form
             End If
         End Sub
 
+        Protected Overrides Function OnGetInfo() As ElementInfo
+            Dim info As New ElementInfo(Me)
+            info.ToolBoxCaption = LocalizableOpen._0284
+            info.VersionMajor = 1
+            info.VersionMinor = 0
+            info.GroupName = "NBGroupForm"
+            info.ToolBoxIco = My.Resources.WESendForm
+            info.ToolBoxDescription = LocalizableOpen._0285
+            info.SortPropertyList.Add(New SortProperty("Config", "Tools.png", LocalizableOpen._0092))
+            info.AutoOpenProperty = "Config"
+            Return info
+        End Function
 
+        Protected Overrides Sub OnInitExternalFiles()
+            MyBase.AddExternalScripts(EnuScriptType.Javascript, "ElementsLibrary\Common\Client\WESendForm.js", "WEFiles/Client/WESendForm.js")
+            MyBase.AddSharedScripts(EnuSharedScript.jQueryForm)
+            MyBase.OnInitExternalFiles()
+        End Sub
+
+        Protected Overrides Sub OnOpen()
+            MyBase.OnOpen()
+        End Sub
+
+        #End Region 'Methods
 
     End Class
 
- 
 End Namespace
+

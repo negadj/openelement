@@ -1,46 +1,47 @@
-﻿Imports openElement.WebElement.Elements
+﻿Imports System.ComponentModel
+Imports System.Drawing.Design
+
 Imports openElement.WebElement
-Imports System.ComponentModel
+Imports openElement.WebElement.Common
+Imports openElement.WebElement.Common.Attributes
+Imports openElement.WebElement.Editors
+Imports openElement.WebElement.Editors.Converter
+Imports openElement.WebElement.Elements
+Imports openElement.WebElement.StylesManager
+
+Imports WebElement.My.Resources.text
+Imports WebElement.Ressource.localizable
 
 Namespace Elements.Form
 
- 
-    <Serializable()> _
-Public Class WETextAreaV2
+    <Serializable> _
+    Public Class WETextAreaV2
         Inherits WEFormFieldBase
 
-#Region "Private variable"
+        #Region "Fields"
 
-        Private _TextAreaValue As DataType.LocalizableString
         Private _InputReadOnly As Boolean
         Private _NoResize As Boolean
+        Private _TextAreaValue As LocalizableString
+        Private _Validator As Validator
 
-        Private _Validator As DataType.Validator
+        #End Region 'Fields
 
-#End Region
+        #Region "Constructors"
 
-#Region "Properties"
-        
-        <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), _
-         Ressource.localizable.LocalizableNameAtt("_N054"), _
-         Ressource.localizable.LocalizableDescAtt("_D054"), _
-        TypeConverter(GetType(openElement.WebElement.Editors.Converter.TConvLocalizableString)), _
-        Common.Attributes.MemoEditor(), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)> _
-        Public Property TextAreaValue() As DataType.LocalizableString
-            Get
-                If _TextAreaValue Is Nothing Then _TextAreaValue = New DataType.LocalizableString("")
-                Return _TextAreaValue
-            End Get
-            Set(ByVal value As DataType.LocalizableString)
-                _TextAreaValue = value
-            End Set
-        End Property
- 
+        Public Sub New(ByVal page As Page, ByVal parentID As String, ByVal templateName As String)
+            MyBase.New("WETextArea2", page, parentID, templateName)
+            MyBase.TypeResize = EnuTypeResize.Both
+        End Sub
+
+        #End Region 'Constructors
+
+        #Region "Properties"
+
         <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Behavior), _
         Ressource.localizable.LocalizableNameAtt("_N057"), _
-        Ressource.localizable.LocalizableDescAtt("_D077"), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)> _
+        LocalizableDescAtt("_D077"), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.Element)> _
         Public Property InputReadOnly() As Boolean
             Get
                 Return _InputReadOnly
@@ -52,8 +53,8 @@ Public Class WETextAreaV2
 
         <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Behavior), _
         Ressource.localizable.LocalizableNameAtt("_N213"), _
-        Ressource.localizable.LocalizableDescAtt("_D213"), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.Element)> _
+        LocalizableDescAtt("_D213"), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.Element)> _
         Public Property NoResize() As Boolean
             Get
                 Return _NoResize
@@ -63,58 +64,71 @@ Public Class WETextAreaV2
             End Set
         End Property
 
+        <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), _
+        Ressource.localizable.LocalizableNameAtt("_N054"), _
+        LocalizableDescAtt("_D054"), _
+        TypeConverter(GetType(TConvLocalizableString)), _
+        MemoEditor, _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.Element)> _
+        Public Property TextAreaValue() As LocalizableString
+            Get
+                If _TextAreaValue Is Nothing Then _TextAreaValue = New LocalizableString("")
+                Return _TextAreaValue
+            End Get
+            Set(ByVal value As LocalizableString)
+                _TextAreaValue = value
+            End Set
+        End Property
+
         <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Behavior), _
         Ressource.localizable.LocalizableNameAtt("_N051"), _
-        Ressource.localizable.LocalizableDescAtt("_D051"), _
-        Editor(GetType(openElement.WebElement.Editors.UITypeValidator), GetType(Drawing.Design.UITypeEditor)), _
-        Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.None)> _
-        Public Property Validator() As DataType.Validator
+        LocalizableDescAtt("_D051"), _
+        Editor(GetType(UITypeValidator), GetType(UITypeEditor)), _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.None)> _
+        Public Property Validator() As Validator
             Get
-                If _Validator Is Nothing Then _Validator = New DataType.Validator(DataType.Validator.TypeValueToValidate.Text)
+                If _Validator Is Nothing Then _Validator = New Validator(Validator.TypeValueToValidate.Text)
                 Return _Validator
             End Get
-            Set(ByVal value As DataType.Validator)
+            Set(ByVal value As Validator)
                 _Validator = value
             End Set
         End Property
 
-#End Region
+        #End Region 'Properties
 
-#Region "Builder required function"
+        #Region "Methods"
 
-        Public Sub New(ByVal page As Page, ByVal parentID As String, ByVal templateName As String)
-            MyBase.New("WETextArea2", page, parentID, templateName)
-            MyBase.TypeResize = EnuTypeResize.Both
-        End Sub
+        ' See comments in ElementBase class
+        Public Overrides Function GetLocalizableStringsForTranslationSystem( _
+            ByVal accListLS As Dictionary(Of String, LocalizableString), _
+            ByVal accListInfo As Dictionary(Of String, String), _
+            Optional ByVal onlyNonEmpty As Boolean = True) As Boolean
+            Dim r As Boolean = False
+            r = r Or AddFrmFieldLSForTranslationSystem(_TextAreaValue, "TextAreaValue", "TextArea Multiline", accListLS, accListInfo, onlyNonEmpty)
+            Return r
+        End Function
 
         Protected Overrides Function OnGetInfo() As ElementInfo
-
             Dim info As New ElementInfo(Me)
-            info.ToolBoxCaption = My.Resources.text.LocalizableOpen._0087
+            info.ToolBoxCaption = LocalizableOpen._0087
             info.ToolBoxIco = My.Resources.WETextArea
-            info.ToolBoxDescription = My.Resources.text.LocalizableOpen._0088
+            info.ToolBoxDescription = LocalizableOpen._0088
             info.ScriptVarName = "OEConfWETextArea"
-            info.SortPropertyList.Add(New SortProperty("Validator", "Valid.png", My.Resources.text.LocalizableOpen._0081))
+            info.SortPropertyList.Add(New SortProperty("Validator", "Valid.png", LocalizableOpen._0081))
             Return info
-
         End Function
 
         Protected Overrides Sub OnOpen()
+            Dim configStylesZones As New List(Of ConfigStylesZone)
+            configStylesZones.Add(New ConfigStylesZone("TextArea", LocalizableOpen._0083, LocalizableOpen._0089)) '"Boite de saisie","Zone de saisie du texte."
+            configStylesZones.Add(New ConfigStylesZone("TextAreaError", LocalizableOpen._0364, LocalizableOpen._0364)) 'Champ en erreur
+            configStylesZones.Add(New ConfigStylesZone("Validator", LocalizableOpen._0365, LocalizableOpen._0365)) 'Icône et texte d'erreur
 
-            Dim configStylesZones As New List(Of StylesManager.ConfigStylesZone)
-            configStylesZones.Add(New StylesManager.ConfigStylesZone("TextArea", My.Resources.text.LocalizableOpen._0083, My.Resources.text.LocalizableOpen._0089)) '"Boite de saisie","Zone de saisie du texte."
-            configStylesZones.Add(New StylesManager.ConfigStylesZone("TextAreaError", My.Resources.text.LocalizableOpen._0364, My.Resources.text.LocalizableOpen._0364)) 'Champ en erreur
-            configStylesZones.Add(New StylesManager.ConfigStylesZone("Validator", My.Resources.text.LocalizableOpen._0365, My.Resources.text.LocalizableOpen._0365)) 'Icône et texte d'erreur
-      
             MyBase.OnOpen(configStylesZones)
         End Sub
 
-#End Region
-
-
-#Region "Render"
-        Protected Overrides Sub Render(ByVal writer As Common.HtmlWriter)
-
+        Protected Overrides Sub Render(ByVal writer As HtmlWriter)
             MyBase.RenderBeginTag(writer)
 
             DTWriteBeginTag("textarea", writer)
@@ -127,7 +141,6 @@ Public Class WETextAreaV2
                 DTWriteAttrDynamic("style")
             End If
 
-
             If Me.InputReadOnly Then DTWriteAttrStatic("disabled", "disabled")
             DTWriteAttrStatic("rows", "3")
             DTWriteAttrStatic("cols", "50")
@@ -138,26 +151,11 @@ Public Class WETextAreaV2
             DTWriteEndTag("textarea")
 
             MyBase.RenderEndTag(writer)
-
         End Sub
 
-#End Region
-
-
-#Region "DD Translation of LocalizableStrings"
-
-        ' See comments in ElementBase class
-        Public Overrides Function GetLocalizableStringsForTranslationSystem( _
-                                        ByVal accListLS As Dictionary(Of String, DataType.LocalizableString), _
-                                        ByVal accListInfo As Dictionary(Of String, String), _
-                                        Optional ByVal onlyNonEmpty As Boolean = True) As Boolean
-
-            Dim r As Boolean = False
-            r = r Or AddFrmFieldLSForTranslationSystem(_TextAreaValue, "TextAreaValue", "TextArea Multiline", accListLS, accListInfo, onlyNonEmpty)
-            Return r
-        End Function
-
-#End Region
+        #End Region 'Methods
 
     End Class
+
 End Namespace
+

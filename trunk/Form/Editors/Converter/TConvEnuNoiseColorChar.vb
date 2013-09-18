@@ -1,26 +1,37 @@
 ﻿Imports System.ComponentModel
-Imports WebElement.Elements.Form.WECaptcha
+Imports System.Globalization
+
+Imports WebElement.My.Resources.text
 
 Namespace Elements.Form.Editors.Converter
 
     Public Class TConvEnuNoiseColorChar
         Inherits EnumConverter
 
+        #Region "Constructors"
+
         Public Sub New()
-            MyBase.New(GetType(Enu_NoiseColorChar))
+            MyBase.New(GetType(WECaptcha.EnuNoiseColorChar))
         End Sub
 
-        Public Overrides Function ConvertTo(ByVal context As System.ComponentModel.ITypeDescriptorContext, ByVal culture As System.Globalization.CultureInfo, ByVal value As Object, ByVal destinationType As System.Type) As Object
-            Select Case CType(value, Enu_NoiseColorChar)
-                Case Enu_NoiseColorChar.Same
-                    Return My.Resources.text.LocalizableFormAndConverter._0140
-                Case Enu_NoiseColorChar.Ramdom
-                    Return My.Resources.text.LocalizableFormAndConverter._0141
+        #End Region 'Constructors
+
+        #Region "Methods"
+
+        Public Overrides Function ConvertTo(ByVal context As ITypeDescriptorContext, ByVal culture As CultureInfo, ByVal value As Object, ByVal destinationType As Type) As Object
+            Select Case CType(value, WECaptcha.EnuNoiseColorChar)
+                Case WECaptcha.EnuNoiseColorChar.Same
+                    Return LocalizableFormAndConverter._0140
+                Case WECaptcha.EnuNoiseColorChar.Ramdom
+                    Return LocalizableFormAndConverter._0141
                 Case Else
                     Return ""
             End Select
-            Return MyBase.ConvertTo(context, culture, value, destinationType)
         End Function
+
+        #End Region 'Methods
+
     End Class
 
 End Namespace
+

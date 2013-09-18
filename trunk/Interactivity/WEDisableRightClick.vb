@@ -1,68 +1,82 @@
-﻿Imports openElement.WebElement
+﻿Imports System.ComponentModel
+
+Imports openElement.WebElement
+Imports openElement.WebElement.Common
+Imports openElement.WebElement.Common.Attributes
+Imports openElement.WebElement.Editors.Converter
 Imports openElement.WebElement.Elements
-Imports System.ComponentModel
+
+Imports WebElement.My.Resources.text
+Imports WebElement.Ressource.localizable
 
 Namespace Elements.Interactivity
-    <Serializable()> _
+
+    <Serializable> _
     Public Class WEDisableRightClick
         Inherits ElementBase
 
-        Private _Text As DataType.LocalizableString
+        #Region "Fields"
 
-#Region "Properties"
+        Private _Text As LocalizableString
 
-        <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), _
-       Ressource.localizable.LocalizableNameAtt("_N099"), _
-       Ressource.localizable.LocalizableDescAtt("_N099"), _
-       TypeConverter(GetType(openElement.WebElement.Editors.Converter.TConvLocalizableString)), _
-       Common.Attributes.ExportVar(Common.Attributes.ExportVar.EnuVarType.Js), _
-       Common.Attributes.MemoEditor(), _
-       Common.Attributes.PageUpdateMode(Common.Attributes.PageUpdateMode.EnuUpdateMode.None)> _
-       Public Property Text() As DataType.LocalizableString
-            Get
-                If _Text Is Nothing Then _Text = New DataType.LocalizableString(My.Resources.text.LocalizablePropertyDefaultValue._0017)
-                Return _Text
-            End Get
-            Set(ByVal value As DataType.LocalizableString)
-                _Text = value
-            End Set
-        End Property
-#End Region
+        #End Region 'Fields
 
-#Region "Builder required function"
+        #Region "Constructors"
 
         Public Sub New(ByVal page As Page, ByVal parentID As String, ByVal templateName As String)
             MyBase.New(EnuElementType.HiddenEdit, "WEDisableRightClick", page, parentID, templateName)
         End Sub
 
-        Protected Overrides Function OnGetInfo() As ElementInfo
+        #End Region 'Constructors
 
+        #Region "Properties"
+
+        <Ressource.localizable.LocalizableCatAtt(Ressource.localizable.LocalizableCatAtt.EnumWECategory.Edition), _
+        Ressource.localizable.LocalizableNameAtt("_N099"), _
+        LocalizableDescAtt("_N099"), _
+        TypeConverter(GetType(TConvLocalizableString)), _
+        ExportVar(ExportVar.EnuVarType.Js), _
+        MemoEditor, _
+        PageUpdateMode(PageUpdateMode.EnuUpdateMode.None)> _
+        Public Property Text() As LocalizableString
+            Get
+                If _Text Is Nothing Then _Text = New LocalizableString(LocalizablePropertyDefaultValue._0017)
+                Return _Text
+            End Get
+            Set(ByVal value As LocalizableString)
+                _Text = value
+            End Set
+        End Property
+
+        #End Region 'Properties
+
+        #Region "Methods"
+
+        Protected Overrides Function OnGetInfo() As ElementInfo
             Dim info As New ElementInfo(Me)
-            info.ToolBoxCaption = My.Resources.text.LocalizableOpen._0121
+            info.ToolBoxCaption = LocalizableOpen._0121
             info.VersionMajor = 1
             info.VersionMinor = 0
             info.GroupName = "NBGroupInteractivity"
             info.ToolBoxIco = My.Resources.WEAlertBox
-            info.ToolBoxDescription = My.Resources.text.LocalizableOpen._0122
+            info.ToolBoxDescription = LocalizableOpen._0122
             Return info
-
         End Function
 
-        Protected Overrides Sub OnOpen()
-
-            MyBase.DisabledStyles = True
-
-            MyBase.OnOpen()
-
-        End Sub
-
         Protected Overrides Sub OnInitExternalFiles()
-            MyBase.AddExternalScripts(Common.EnuScriptType.Javascript, "ElementsLibrary\Common\Client\WEDisableRightClick.js", "WEFiles/Client/WEDisableRightClick.js")
+            MyBase.AddExternalScripts(EnuScriptType.Javascript, "ElementsLibrary\Common\Client\WEDisableRightClick.js", "WEFiles/Client/WEDisableRightClick.js")
             MyBase.OnInitExternalFiles()
         End Sub
 
-#End Region
+        Protected Overrides Sub OnOpen()
+            MyBase.DisabledStyles = True
 
+            MyBase.OnOpen()
+        End Sub
+
+        #End Region 'Methods
 
     End Class
+
 End Namespace
+
